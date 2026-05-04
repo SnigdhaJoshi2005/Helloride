@@ -8,21 +8,21 @@ function CarRide() {
       background="#fff"
       title="Car Rides"
       intro="Travel in comfort with air-conditioned cars and professional drivers for your premium journey."
-      icon="CAR"
+      icon="car"
       image={carServiceImage}
       features={[
         {
-          icon: "SEAT",
+          icon: "seat",
           title: "Comfortable Seating",
           desc: "Room for up to 4 passengers",
         },
         {
-          icon: "GEM",
+          icon: "gem",
           title: "Premium Service",
           desc: "Professional drivers & clean cars",
         },
         {
-          icon: "AC",
+          icon: "snowflake",
           title: "AC Available",
           desc: "Stay cool in all weather",
         },

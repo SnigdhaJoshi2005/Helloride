@@ -1,6 +1,7 @@
 import { useEffect, useRef, useState } from "react";
 import { Link } from "react-router-dom";
 import logo from "../assets/logoo.png";
+import ServiceIcon from "./ServiceIcon";
 
 const serviceItems = [
   {
@@ -43,50 +44,7 @@ const earnItems = [
 ];
 
 function DropdownIcon({ type }) {
-  if (type === "car") {
-    return (
-      <svg viewBox="0 0 88 88" aria-hidden="true">
-        <path d="M15 47h58v22H15z" />
-        <path d="M24 47l9-18h23l13 18" />
-        <path d="M34 29v18" />
-        <circle cx="29" cy="69" r="8" />
-        <circle cx="62" cy="69" r="8" />
-      </svg>
-    );
-  }
-
-  if (type === "food") {
-    return (
-      <svg viewBox="0 0 88 88" aria-hidden="true">
-        <path d="M22 10v31c0 8 7 13 14 13v24" />
-        <path d="M12 10v24c0 5 4 9 10 9h14c6 0 10-4 10-9V10" />
-        <path d="M62 10c-6 7-9 18-9 33v6h14v29" />
-        <path d="M67 10v39" />
-      </svg>
-    );
-  }
-
-  if (type === "parcel") {
-    return (
-      <svg viewBox="0 0 88 88" aria-hidden="true">
-        <path d="M45 12l32 17-32 18-32-18z" />
-        <path d="M13 29v31l32 18 32-18V29" />
-        <path d="M45 47v31" />
-        <path d="M5 48h22" />
-        <path d="M10 60h20" />
-      </svg>
-    );
-  }
-
-  return (
-    <svg viewBox="0 0 88 88" aria-hidden="true">
-      <path d="M18 56c7-18 18-26 33-26 9 0 15 3 21 8" />
-      <path d="M47 30l10 26" />
-      <circle cx="26" cy="65" r="10" />
-      <circle cx="66" cy="65" r="10" />
-      <path d="M38 55h19" />
-    </svg>
-  );
+  return <ServiceIcon name={type} />;
 }
 
 function Header() {

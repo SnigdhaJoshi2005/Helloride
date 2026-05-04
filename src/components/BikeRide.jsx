@@ -8,21 +8,21 @@ function BikeRide() {
       background="#fff"
       title="Bike Rides"
       intro="Quick, affordable, and eco-friendly bike rides for navigating through traffic with ease."
-      icon="BIKE"
+      icon="bike"
       image={bikeServiceImage}
       features={[
         {
-          icon: "FAST",
+          icon: "route",
           title: "Fastest Route",
           desc: "Beat traffic and reach faster",
         },
         {
-          icon: "NPR",
+          icon: "money",
           title: "Most Affordable",
           desc: "Starting from NPR 50",
         },
         {
-          icon: "OK",
+          icon: "shield",
           title: "Verified Riders",
           desc: "All riders are background-checked",
         },

@@ -1,5 +1,6 @@
 import { useEffect, useRef, useState } from 'react'
-import Header from "./Header";
+import Header from './Header'
+import ServiceIcon from './ServiceIcon'
 
 function StatCard({ stat }) {
   return (
@@ -11,7 +12,9 @@ function StatCard({ stat }) {
         '--stat-y': stat.y,
       }}
     >
-      <span className="stat-icon">{stat.icon}</span>
+      <span className="stat-icon">
+        <ServiceIcon name={stat.icon} />
+      </span>
       <div>
         <strong>{stat.value}</strong>
         <p>{stat.label}</p>
@@ -34,21 +37,23 @@ function ServicePage({ accent, background, title, intro, icon, features, image, 
       },
       { threshold: 0.3 },
     )
+
     if (visualRef.current) observer.observe(visualRef.current)
+
     return () => observer.disconnect()
   }, [])
 
   const defaultStats = [
-    { icon: '⚡', value: '2 min', label: 'Avg wait time', delay: '0ms', x: '-30px', y: '-20px' },
-    { icon: '★', value: '4.9', label: 'Driver rating', delay: '200ms', x: '20px', y: '60px' },
-    { icon: '✓', value: '50+', label: 'Rides today', delay: '400ms', x: '-40px', y: '50px' },
-    { icon: '↓', value: 'NPR 50', label: 'Starting fare', delay: '600ms', x: '10px', y: '-30px' },
+    { icon: 'bolt', value: '2 min', label: 'Avg wait time', delay: '0ms', x: '-30px', y: '-20px' },
+    { icon: 'star', value: '4.9', label: 'Driver rating', delay: '200ms', x: '20px', y: '60px' },
+    { icon: 'check', value: '50+', label: 'Rides today', delay: '400ms', x: '-40px', y: '50px' },
+    { icon: 'fare', value: 'NPR 50', label: 'Starting fare', delay: '600ms', x: '10px', y: '-30px' },
   ]
 
   const statCards = stats || defaultStats
 
   return (
-    <main className="service-shell" style={{ "--service-accent": accent, "--service-bg": background }}>
+    <main className="service-shell" style={{ '--service-accent': accent, '--service-bg': background }}>
       <Header />
 
       <section className="service-page">
@@ -56,7 +61,7 @@ function ServicePage({ accent, background, title, intro, icon, features, image, 
           <div className="service-copy">
             <div className="service-title-row">
               <span className="service-title-icon" aria-hidden="true">
-                {icon}
+                <ServiceIcon name={icon} />
               </span>
               <h1>{title}</h1>
             </div>
@@ -66,7 +71,9 @@ function ServicePage({ accent, background, title, intro, icon, features, image, 
             <div className="service-feature-list">
               {features.map((feature) => (
                 <article className="service-feature-card" key={feature.title}>
-                  <span aria-hidden="true">{feature.icon}</span>
+                  <span aria-hidden="true">
+                    <ServiceIcon name={feature.icon} />
+                  </span>
                   <div>
                     <h2>{feature.title}</h2>
                     <p>{feature.desc}</p>
@@ -76,22 +83,20 @@ function ServicePage({ accent, background, title, intro, icon, features, image, 
             </div>
           </div>
 
-          <div
-            ref={visualRef}
-            className={`service-visual ${isVisible ? 'is-visible' : ''}`}
-          >
+          <div ref={visualRef} className={`service-visual ${isVisible ? 'is-visible' : ''}`}>
             <div className="service-visual-inner">
-              <img src={image} alt="" />
+              {typeof image === 'string' ? <img src={image} alt="" /> : image}
 
-              {statCards.map((stat, i) => (
-                <StatCard key={i} stat={stat} />
-              ))}
+              {typeof image === 'string' &&
+                statCards.map((stat, i) => (
+                  <StatCard key={i} stat={stat} />
+                ))}
             </div>
           </div>
         </div>
       </section>
     </main>
-  );
+  )
 }
 
-export default ServicePage;
+export default ServicePage
