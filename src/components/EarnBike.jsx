@@ -1,5 +1,5 @@
-import { useState } from "react";
 import Header from "./Header";
+import Form from "./Form";
 import bike2Image from "../assets/Bike2.png";
 
 const benefits = [
@@ -27,32 +27,14 @@ const requirements = [
   "Age 18 or above",
 ];
 
-const fields = [
-  { label: "First Name", name: "firstName", type: "text" },
-  { label: "Last Name", name: "lastName", type: "text" },
-  { label: "Email", name: "email", type: "email" },
-  { label: "Phone Number", name: "phone", type: "tel" },
-  { label: "Bike License Plate", name: "bikePlate", type: "text" },
+const steps = [
+  { icon: "1", label: "Apply online" },
+  { icon: "2", label: "Get verified" },
+  { icon: "3", label: "Download app" },
+  { icon: "4", label: "Start earning" },
 ];
 
 function EarnBike() {
-  const [formData, setFormData] = useState({
-    firstName: "",
-    lastName: "",
-    email: "",
-    phone: "",
-    bikePlate: "",
-  });
-
-  const handleChange = (event) => {
-    setFormData({ ...formData, [event.target.name]: event.target.value });
-  };
-
-  const handleSubmit = (event) => {
-    event.preventDefault();
-    alert("Application submitted! We'll be in touch soon.");
-  };
-
   return (
     <main>
       <Header />
@@ -98,22 +80,50 @@ function EarnBike() {
           <p>Ready to start earning?</p>
           <h2>Join HelloRide</h2>
 
-          <form className="earn-form" onSubmit={handleSubmit}>
-            {fields.map((field) => (
-              <label key={field.name}>
-                {field.label}
-                <input
-                  type={field.type}
-                  name={field.name}
-                  value={formData[field.name]}
-                  onChange={handleChange}
-                  required
-                />
-              </label>
-            ))}
+          <div className="earn-form-split">
+            <Form />
 
-            <button type="submit">Submit Application</button>
-          </form>
+            <div className="earn-form-visual" aria-hidden="true">
+              <div className="efv-card efv-card--earn">
+                <span className="efv-label">Average daily</span>
+                <strong className="efv-amount">NPR 1,500</strong>
+                <span className="efv-bar-track">
+                  <span className="efv-bar-fill efv-bar-fill--bike" />
+                </span>
+              </div>
+
+              <div className="efv-steps">
+                {steps.map((step, index) => (
+                  <div
+                    className="efv-step"
+                    key={step.label}
+                    style={{ animationDelay: `${index * 0.18}s` }}
+                  >
+                    <span className="efv-step-icon">{step.icon}</span>
+                    <span className="efv-step-label">{step.label}</span>
+                    {index < steps.length - 1 && <span className="efv-step-connector" />}
+                  </div>
+                ))}
+              </div>
+
+              <div className="efv-card efv-card--rating">
+                <span className="efv-label">Rider rating</span>
+                <div className="efv-stars">
+                  {[1, 2, 3, 4, 5].map((n) => (
+                    <span
+                      key={n}
+                      className={`efv-star${n <= 4 ? " efv-star--lit" : ""}`}
+                    >
+                      *
+                    </span>
+                  ))}
+                </div>
+                <span className="efv-rating-note">Top 15% of riders</span>
+              </div>
+
+              <div className="efv-pulse-ring" />
+            </div>
+          </div>
         </section>
       </section>
     </main>

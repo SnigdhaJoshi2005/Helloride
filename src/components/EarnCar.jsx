@@ -1,22 +1,10 @@
-import { useState } from "react";
 import Header from "./Header";
+import Form from "./Form";
 
 const benefits = [
-  {
-    icon: "NPR",
-    title: "Earn NPR 1500-3000/day",
-    desc: "Higher earnings with premium car rides",
-  },
-  {
-    icon: "CAL",
-    title: "Peak Hour Bonuses",
-    desc: "Earn extra during rush hours",
-  },
-  {
-    icon: "BON",
-    title: "Monthly Incentives",
-    desc: "Complete targets and earn rewards",
-  },
+  { icon: "NPR", title: "Earn NPR 1500-3000/day", desc: "Higher earnings with premium car rides" },
+  { icon: "CAL", title: "Peak Hour Bonuses", desc: "Earn extra during rush hours" },
+  { icon: "BON", title: "Monthly Incentives", desc: "Complete targets and earn rewards" },
 ];
 
 const requirements = [
@@ -27,32 +15,14 @@ const requirements = [
   "Clean driving record",
 ];
 
-const fields = [
-  { label: "First Name", name: "firstName", type: "text" },
-  { label: "Last Name", name: "lastName", type: "text" },
-  { label: "Email", name: "email", type: "email" },
-  { label: "Phone Number", name: "phone", type: "tel" },
-  { label: "Car License Plate", name: "carPlate", type: "text" },
+const steps = [
+  { icon: "1", label: "Apply online" },
+  { icon: "2", label: "Get verified" },
+  { icon: "3", label: "Download app" },
+  { icon: "4", label: "Start earning" },
 ];
 
 function EarnCar() {
-  const [formData, setFormData] = useState({
-    firstName: "",
-    lastName: "",
-    email: "",
-    phone: "",
-    carPlate: "",
-  });
-
-  const handleChange = (event) => {
-    setFormData({ ...formData, [event.target.name]: event.target.value });
-  };
-
-  const handleSubmit = (event) => {
-    event.preventDefault();
-    alert("Application submitted! We'll be in touch soon.");
-  };
-
   return (
     <main>
       <Header />
@@ -61,15 +31,10 @@ function EarnCar() {
         <div className="earn-hero">
           <div className="earn-copy">
             <div className="earn-title-row">
-              <span className="earn-mode-icon" aria-hidden="true">
-                CAR
-              </span>
+              <span className="earn-mode-icon" aria-hidden="true">CAR</span>
               <h1>Earn with Car</h1>
             </div>
-            <p>
-              Join HelloRide as a car driver and start earning on your own
-              schedule.
-            </p>
+            <p>Join HelloRide as a car driver and start earning on your own schedule.</p>
           </div>
 
           <div className="earn-illustration earn-car-illustration" aria-hidden="true">
@@ -78,15 +43,11 @@ function EarnCar() {
             <div className="earn-mountain earn-mountain-one" />
             <div className="earn-mountain earn-mountain-two" />
             <div className="earn-tree-row">
-              <span />
-              <span />
-              <span />
-              <span />
+              <span /><span /><span /><span />
             </div>
             <div className="earn-road earn-road-top" />
             <div className="earn-road earn-road-bottom" />
             <div className="earn-car-shape">
-              <span className="car-cabin" />
               <span className="car-wheel car-wheel-left" />
               <span className="car-wheel car-wheel-right" />
             </div>
@@ -96,9 +57,7 @@ function EarnCar() {
         <section className="earn-requirements">
           <h2>Requirements</h2>
           <div className="earn-requirement-list earn-requirement-list-car">
-            {requirements.map((requirement) => (
-              <p key={requirement}>{requirement}</p>
-            ))}
+            {requirements.map((req) => <p key={req}>{req}</p>)}
           </div>
         </section>
 
@@ -116,22 +75,41 @@ function EarnCar() {
           <p>Ready to start earning?</p>
           <h2>Join HelloRide</h2>
 
-          <form className="earn-form" onSubmit={handleSubmit}>
-            {fields.map((field) => (
-              <label key={field.name}>
-                {field.label}
-                <input
-                  type={field.type}
-                  name={field.name}
-                  value={formData[field.name]}
-                  onChange={handleChange}
-                  required
-                />
-              </label>
-            ))}
+          <div className="earn-form-split">
+            <Form />
 
-            <button type="submit">Submit Application</button>
-          </form>
+            <div className="earn-form-visual" aria-hidden="true">
+              <div className="efv-card efv-card--earn">
+                <span className="efv-label">Average daily</span>
+                <strong className="efv-amount">NPR 3,000</strong>
+                <span className="efv-bar-track">
+                  <span className="efv-bar-fill" />
+                </span>
+              </div>
+
+              <div className="efv-steps">
+                {steps.map((s, i) => (
+                  <div className="efv-step" key={s.label} style={{ animationDelay: `${i * 0.18}s` }}>
+                    <span className="efv-step-icon">{s.icon}</span>
+                    <span className="efv-step-label">{s.label}</span>
+                    {i < steps.length - 1 && <span className="efv-step-connector" />}
+                  </div>
+                ))}
+              </div>
+
+              <div className="efv-card efv-card--rating">
+                <span className="efv-label">Driver rating</span>
+                <div className="efv-stars">
+                  {[1,2,3,4,5].map((n) => (
+                    <span key={n} className={`efv-star${n <= 4 ? " efv-star--lit" : ""}`}>*</span>
+                  ))}
+                </div>
+                <span className="efv-rating-note">Top 10% of drivers</span>
+              </div>
+
+              <div className="efv-pulse-ring" />
+            </div>
+          </div>
         </section>
       </section>
     </main>

@@ -6,6 +6,7 @@ import Home from './components/Home';
 import HowItWorks from './components/HowItWorks';
 import Benefit from './components/Benefit';
 import Partner from './components/Partner';
+import Form from './components/Form';
 import Footer from './components/Footer';
 import Help from './components/Help';
 import EarnBike from './components/EarnBike';
@@ -50,6 +51,9 @@ function App() {
               <HowItWorks />
               <Benefit />
               <Partner />
+              <section className="earn-form-section">
+                <Form />
+              </section>
               <Footer />
             </>
           }
