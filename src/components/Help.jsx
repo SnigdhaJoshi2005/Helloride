@@ -26,12 +26,16 @@ function FAQItem({ q, a }) {
   const [open, setOpen] = useState(false);
 
   return (
-    <button className="help-faq-item" type="button" onClick={() => setOpen((current) => !current)}>
+    <button
+      className={`help-faq-item ${open ? "is-open" : ""}`}
+      type="button"
+      onClick={() => setOpen((current) => !current)}
+    >
       <span className="help-faq-question">
         {q}
         <strong>{open ? "-" : "+"}</strong>
       </span>
-      {open && <span className="help-faq-answer">{a}</span>}
+      <span className="help-faq-answer">{a}</span>
     </button>
   );
 }

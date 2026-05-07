@@ -1,15 +1,16 @@
 import ServicePage from "./ServicePage";
-import DeliveryAnimation from "./DeliveryAnimation";
+import PackageJourney from "./PackageJourney";
 
 function Parcel() {
   return (
     <ServicePage
+      pageClassName="parcel-service-page"
       accent="#ffe100"
       background="#fff"
       title="Parcel Delivery"
       intro="Send packages safely and quickly anywhere in Nepal with our reliable parcel delivery service."
       icon="parcel"
-      image={<DeliveryAnimation />}
+      image={<PackageJourney />}
       features={[
         {
           icon: "calendar",

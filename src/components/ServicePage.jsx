@@ -23,7 +23,7 @@ function StatCard({ stat }) {
   )
 }
 
-function ServicePage({ accent, background, title, intro, icon, features, image, stats }) {
+function ServicePage({ accent, background, title, intro, icon, features, image, stats, pageClassName = '' }) {
   const visualRef = useRef(null)
   const [isVisible, setIsVisible] = useState(false)
 
@@ -53,7 +53,10 @@ function ServicePage({ accent, background, title, intro, icon, features, image, 
   const statCards = stats || defaultStats
 
   return (
-    <main className="service-shell" style={{ '--service-accent': accent, '--service-bg': background }}>
+    <main
+      className={`service-shell ${pageClassName}`}
+      style={{ '--service-accent': accent, '--service-bg': background }}
+    >
       <Header />
 
       <section className="service-page">
