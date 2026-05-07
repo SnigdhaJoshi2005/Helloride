@@ -34,7 +34,7 @@ function Form() {
 
     return (
         <div className="earn-form-stack">
-            <h2 className="earn-form-heading">Join our community</h2>
+
 
             <form className="earn-form" onSubmit={handleSubmit}>
                 {fields.map((field) => (

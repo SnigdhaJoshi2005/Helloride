@@ -1,6 +1,7 @@
 import Header from "./Header";
 import Form from "./Form";
 import bike2Image from "../assets/Bike2.png";
+import bikeIconImage from "../assets/service-bike.png";
 
 const benefits = [
   {
@@ -44,7 +45,7 @@ function EarnBike() {
           <div className="earn-copy">
             <div className="earn-title-row">
               <span className="earn-mode-icon" aria-hidden="true">
-                BIKE
+                <img src={bikeIconImage} alt="" />
               </span>
               <h1>Earn with Bike</h1>
             </div>

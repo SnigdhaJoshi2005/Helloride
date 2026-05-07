@@ -1,5 +1,6 @@
 import Header from "./Header";
 import Form from "./Form";
+import carIconImage from "../assets/service-car.png";
 
 const benefits = [
   { icon: "NPR", title: "Earn NPR 1500-3000/day", desc: "Higher earnings with premium car rides" },
@@ -31,7 +32,9 @@ function EarnCar() {
         <div className="earn-hero">
           <div className="earn-copy">
             <div className="earn-title-row">
-              <span className="earn-mode-icon" aria-hidden="true">CAR</span>
+              <span className="earn-mode-icon" aria-hidden="true">
+                <img src={carIconImage} alt="" />
+              </span>
               <h1>Earn with Car</h1>
             </div>
             <p>Join HelloRide as a car driver and start earning on your own schedule.</p>
