@@ -1238,12 +1238,7 @@
     radial-gradient(circle at 50% 95%, rgb(255 148 77 / 18%), transparent 34%),
     linear-gradient(135deg, #fffdf0 0%, #f3fbff 47%, #fff7df 100%);
   background-size: 130% 130%;
-  background-position: 50% 50%;
-  transition: background-position 700ms ease;
-}
-
-.help-page:hover {
-  background-position: 58% 44%;
+  animation: helpGradientDrift 13s ease-in-out infinite alternate;
 }
 
 .help-page::before,
@@ -1253,7 +1248,6 @@
   z-index: 0;
   border-radius: 50%;
   pointer-events: none;
-  transition: transform 500ms ease, opacity 500ms ease;
 }
 
 .help-page::before {
@@ -1263,6 +1257,7 @@
   height: 240px;
   border: 1px solid rgb(255 225 0 / 42%);
   background: rgb(255 255 255 / 22%);
+  animation: helpFloat 8s ease-in-out infinite;
 }
 
 .help-page::after {
@@ -1272,14 +1267,7 @@
   height: 280px;
   background: rgb(255 225 0 / 16%);
   filter: blur(2px);
-}
-
-.help-page:hover::before {
-  transform: translate3d(18px, -18px, 0) scale(1.04);
-}
-
-.help-page:hover::after {
-  transform: translate3d(-18px, 16px, 0) scale(1.04);
+  animation: helpFloat 9s ease-in-out 800ms infinite reverse;
 }
 
 .help-page .site-header {
@@ -1375,12 +1363,7 @@
   font-size: 10px;
   font-weight: 900;
   box-shadow: 0 10px 20px rgb(255 184 0 / 22%);
-  transition: transform 220ms ease, box-shadow 220ms ease;
-}
-
-.help-contact-card:hover>span {
-  box-shadow: 0 14px 26px rgb(255 184 0 / 30%);
-  transform: translateY(-3px) scale(1.04);
+  animation: helpIconPulse 3.8s ease-in-out infinite;
 }
 
 .help-contact-card h2 {
@@ -2178,41 +2161,67 @@
 
 .pj-shell {
   position: relative;
-  --pj-icon-size: 52px;
-  --pj-rail-width: 4px;
-  --pj-side-pad: clamp(16px, 3vw, 40px);
-  --pj-rail-left: calc((var(--pj-icon-size) / 2) - (var(--pj-rail-width) / 2));
+  --pj-icon-size: 54px;
+  --pj-rail-width: 5px;
+  --pj-side-pad: clamp(18px, 4vw, 42px);
+  --pj-rail-left: calc(var(--pj-side-pad) + (var(--pj-icon-size) / 2) - (var(--pj-rail-width) / 2));
   display: grid;
   grid-template-rows: auto minmax(360px, 1fr) auto;
   gap: 18px;
   width: 100%;
   height: 100%;
-  min-height: 480px;
-  padding: 24px clamp(12px, 2vw, 20px) 22px var(--pj-side-pad);
+  min-height: 486px;
+  padding: 24px clamp(14px, 2.6vw, 24px) 22px var(--pj-side-pad);
+  border: 1px solid rgb(255 225 0 / 36%);
+  border-radius: 24px;
+  background:
+    radial-gradient(circle at 88% 12%, rgb(41 171 226 / 14%), transparent 28%),
+    radial-gradient(circle at 14% 88%, rgb(255 225 0 / 24%), transparent 30%),
+    linear-gradient(145deg, rgb(255 255 255 / 96%), rgb(255 252 226 / 92%));
+  box-shadow:
+    0 24px 60px rgb(35 31 0 / 10%),
+    inset 0 1px 0 rgb(255 255 255 / 92%);
+  overflow: hidden;
+}
+
+.pj-shell::before {
+  content: '';
+  position: absolute;
+  top: -90px;
+  right: -78px;
+  width: 220px;
+  height: 220px;
+  border-radius: 50%;
+  background: rgb(255 225 0 / 18%);
+  pointer-events: none;
+  animation: pjAmbientFloat 7s ease-in-out infinite;
 }
 
 .pj-topic {
+  position: relative;
+  z-index: 3;
   display: grid;
-  gap: 6px;
-  padding-left: calc(var(--pj-icon-size) + 14px);
+  gap: 8px;
+  padding-left: calc(var(--pj-icon-size) + 16px);
+  animation: pjStageIn 620ms cubic-bezier(0.2, 1.1, 0.4, 1) both;
+}
+
+.pj-topic strong {
+  color: #050505;
+  font-size: clamp(22px, 2.5vw, 30px);
+  font-weight: 900;
+  line-height: 1.06;
 }
 
 .pj-topic span {
   width: fit-content;
+  padding: 7px 12px;
   border-radius: 999px;
   background: rgb(255 225 0 / 18%);
   color: #6a5200;
   font-size: 12px;
   font-weight: 800;
   line-height: 1;
-  padding: 7px 12px;
-}
-
-.pj-topic strong {
-  color: #050505;
-  font-size: clamp(22px, 2.4vw, 30px);
-  font-weight: 900;
-  line-height: 1.08;
 }
 
 .pj-track-area {
@@ -2238,9 +2247,9 @@
   width: 100%;
   min-height: 68px;
   border: 0;
-  border-radius: 12px;
+  border-radius: 16px;
   background: transparent;
-  padding: clamp(16px, 3vw, 30px) clamp(12px, 3vw, 30px) clamp(16px, 3vw, 30px) 0;
+  padding: clamp(14px, 2.4vw, 22px) clamp(12px, 2.8vw, 26px) clamp(14px, 2.4vw, 22px) 0;
   color: inherit;
   font: inherit;
   text-align: left;
@@ -2250,19 +2259,21 @@
   animation: pjStageIn 620ms cubic-bezier(0.2, 1.1, 0.4, 1) forwards;
   animation-delay: var(--pj-delay);
   transition:
-    background 180ms ease,
-    box-shadow 180ms ease,
-    transform 180ms ease;
+    background 220ms ease,
+    box-shadow 220ms ease,
+    transform 220ms ease;
 }
 
 .pj-stage.is-active {
-  background: rgb(255 225 0 / 12%);
-  box-shadow: inset 0 0 0 1px rgb(255 225 0 / 48%);
-  transform: translateX(4px) scale(1);
+  background: rgb(255 225 0 / 14%);
+  box-shadow:
+    inset 0 0 0 1px rgb(255 184 0 / 54%),
+    0 14px 28px rgb(255 184 0 / 12%);
+  transform: translateX(6px) scale(1);
 }
 
 .pj-stage.is-complete {
-  background: rgb(255 225 0 / 7%);
+  background: rgb(255 255 255 / 42%);
 }
 
 @keyframes pjStageIn {
@@ -2282,24 +2293,99 @@
 .pj-progress-rail,
 .pj-progress-fill {
   position: absolute;
-  top: calc((100% / 10) - (var(--pj-rail-width) / 2));
-  bottom: calc((100% / 10) - (var(--pj-rail-width) / 2));
-  left: var(--pj-rail-left);
+  top: calc(100% / 10);
+  bottom: calc(100% / 10);
+  left: calc((var(--pj-icon-size) / 2) - (var(--pj-rail-width) / 2));
   width: var(--pj-rail-width);
   border-radius: 999px;
 }
 
 .pj-progress-rail {
   z-index: 0;
-  background: rgb(255 225 0 / 20%);
+  background:
+    repeating-linear-gradient(
+      180deg,
+      rgb(255 225 0 / 32%) 0 12px,
+      rgb(255 225 0 / 12%) 12px 22px
+    );
 }
 
 .pj-progress-fill {
   z-index: 1;
-  background: linear-gradient(180deg, #ffe100, #ffb800, #29abe2);
+  background: linear-gradient(180deg, #ffe100, #ffb800 58%, #29abe2);
+  box-shadow: 0 0 18px rgb(255 184 0 / 34%);
   transform: scaleY(var(--pj-progress));
   transform-origin: top;
-  transition: transform var(--pj-step-duration) linear;
+  transition: transform var(--pj-step-duration) cubic-bezier(0.2, 0.9, 0.22, 1);
+}
+
+.pj-moving-parcel {
+  position: absolute;
+  top: calc((100% / 10) - 17px + ((80%) * var(--pj-progress)));
+  left: calc((var(--pj-icon-size) / 2) - 18px);
+  z-index: 4;
+  display: grid;
+  place-items: center;
+  width: 38px;
+  height: 38px;
+  border-radius: 13px;
+  border: 2px solid #ffb800;
+  background: linear-gradient(135deg, #fffbe4, #ffe100);
+  box-shadow:
+    0 16px 30px rgb(255 184 0 / 28%),
+    inset 0 1px 0 rgb(255 255 255 / 76%);
+  transition:
+    top var(--pj-step-duration) cubic-bezier(0.2, 0.9, 0.22, 1),
+    transform 180ms ease,
+    box-shadow 180ms ease;
+  animation: pjParcelBob 900ms ease-in-out 260ms infinite;
+}
+
+.pj-shell:hover .pj-moving-parcel {
+  box-shadow: 0 18px 34px rgb(255 184 0 / 32%);
+  transform: scale(1.04);
+}
+
+.pj-moving-parcel span {
+  position: relative;
+  display: block;
+  width: 18px;
+  height: 16px;
+  border-radius: 3px;
+  background: #fff;
+  box-shadow: inset 0 0 0 2px rgb(255 184 0 / 42%);
+}
+
+.pj-moving-parcel span::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 50%;
+  width: 2px;
+  height: 100%;
+  background: rgb(255 184 0 / 55%);
+  transform: translateX(-50%);
+}
+
+.pj-moving-parcel span::after {
+  content: '';
+  position: absolute;
+  top: 5px;
+  right: 2px;
+  left: 2px;
+  height: 2px;
+  background: rgb(255 184 0 / 42%);
+}
+
+@keyframes pjParcelBob {
+  0%,
+  100% {
+    margin-top: 0;
+  }
+
+  50% {
+    margin-top: -5px;
+  }
 }
 
 .pj-icon-wrap {
@@ -2328,7 +2414,7 @@
   position: absolute;
   inset: 0;
   border-radius: 50%;
-  background: #fffbe4;
+  background: rgb(255 255 255 / 92%);
   border: 2px solid #ffe100;
   z-index: 1;
   transform: scale(0);
@@ -2343,12 +2429,45 @@
   box-shadow: 0 10px 24px rgb(255 184 0 / 24%);
 }
 
+.pj-stage.is-complete .pj-ring {
+  background: linear-gradient(135deg, #ffe100, #ffbd00);
+  box-shadow: 0 10px 22px rgb(255 184 0 / 18%);
+}
+
 .pj-stage.is-active .pj-icon {
   font-weight: 900;
+  animation: pjIconBounce 760ms ease-in-out infinite;
+}
+
+.pj-stage.is-complete .pj-icon {
+  font-weight: 900;
+  color: #050505;
 }
 
 @keyframes pjRingPop {
   to { transform: scale(1); }
+}
+
+@keyframes pjAmbientFloat {
+  0%,
+  100% {
+    transform: translate3d(0, 0, 0) scale(1);
+  }
+
+  50% {
+    transform: translate3d(-16px, 18px, 0) scale(1.04);
+  }
+}
+
+@keyframes pjIconBounce {
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+
+  50% {
+    transform: translateY(-2px);
+  }
 }
 
 .pj-text {
@@ -2359,24 +2478,27 @@
 
 .pj-label {
   color: #050505;
-  font-size: clamp(15px, 1.4vw, 17px);
-  font-weight: 800;
+  font-size: clamp(15px, 1.45vw, 18px);
+  font-weight: 900;
   line-height: 1;
 }
 
 .pj-sub {
-  color: #888;
+  color: #6a6a6a;
   font-size: 12px;
   line-height: 1.3;
 }
 
 .pj-status {
+  position: relative;
+  z-index: 3;
   margin: 0;
-  padding-left: calc(var(--pj-icon-size) + 14px);
+  padding-left: calc(var(--pj-icon-size) + 16px);
   color: #6b6500;
   font-size: clamp(12px, 1.35vw, 14px);
-  font-weight: 700;
+  font-weight: 800;
   line-height: 1.35;
+  animation: pjStageIn 620ms cubic-bezier(0.2, 1.1, 0.4, 1) 520ms both;
 }
 
 /* center parcel */
@@ -2604,6 +2726,27 @@
   }
 }
 
+@keyframes helpGradientDrift {
+  0% {
+    background-position: 0% 45%;
+  }
+
+  100% {
+    background-position: 100% 55%;
+  }
+}
+
+@keyframes helpFloat {
+  0%,
+  100% {
+    transform: translate3d(0, 0, 0) scale(1);
+  }
+
+  50% {
+    transform: translate3d(18px, -22px, 0) scale(1.04);
+  }
+}
+
 @keyframes helpFadeUp {
   0% {
     opacity: 0;
@@ -2625,6 +2768,17 @@
   100% {
     opacity: 1;
     transform: scaleX(1);
+  }
+}
+
+@keyframes helpIconPulse {
+  0%,
+  100% {
+    transform: translateY(0) scale(1);
+  }
+
+  50% {
+    transform: translateY(-3px) scale(1.04);
   }
 }
 
@@ -4127,11 +4281,13 @@
 
   .pj-shell {
     --pj-icon-size: 46px;
-    --pj-side-pad: 8px;
+    --pj-rail-width: 4px;
+    --pj-side-pad: 10px;
     grid-template-rows: auto minmax(330px, 1fr) auto;
     gap: 14px;
-    min-height: 440px;
-    padding: 18px 8px;
+    min-height: 448px;
+    padding: 18px 10px;
+    border-radius: 18px;
   }
 
   .pj-topic,
@@ -4140,11 +4296,10 @@
   }
 
   .pj-stage {
-    grid-template-columns: var(--pj-icon-size) minmax(0, 1fr);
     gap: 10px;
     min-height: 64px;
     padding: 14px 10px 14px 0;
-    border-radius: 10px;
+    border-radius: 12px;
   }
 
   .pj-stage.is-active {
@@ -4163,6 +4318,11 @@
     font-size: 11px;
   }
 
+  .pj-moving-parcel {
+    width: 34px;
+    height: 34px;
+    left: calc((var(--pj-icon-size) / 2) - 17px);
+  }
 }
 
 @media (max-width: 760px) {
