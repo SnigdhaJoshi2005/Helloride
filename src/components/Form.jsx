@@ -1,4 +1,5 @@
 import { useState } from "react";
+import emailjs from "@emailjs/browser";
 
 const fields = [
     { label: "First Name", name: "firstName", type: "text" },
@@ -20,22 +21,44 @@ function Form() {
         lastName: "",
         email: "",
         phone: "",
-        service: "",
-    });
+    service: ""
+});
 
-    const handleChange = (event) => {
-        setFormData({ ...formData, [event.target.name]: event.target.value });
+    const handleChange = (e) => {
+        setFormData({
+            ...formData,
+            [e.target.name]: e.target.value,
+        });
     };
 
-    const handleSubmit = (event) => {
-        event.preventDefault();
-        alert("Application submitted! We'll be in touch soon.");
+    const handleSubmit = (e) => {
+        e.preventDefault();
+
+        emailjs
+            .send(
+                "service_helloride",   // replace
+                "template_hmtzwcu",  // replace
+                formData,
+                "QZPiTVuMVhPtcMBZ5"    // replace
+            )
+            .then(() => {
+                alert("Application submitted! We'll be in touch soon.");
+                setFormData({
+                    firstName: "",
+                    lastName: "",
+                    email: "",
+                    phone: "",
+                    service: "",
+});
+            })
+            .catch((error) => {
+                console.error("FULL ERROR:", error);
+                alert(error.text || "Failed to send application.");
+});
     };
 
     return (
         <div className="earn-form-stack">
-
-
             <form className="earn-form" onSubmit={handleSubmit}>
                 {fields.map((field) => (
                     <label key={field.name}>
@@ -58,7 +81,9 @@ function Form() {
                         onChange={handleChange}
                         required
                     >
-                        <option value="" disabled>Select a service</option>
+                        <option value="" disabled>
+                            Select a service
+                        </option>
                         {serviceOptions.map((option) => (
                             <option key={option.value} value={option.value}>
                                 {option.label}

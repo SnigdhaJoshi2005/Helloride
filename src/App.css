@@ -1134,12 +1134,15 @@
 
 .service-visual {
   display: flex;
-  align-items: stretch;
+  justify-content: center;
+  align-items: center;
 }
 
 .service-visual-inner {
-  display: flex;
-  width: 100%;
+  position: relative;
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
 }
 
 .service-visual-inner img {
@@ -3383,12 +3386,22 @@
   width: clamp(230px, 24vw, 322px);
   height: 98px;
   flex: 0 0 auto;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 18px 34px;
   border: 1px solid rgb(255 225 0 / 50%);
   border-radius: 38px;
   background: #fffdf0;
   box-shadow:
     0 8px 16px rgb(255 196 0 / 35%),
     0 18px 36px rgb(255 225 0 / 20%);
+}
+
+.partner-pill img {
+  max-width: 100%;
+  max-height: 100%;
+  object-fit: contain;
 }
 
 @keyframes marqueeRight {

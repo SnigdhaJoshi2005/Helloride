@@ -1,4 +1,12 @@
-const partners = Array.from({ length: 8 }, (_, index) => `Partner ${index + 1}`)
+import atsLogo from "../assets/ats.png"
+import attLogo from "../assets/att.jpeg"
+import bthLogo from "../assets/bth.jpg"
+
+const partners = [
+  { name: "ATS", image: atsLogo },
+  { name: "ATT", image: attLogo },
+  { name: "BTH", image: bthLogo },
+]
 
 function PartnerRow({ direction }) {
   const items = [...partners, ...partners]
@@ -7,7 +15,9 @@ function PartnerRow({ direction }) {
     <div className={`partner-row partner-row-${direction}`} aria-hidden="true">
       <div className="partner-track">
         {items.map((item, index) => (
-          <div className="partner-pill" key={`${item}-${index}`} />
+          <div className="partner-pill" key={`${item.name}-${index}`}>
+            <img src={item.image} alt={item.name} />
+          </div>
         ))}
       </div>
     </div>
