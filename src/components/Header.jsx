@@ -99,6 +99,8 @@ function Header() {
       </button>
 
       <nav className="main-nav" id="primary-navigation" aria-label="Primary navigation">
+        <Link to="/" onClick={closeNavigation}>Home</Link>
+
         <div className="nav-dropdown nav-services-dropdown">
           <button
             className="nav-dropdown-trigger"
