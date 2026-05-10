@@ -36,7 +36,6 @@ function Partner() {
         <PartnerRow direction="right" />
         <PartnerRow direction="left" />
       </div>
-      <h2 className="earn-form-heading">Join our community</h2>
     </section>
   )
   
