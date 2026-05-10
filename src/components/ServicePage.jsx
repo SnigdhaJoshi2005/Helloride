@@ -23,7 +23,7 @@ function StatCard({ stat }) {
   )
 }
 
-function ServicePage({ accent, background, title, intro, icon, features, image, stats, pageClassName = '' }) {
+function ServicePage({ accent, background, title, intro, icon, features, image, stats, leftContent, pageClassName = '' }) {
   const visualRef = useRef(null)
   const [isVisible, setIsVisible] = useState(false)
 
@@ -62,28 +62,38 @@ function ServicePage({ accent, background, title, intro, icon, features, image, 
       <section className="service-page">
         <div className="service-layout">
           <div className="service-copy">
-            <div className="service-title-row">
-              <span className="service-title-icon" aria-hidden="true">
-                <ServiceIcon name={icon} />
-              </span>
-              <h1>{title}</h1>
-            </div>
-
-            <p className="service-intro">{intro}</p>
-
-            <div className="service-feature-list">
-              {features.map((feature) => (
-                <article className="service-feature-card" key={feature.title}>
-                  <span aria-hidden="true">
-                    <ServiceIcon name={feature.icon} />
+            {leftContent ? (
+              <div className="service-left-content">
+                {leftContent}
+              </div>
+            ) : (
+              <>
+                <div className="service-title-row">
+                  <span className="service-title-icon" aria-hidden="true">
+                    <ServiceIcon name={icon} />
                   </span>
-                  <div>
-                    <h2>{feature.title}</h2>
-                    <p>{feature.desc}</p>
+                  <h1>{title}</h1>
+                </div>
+
+                {intro && <p className="service-intro">{intro}</p>}
+
+                {features.length > 0 && (
+                  <div className="service-feature-list">
+                    {features.map((feature) => (
+                      <article className="service-feature-card" key={feature.title}>
+                        <span aria-hidden="true">
+                          <ServiceIcon name={feature.icon} />
+                        </span>
+                        <div>
+                          <h2>{feature.title}</h2>
+                          <p>{feature.desc}</p>
+                        </div>
+                      </article>
+                    ))}
                   </div>
-                </article>
-              ))}
-            </div>
+                )}
+              </>
+            )}
           </div>
 
           <div ref={visualRef} className={`service-visual ${isVisible ? 'is-visible' : ''}`}>

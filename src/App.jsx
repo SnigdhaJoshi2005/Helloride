@@ -16,6 +16,7 @@ import BikeRide from './components/BikeRide';
 import Parcel from './components/Parcel';
 import Food from './components/Food';
 import OrbitingLogo from './components/OrbitingLogo';
+import PackageJourney from './components/PackageJourney';
 
 function ScrollToHash() {
   const { hash } = useLocation();
@@ -52,10 +53,13 @@ function App() {
               <HowItWorks />
               <Benefit />
               <Partner />
+
               <section className="earn-form-section home-form-orbit">
+                                <h2 className="earn-form-heading">Join our community</h2>
                 <div className="earn-form-split">
                   <Form />
                   <OrbitingLogo />
+
                 </div>
               </section>
               <Footer />

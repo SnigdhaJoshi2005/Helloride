@@ -207,10 +207,11 @@
   align-items: center;
   justify-content: center;
   width: 100%;
-  margin-left: 70px;
+  margin-left: 50px;
   min-height: 420px;
   background: #fff;
-  overflow: hidden;
+  margin-bottom: 50px;
+  /* overflow: hidden; */
 }
 
 .orbiting-logo-center {
@@ -219,8 +220,8 @@
   /* margin-left: 20px; */
   display: grid;
   place-items: center;
-  width: 128px;
-  height: 128px;
+  width: 124px;
+  height: 124px;
   /* padding: 4px; */
   border-radius: 30%;
   background: #fff;
@@ -236,12 +237,14 @@
 
 .orbit-ring {
   position: absolute;
-  border: 1px dashed #d6d6d6;
+  border: 3px solid #dfdf1b;
   border-radius: 50%;
 }
 
 .orbit-ring-inner {
   z-index: 20;
+    border: 3px solid #dfdf1b;
+
   width: 456px;
   height: 456px;
 }
@@ -250,7 +253,9 @@
   z-index: 10;
   width: min(340px, 76vw);
   height: min(340px, 76vw);
-  border-color: #e6e6e6;
+    border: 3px dashed #d3d359af;
+
+
 }
 
 /* .earn-form-section .home-form-orbit{
@@ -260,15 +265,18 @@
   position: absolute;
   display: grid;
   place-items: center;
-  width: 92px;
-  height: 92px;
+  width: 82px;
+  height: 82px;
 }
 
 .orbit-item img {
   display: block;
   width: 78px;
-  height: 68px;
+  height: 78px;
   object-fit: contain;
+ border-radius: 60%;
+
+   box-shadow: 0 20px 45px rgb(0 0 0 / 14%);
 }
 
 .orbit-item-top {
@@ -307,8 +315,8 @@
 
 /* Rotate the Orbit Ring */
 @keyframes orbit-rotation {
-  from { transform: rotate(0deg); }
-  to { transform: rotate(360deg); }
+  from {  transform: rotate(360deg);  }
+  to { transform: rotate(0deg); }
 }
 
 @keyframes bike-counter-rotation {
@@ -965,6 +973,7 @@
 
 .earn-form-heading {
   margin-top: 100px;
+  margin-bottom: 54px;
   color: #050505;
   font-size: clamp(28px, 3.2vw, 40px);
   font-weight: 900;
@@ -983,11 +992,62 @@
   transform: translateX(-50%);
 }
 
+.community-section {
+  padding-right: var(--main-side-padding);
+  padding-left: var(--main-side-padding);
+}
+
+.community-form-layout {
+  display: grid;
+  grid-template-columns: 65fr 35fr;
+  gap: clamp(32px, 5vw, 72px);
+  align-items: start;
+  width: 100%;
+  margin-top: 0;
+  text-align: left;
+}
+
+.community-form-layout .earn-form-stack,
+.community-form-layout .earn-form {
+  width: 100%;
+}
+
+.community-form-layout .earn-form-stack {
+  margin-bottom: 0;
+}
+
+.community-tracker {
+  min-width: 0;
+  align-self: stretch;
+  height: 93%;
+  animation: earnFadeUp 760ms ease-out 800ms both;
+}
+
+.community-tracker .service-custom-visual,
+.community-tracker .pj-shell {
+  height: 100%;
+}
+
+.community-tracker .service-custom-visual {
+  align-items: stretch;
+}
+
+.community-tracker .pj-shell {
+  min-height: 0;
+  border-color: rgb(255 225 0 / 55%);
+  border-radius: 20px;
+}
+
+.community-tracker .pj-topic {
+  padding-left: calc(var(--pj-icon-size) + 16px);
+}
+
 .earn-form {
   position: relative;
   display: grid;
-  width: min(890px, 100%);
+  width: 700px;
   grid-template-columns: repeat(2, minmax(0, 1fr));
+  margin-left: 70px;
   gap: 24px 26px;
   padding: clamp(30px, 5vw, 56px) clamp(22px, 9vw, 108px) clamp(34px, 5vw, 62px);
   border: 1px solid rgb(255 225 0 / 70%);
@@ -1148,7 +1208,7 @@
 
 .service-page {
   min-height: calc(100vh - 98px);
-  padding: 16px var(--main-side-padding) 70px;
+  padding: 20px var(--main-side-padding) 70px;
 }
 
 .service-layout {
@@ -1671,6 +1731,7 @@
   display: flex;
   justify-content: center;
   animation: phoneJumpIn 2400ms cubic-bezier(0.25, 1.1, 0.3, 1) 280ms both;
+  margin-right: 55px;
 }
 
 .phone-map-image {
@@ -2346,7 +2407,6 @@
   z-index: 3;
   display: grid;
   gap: 8px;
-  padding-left: calc(var(--pj-icon-size) + 16px);
   animation: pjStageIn 620ms cubic-bezier(0.2, 1.1, 0.4, 1) both;
 }
 
@@ -2377,7 +2437,7 @@
   position: relative;
   z-index: 2;
   display: grid;
-  grid-template-rows: repeat(5, 1fr);
+  grid-template-rows: repeat(var(--pj-step-count, 5), 1fr);
   width: 100%;
   height: 100%;
 }
@@ -2935,6 +2995,10 @@
   align-items: stretch;
 }
 
+.service-left-content {
+  width: min(100%, 560px);
+}
+
 /* Fix fp-shell getting squashed inside service-visual-inner */
 .service-visual-inner .fp-shell {
   width: 100%;
@@ -2950,6 +3014,18 @@
 .service-custom-visual .pj-track {
   width: 100%;
   height: 100%;
+}
+
+.bike-ride-animation .pj-shell {
+  padding-right: 0;
+  border: 0;
+  border-radius: 0;
+  background: transparent;
+  box-shadow: none;
+}
+
+.bike-ride-animation .pj-shell::before {
+  content: none;
 }
 
 .service-copy {
@@ -3576,16 +3652,34 @@
 }
 
 .footer-top {
-  display: flex;
-  grid-template-columns: minmax(150px, 1.1fr) minmax(140px, 0.9fr) minmax(180px, 1fr) minmax(190px, 1fr);
+  display: grid;
+  padding-top: 30px;
+  grid-template-columns: minmax(150px, 1fr) minmax(140px, 1fr) minmax(190px, 1fr);
   gap: clamp(22px, 4vw, 54px);
-  align-items: space-between;
-  margin-bottom: 26px;
+  align-items: start;
+  margin-bottom: 100px;
+}
+
+.footer-brand-block {
+  justify-self: start;
+  text-align: left;
+}
+
+.footer-links {
+  justify-self: end;
+  text-align: left;
+  
+}
+
+.footer-contactus-block {
+  justify-self: end;
+  text-align: left;
+  margin-right: 90px;
 }
 
 .footer-brand-logo {
   display: inline-flex;
-  width: clamp(76px, 8vw, 105px);
+  width: clamp(78px, 8vw, 110px);
   height: auto;
   margin-bottom: 18px;
   text-decoration: none;
@@ -3600,7 +3694,7 @@
 .footer-socials {
   display: flex;
   flex-wrap: wrap;
-  gap: 14px;
+  gap: 1px;
 }
 
 .social-icon-wrap {
@@ -3815,7 +3909,7 @@
 .footer-downloads {
   display: flex;
   flex-direction: column;
-  align-items: flex-start;
+  align-items: flex-end;
   gap: 12px;
 }
 
@@ -3851,6 +3945,8 @@
   gap: 10px;
 }
 
+
+
 .footer-links h2,
 .footer-contact h2,
 .footer-download-block h2 {
@@ -3867,6 +3963,8 @@
   color: #555;
   font-size: 14px;
   line-height: 1.2;
+    font-weight: 300;
+
   text-decoration: none;
 }
 
@@ -3882,10 +3980,11 @@
 .footer-bottom {
   display: flex;
   justify-content: center;
-  padding-top: 18px;
-  border-top: 1px solid #e4e4e4;
-  color: #777;
-  font-size: 13px;
+  padding-top: 16px;
+  border-top: 2px solid #282828;
+  color: #000000;
+  font-size: 12px;
+  padding-bottom: 20px;
 }
 
 @keyframes efvBarGrow {
@@ -3998,10 +4097,30 @@
 @media (max-width: 980px) {
   .footer-top {
     grid-template-columns: repeat(2, minmax(0, 1fr));
+    margin-bottom: 60px;
+  }
+
+  .footer-contactus-block {
+    grid-column: 1 / -1;
+    justify-self: center;
+    margin-right: 0;
+    text-align: center;
+  }
+
+  .footer-downloads {
+    align-items: center;
   }
 
   .join-network-section {
     grid-template-columns: 1fr;
+  }
+
+  .community-form-layout {
+    grid-template-columns: 1fr;
+  }
+
+  .community-tracker .pj-shell {
+    min-height: 520px;
   }
 }
 
@@ -4236,14 +4355,23 @@
   .footer-top {
     grid-template-columns: 1fr;
     gap: 26px;
+    margin-bottom: 36px;
+    padding-top: 18px;
   }
 
   .footer-brand-block,
   .footer-links,
+  .footer-contactus-block,
   .footer-contact,
   .footer-download-block {
+    justify-self: center;
     justify-items: center;
     text-align: center;
+  }
+
+  .footer-contactus-block {
+    grid-column: auto;
+    margin-right: 0;
   }
 
   .footer-downloads {
@@ -4433,6 +4561,7 @@
   }
 
   .pj-shell {
+    display: grid;
     --pj-icon-size: 46px;
     --pj-rail-width: 4px;
     --pj-side-pad: 10px;
@@ -5055,14 +5184,23 @@ canvas {
   .help-contact-grid,
   .footer-top {
     grid-template-columns: 1fr;
+    margin-bottom: 36px;
+    padding-top: 18px;
   }
 
   .footer-brand-block,
   .footer-links,
+  .footer-contactus-block,
   .footer-contact,
   .footer-download-block {
+    justify-self: center;
     justify-items: center;
     text-align: center;
+  }
+
+  .footer-contactus-block {
+    grid-column: auto;
+    margin-right: 0;
   }
 
   .footer-downloads,

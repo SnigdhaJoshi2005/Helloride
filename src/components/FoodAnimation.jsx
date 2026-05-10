@@ -1,24 +1,20 @@
 import { useEffect, useState } from "react";
 
 const stages = [
-    { icon: "01", label: "Order Placed", sub: "We've received your request" },
-    { icon: "02", label: "Picked Up", sub: "Parcel collected from sender" },
-    { icon: "03", label: "In Transit", sub: "On the way to destination" },
-    { icon: "04", label: "Out for Delivery", sub: "Almost there!" },
-    { icon: "05", label: "Delivered", sub: "Package received successfully" },
+    { icon: "01", label: "Quick Delivery", sub: "Get your food in 30 minutes or less" },
+    { icon: "02", label: "Hot & Fresh", sub: "Temperature-controlled delivery" },
+    { icon: "03", label: "Real-time Tracking", sub: "Track your order every step" },
 ];
 
 const stepDuration = 1500;
 
-function PackageJourney() {
+function FoodAnimation() {
     const [activeStage, setActiveStage] = useState(0);
-    const isFinished = activeStage === stages.length - 1;
-    const progress = activeStage / (stages.length - 1);
+    const isFinished = activeStage === stages.length;
+    const progress = Math.min(activeStage, stages.length - 1) / (stages.length - 1);
 
     useEffect(() => {
-        if (activeStage === stages.length - 1) {
-            return undefined;
-        }
+        if (activeStage === stages.length) return undefined;
 
         const timer = window.setTimeout(() => {
             setActiveStage((current) => current + 1);
@@ -28,10 +24,10 @@ function PackageJourney() {
     }, [activeStage]);
 
     return (
-        <div className="service-custom-visual">
+        <div className="service-custom-visual bike-ride-animation">
             <div
                 className="pj-shell"
-                aria-label="Parcel delivery progress"
+                aria-label="Bike ride features"
                 style={{
                     "--pj-progress": progress,
                     "--pj-step-count": stages.length,
@@ -39,7 +35,8 @@ function PackageJourney() {
                 }}
             >
                 <div className="pj-topic">
-                    <strong>Live parcel tracker</strong>
+                    <strong style={{ fontSize: "40px" }}>Food</strong>
+                    <p>Enjoy delicious meals delivered to your doorstep.</p>
                 </div>
 
                 <div className="pj-track-area">
@@ -49,14 +46,13 @@ function PackageJourney() {
                     <div className="pj-track">
                         {stages.map((stage, i) => {
                             const isActive = i === activeStage && !isFinished;
-                            const isComplete = i < activeStage || (isFinished && i === activeStage);
+                            const isComplete = i < activeStage;
 
                             return (
                                 <div
                                     key={stage.label}
-                                    className={`pj-stage ${isActive ? "is-active" : ""} ${isComplete ? "is-complete" : ""
-                                        }`}
-                                    style={{ "--pj-delay": `${i * 0.55}s` }}
+                                    className={`pj-stage ${isActive ? "is-active" : ""} ${isComplete ? "is-complete" : ""}`}
+                                    style={{ "--pj-delay": `${i * 0.2}s` }}
                                     aria-current={i === activeStage ? "step" : undefined}
                                 >
                                     <div className="pj-dot-row">
@@ -75,13 +71,9 @@ function PackageJourney() {
                         })}
                     </div>
                 </div>
-
-                <p className="pj-status">
-                    Follow your parcel from pickup to drop-off.
-                </p>
             </div>
         </div>
     );
 }
 
-export default PackageJourney;
+export default FoodAnimation;
