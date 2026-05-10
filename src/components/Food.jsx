@@ -1,4 +1,5 @@
-import ServicePage from './ServicePage'
+import ServicePage from "./ServicePage";
+import FoodAnimation from "./FoodAnimation";
 import Stopwatch from './Stopwatch'
 
 function Food() {
@@ -7,28 +8,14 @@ function Food() {
       accent="#ffe100"
       background="#fff"
       title="Food Delivery"
-      intro="Delicious meals delivered hot and fresh from your favorite restaurants right to your door."
+      intro=""
       icon="food"
       image={<Stopwatch />}
-      features={[
-        {
-          icon: 'timer',
-          title: 'Quick Delivery',
-          desc: 'Get your food in 30 minutes or less',
-        },
-        {
-          icon: 'flame',
-          title: 'Hot & Fresh',
-          desc: 'Temperature-controlled delivery',
-        },
-        {
-          icon: 'gps',
-          title: 'Real-time Tracking',
-          desc: 'Track your order every step',
-        },
-      ]}
+      stats={[]}
+      leftContent={<FoodAnimation />}
+      features={[]}
     />
-  )
+  );
 }
 
-export default Food
+export default Food;

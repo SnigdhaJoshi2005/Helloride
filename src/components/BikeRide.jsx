@@ -1,5 +1,13 @@
 import ServicePage from "./ServicePage";
-import bikeServiceImage from "../assets/bike illustration.jpg";
+import BikeRideAnimation from "./BikeRideAnimation";
+import bikeServiceImage from "../assets/Bike illustration.jpg";
+
+const bikeStats = [
+  { icon: "bolt", value: "3 min", label: "Avg wait time", delay: "0ms", x: "-30px", y: "-20px" },
+  { icon: "star", value: "4.8", label: "Rider rating", delay: "200ms", x: "20px", y: "60px" },
+  { icon: "check", value: "100%", label: "Eco-friendly", delay: "400ms", x: "-40px", y: "50px" },
+  { icon: "fare", value: "NPR 50", label: "Starting fare", delay: "600ms", x: "10px", y: "-30px" },
+];
 
 function BikeRide() {
   return (
@@ -7,26 +15,12 @@ function BikeRide() {
       accent="#ffe100"
       background="#fff"
       title="Bike Rides"
-      intro="Quick, affordable, and eco-friendly bike rides for navigating through traffic with ease."
+      intro=""
       icon="bike"
       image={bikeServiceImage}
-      features={[
-        {
-          icon: "route",
-          title: "Fastest Route",
-          desc: "Beat traffic and reach faster",
-        },
-        {
-          icon: "money",
-          title: "Most Affordable",
-          desc: "Starting from NPR 50",
-        },
-        {
-          icon: "shield",
-          title: "Verified Riders",
-          desc: "All riders are background-checked",
-        },
-      ]}
+      stats={bikeStats}
+      leftContent={<BikeRideAnimation />}
+      features={[]}
     />
   );
 }
