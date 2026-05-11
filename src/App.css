@@ -435,7 +435,7 @@
   font-weight: 600;
   text-decoration: none;
   white-space: nowrap;
-  width: 33%;
+  width: 24%;
 }
 
 .help-button {
@@ -1786,7 +1786,7 @@
 
 .download-actions {
   display: flex;
-  margin-left: 620px;
+  margin-left: 830px;
   justify-content: flex-start;
   gap: 18px;
   flex-wrap: wrap;
