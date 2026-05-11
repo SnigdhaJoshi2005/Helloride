@@ -163,8 +163,8 @@ function Header() {
           )}
         </div>
 
-        <Link to="/#how-it-works" onClick={closeNavigation}>How It Works</Link>
-        <Link to="/#benefits" onClick={closeNavigation}>Benefits</Link>
+        {/* <Link to="/#how-it-works" onClick={closeNavigation}>How It Works</Link> */}
+        <Link to="/Blog" onClick={closeNavigation}>Blogs</Link>
         <Link className="help-button" to="/help" onClick={closeNavigation}>
           Help Center
         </Link>
