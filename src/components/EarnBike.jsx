@@ -1,21 +1,21 @@
 import Header from "./Header";
 import Form from "./Form";
+import ServiceIcon from "./ServiceIcon";
 import bike2Image from "../assets/Bike2.png";
-import bikeIconImage from "../assets/service-bike.png";
 
 const benefits = [
   {
-    icon: "NPR",
+    icon: "money",
     title: "Earn NPR 500-1500/day",
     desc: "Average earnings from part-time riders",
   },
   {
-    icon: "CAL",
+    icon: "calendar",
     title: "Flexible Schedule",
     desc: "Work whenever you want, wherever you want",
   },
   {
-    icon: "BON",
+    icon: "star",
     title: "Weekly Bonuses",
     desc: "Complete rides and earn extra incentives",
   },
@@ -44,9 +44,6 @@ function EarnBike() {
         <div className="earn-hero earn-bike-hero">
           <div className="earn-copy">
             <div className="earn-title-row">
-              <span className="earn-mode-icon" aria-hidden="true">
-                <img src={bikeIconImage} alt="" />
-              </span>
               <h1>Earn with Bike</h1>
             </div>
             <p>
@@ -61,7 +58,9 @@ function EarnBike() {
         <section className="earn-benefits earn-benefits-bike" aria-label="Bike earning benefits">
           {benefits.map((benefit) => (
             <article className="earn-benefit-card" key={benefit.title}>
-              <span aria-hidden="true">{benefit.icon}</span>
+              <span aria-hidden="true">
+                <ServiceIcon name={benefit.icon} />
+              </span>
               <h3>{benefit.title}</h3>
               <p>{benefit.desc}</p>
             </article>

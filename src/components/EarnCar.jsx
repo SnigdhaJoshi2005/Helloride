@@ -1,11 +1,11 @@
 import Header from "./Header";
 import Form from "./Form";
-import carIconImage from "../assets/service-car.png";
+import ServiceIcon from "./ServiceIcon";
 
 const benefits = [
-  { icon: "NPR", title: "Earn NPR 1500-3000/day", desc: "Higher earnings with premium car rides" },
-  { icon: "CAL", title: "Peak Hour Bonuses", desc: "Earn extra during rush hours" },
-  { icon: "BON", title: "Monthly Incentives", desc: "Complete targets and earn rewards" },
+  { icon: "money", title: "Earn NPR 1500-3000/day", desc: "Higher earnings with premium car rides" },
+  { icon: "calendar", title: "Peak Hour Bonuses", desc: "Earn extra during rush hours" },
+  { icon: "star", title: "Monthly Incentives", desc: "Complete targets and earn rewards" },
 ];
 
 const requirements = [
@@ -32,9 +32,6 @@ function EarnCar() {
         <div className="earn-hero">
           <div className="earn-copy">
             <div className="earn-title-row">
-              <span className="earn-mode-icon" aria-hidden="true">
-                <img src={carIconImage} alt="" />
-              </span>
               <h1>Earn with Car</h1>
             </div>
             <p>Join HelloRide as a car driver and start earning on your own schedule.</p>
@@ -67,7 +64,9 @@ function EarnCar() {
         <section className="earn-benefits earn-benefits-car" aria-label="Car earning benefits">
           {benefits.map((benefit) => (
             <article className="earn-benefit-card" key={benefit.title}>
-              <span aria-hidden="true">{benefit.icon}</span>
+              <span aria-hidden="true">
+                <ServiceIcon name={benefit.icon} />
+              </span>
               <h3>{benefit.title}</h3>
               <p>{benefit.desc}</p>
             </article>

@@ -1,4 +1,3 @@
-import React from 'react';
 import logoo from "../assets/logoo.png";
 import parcelBike from "../assets/parcelBike.png";
 import bikewithPassenger from "../assets/bikewithPassenger.png";

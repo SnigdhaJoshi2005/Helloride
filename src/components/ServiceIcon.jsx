@@ -1,17 +1,26 @@
-const icons = {
-  bike: (
+function Motorbike() {
+  return (
     <>
-      <circle cx="25" cy="64" r="9" />
-      <circle cx="65" cy="64" r="9" />
-      <path d="M24 64h13l9-17h14l5 17" />
-      <path d="M38 47h-9l-5 17" />
-      <path d="M45 47l-8 17" />
-      <path d="M50 34h12l6 10" />
-      <path d="M39 34h12" />
-      <path d="M51 34l-5 13" />
-      <path d="M61 44h12" />
+      <circle cx="25" cy="64" r="10" />
+      <circle cx="66" cy="64" r="10" />
+      <path d="M25 64h12l9-13h17l3 13" />
+      <path d="M38 64h17" />
+      <path d="M35 52h19c8 0 15-5 18-12" />
+      <path d="M42 44h19" />
+      <path d="M45 35h13l7 9" />
+      <path d="M38 44l-9-11h-9" />
+      <path d="M61 35l7-10h9" />
+      <path d="M75 25l5 7" />
+      <path d="M70 43h10" />
+      <path d="M45 52v12" />
+      <path d="M55 52l-8 12" />
+      <path d="M16 54h12" />
     </>
-  ),
+  )
+}
+
+const icons = {
+  bike: <Motorbike />,
   car: (
     <>
       <path d="M14 53h60v13H14z" />

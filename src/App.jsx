@@ -1,6 +1,6 @@
 import './App.css';
 import { useEffect } from "react";
-import { BrowserRouter as Router, Routes, Route, useLocation } from "react-router-dom";
+import { BrowserRouter as Router, Routes, Route, Navigate, useLocation } from "react-router-dom";
 
 import Home from './components/Home';
 import HowItWorks from './components/HowItWorks';
@@ -16,7 +16,6 @@ import BikeRide from './components/BikeRide';
 import Parcel from './components/Parcel';
 import Food from './components/Food';
 import OrbitingLogo from './components/OrbitingLogo';
-import PackageJourney from './components/PackageJourney';
 
 function ScrollToHash() {
   const { hash } = useLocation();
@@ -81,6 +80,7 @@ function App() {
         <Route path="/parcel" element={<Parcel />} />
         <Route path="/food" element={<Food />} />
         <Route path="/OrbitingLogo" element={<OrbitingLogo />} />
+        <Route path="*" element={<Navigate to="/" replace />} />
 
       </Routes>
     </Router>
