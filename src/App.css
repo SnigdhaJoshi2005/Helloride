@@ -319,10 +319,27 @@
   to { transform: rotate(0deg); }
 }
 
+@keyframes orbit-rotation-reverse {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
 @keyframes bike-counter-rotation {
   from { transform: rotate(0deg); }
   to { transform: rotate(-360deg); }
 }
+
+.animate-spin-reverse {
+  animation: orbit-rotation-reverse 20s linear infinite;
+}
+
+/* for increasing the font-weight in the footer-top */
+.footer-links a,
+.footer-contact a,
+.footer-contact span,
+.footer-contactus-block a {
+  font-weight: 700 !important;
+}
+
 
 /* Inner Ring Speed (12 seconds per orbit) */
 .animate-spin-slow {
@@ -3945,7 +3962,9 @@
   gap: 10px;
 }
 
-
+.footer-links{
+  font-weight: 400;
+}
 
 .footer-links h2,
 .footer-contact h2,
@@ -4690,6 +4709,7 @@
     height: 54px;
   }
 }
+
 
 .earn-form select {
  width: 100%;

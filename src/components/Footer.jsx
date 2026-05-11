@@ -100,9 +100,9 @@ function Footer() {
 
           <nav className="footer-links" aria-label="Footer navigation">
             <h2>Explore</h2>
-            <Link to="/services/bike"><b>Bike Rides</b></Link>
-            <Link to="/services/car"><b>Car Rides</b></Link>
-            <Link to="/services/parcel"><b>Parcel Delivery</b></Link>
+            <Link to="/services/bike">Bike Rides</Link>
+            <Link to="/services/car">Car Rides</Link>
+            <Link to="/services/parcel">Parcel Delivery</Link>
             <Link to="/services/food">Food Delivery</Link>
           </nav>
 
