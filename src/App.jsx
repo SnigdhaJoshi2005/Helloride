@@ -96,10 +96,18 @@ function App() {
           }
         />
 
-        <Route path="/help" element={<Help />} />
-        <Route path="/Help" element={<Help />} />
-        <Route path="/earn/bike" element={<EarnBike />} />
-        <Route path="/earn/car" element={<EarnCar />} />
+        <Route path="/help" element={<>
+        <Help />
+        <Footer /></>} />
+        <Route path="/Help" element={<>
+        <Help />
+        <Footer /></>} />
+        <Route path="/earn/bike" element={<>
+        <EarnBike />
+        <Footer /></>} />
+        <Route path="/earn/car" element={<>
+        <EarnCar />
+        <Footer /></>} />
         <Route path="/services/car" element={<CarRide />} />
         <Route path="/services/bike" element={<BikeRide />} />
         <Route path="/services/parcel" element={<Parcel />} />

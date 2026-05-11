@@ -126,6 +126,8 @@ function EarnBike() {
           </div>
         </section>
       </section>
+
+
     </main>
   );
 }
