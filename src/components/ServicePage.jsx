@@ -1,6 +1,7 @@
-import { useEffect, useRef, useState } from 'react'
-import Header from './Header'
-import ServiceIcon from './ServiceIcon'
+import { useEffect, useRef, useState } from 'react';
+import Header from './Header';
+import Footer from './Footer';
+import ServiceIcon from './ServiceIcon';
 
 function StatCard({ stat }) {
   return (
@@ -108,6 +109,7 @@ function ServicePage({ accent, background, title, intro, icon, features, image, 
           </div>
         </div>
       </section>
+      <Footer />
     </main>
   )
 }
