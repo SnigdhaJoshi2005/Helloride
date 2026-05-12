@@ -83,9 +83,9 @@ function App() {
                         <span className="blog-date">{post.date}</span>
                         <h3>{post.title}</h3>
                         <p>{post.excerpt}</p>
-                       <Link to={`/blog/${post.id}`} className="read-more-btn">
+                       {/* <Link to={`/blog/${post.id}`} className="read-more-btn">
   Read More
-</Link>
+</Link> */}
                       </div>
                     </article>
                   ))}
