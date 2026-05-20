@@ -3,11 +3,6 @@ import phoneMap from '../assets/phone-map.png';
 import StoreIcon from './StoreIcon';
 import { Link } from "react-router-dom";
 
-const closeNavigation = () => {
-    setOpenMenu(null);
-    setIsMobileNavOpen(false);
-  };
-
 function PhonePreview() {
   return (
     <section className="phone-preview">
@@ -37,25 +32,19 @@ function Home() {
             From quick rides to long journeys, we make getting around simple,
             flexible, and reliable.
           </p>
-          <br /><br /><br />
-          <Link className="earn-for-drivers" to="" onClick={closeNavigation}>
-          Download for drivers
-        </Link>
+          <Link className="earn-for-drivers" to="/earn/bike">
+            Download for drivers
+          </Link>
         </div>
 
-
-
-        <PhonePreview />
-        
+        <div className="hero-download-showcase">
+          <PhonePreview />
+          <div className="download-actions">
+            <StoreButton type="play" />
+            <StoreButton type="apple" />
+          </div>
+        </div>
       </section>
-
-      <div className="download-actions">
-        <StoreButton type="play" />
-        <StoreButton type="apple" />
-        
-      </div>
-
-      
     </main>
   );
 }
