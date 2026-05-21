@@ -75,10 +75,6 @@ function PackageJourney() {
                         })}
                     </div>
                 </div>
-
-                <p className="pj-status">
-                    Follow your parcel from pickup to drop-off.
-                </p>
             </div>
         </div>
     );

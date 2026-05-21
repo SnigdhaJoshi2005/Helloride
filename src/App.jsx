@@ -22,6 +22,8 @@ import CarRide from "./components/CarRide";
 import BikeRide from "./components/BikeRide";
 import Parcel from "./components/Parcel";
 import Food from "./components/Food";
+import Travel from "./components/Travel";
+import Hotel from "./components/Hotel";
 import OrbitingLogo from "./components/OrbitingLogo";
 import PackageJourney from "./components/PackageJourney";
 import Blog from "./components/Blog";
@@ -112,10 +114,14 @@ function App() {
         <Route path="/services/bike" element={<BikeRide />} />
         <Route path="/services/parcel" element={<Parcel />} />
         <Route path="/services/food" element={<Food />} />
+        <Route path="/services/travel" element={<Travel />} />
+        <Route path="/services/hotel" element={<Hotel />} />
         <Route path="/car-rides" element={<CarRide />} />
         <Route path="/bike-rides" element={<BikeRide />} />
         <Route path="/parcel" element={<Parcel />} />
         <Route path="/food" element={<Food />} />
+        <Route path="/travel" element={<Travel />} />
+        <Route path="/hotel" element={<Hotel />} />
         <Route path="/OrbitingLogo" element={<OrbitingLogo />} />
         <Route
           path="/Blog"

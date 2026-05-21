@@ -1,26 +1,20 @@
-function Motorbike() {
-  return (
-    <>
-      <circle cx="25" cy="64" r="10" />
-      <circle cx="66" cy="64" r="10" />
-      <path d="M25 64h12l9-13h17l3 13" />
-      <path d="M38 64h17" />
-      <path d="M35 52h19c8 0 15-5 18-12" />
-      <path d="M42 44h19" />
-      <path d="M45 35h13l7 9" />
-      <path d="M38 44l-9-11h-9" />
-      <path d="M61 35l7-10h9" />
-      <path d="M75 25l5 7" />
-      <path d="M70 43h10" />
-      <path d="M45 52v12" />
-      <path d="M55 52l-8 12" />
-      <path d="M16 54h12" />
-    </>
-  )
-}
-
 const icons = {
-  bike: <Motorbike />,
+  bike: (
+    <>
+      {/* Wheels */}
+      <circle cx="22" cy="62" r="10" />
+      <circle cx="66" cy="62" r="10" />
+      <path d="M22 62l18-28" />
+      <path d="M40 34l26 28" />
+      <path d="M40 34l10 28" />
+      <path d="M40 34l-8 0" />
+      <path d="M32 34l-10 28" />
+      <path d="M32 34l4-8" />
+      <path d="M34 26l8 0" />
+      <path d="M44 34l10-4" />
+      <path d="M34 46h16v10H34z" />
+    </>
+  ),
   car: (
     <>
       <path d="M14 53h60v13H14z" />
@@ -51,6 +45,32 @@ const icons = {
       <path d="M34 24l22 12" />
       <path d="M12 45h18" />
       <path d="M16 56h15" />
+    </>
+  ),
+  travel: (
+    <>
+      <circle cx="44" cy="44" r="29" />
+      <path d="M15 44h58" />
+      <path d="M44 15c-8 8-13 17-13 29s5 21 13 29" />
+      <path d="M44 15c8 8 13 17 13 29s-5 21-13 29" />
+      <path d="M22 29c12 5 32 5 44 0" />
+      <path d="M22 59c12-5 32-5 44 0" />
+      <path d="M22 74l14-15" />
+    </>
+  ),
+  hotel: (
+    <>
+      <path d="M17 74V23h30v51" />
+      <path d="M47 41h24v33" />
+      <path d="M24 33h7" />
+      <path d="M37 33h4" />
+      <path d="M24 46h7" />
+      <path d="M37 46h4" />
+      <path d="M24 59h7" />
+      <path d="M57 52h7" />
+      <path d="M57 64h7" />
+      <path d="M35 74V61h11v13" />
+      <path d="M13 74h62" />
     </>
   ),
   route: (

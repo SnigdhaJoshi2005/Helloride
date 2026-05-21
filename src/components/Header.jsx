@@ -28,6 +28,18 @@ const serviceItems = [
     path: "/services/parcel",
     icon: "parcel",
   },
+  {
+    title: "Travel",
+    desc: "Plan trips with ease.",
+    path: "/services/travel",
+    icon: "travel",
+  },
+  {
+    title: "Hotel",
+    desc: "Book comfortable stays.",
+    path: "/services/hotel",
+    icon: "hotel",
+  },
 ];
 
 const earnItems = [
