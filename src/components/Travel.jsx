@@ -1,3 +1,4 @@
+import { useEffect, useState } from "react";
 import ServicePage from "./ServicePage";
 import ServiceIcon from "./ServiceIcon";
 
@@ -13,6 +14,8 @@ const travelSteps = [
   { icon: "02", label: "Pick Your Ride", sub: "Bike, car, or group travel options in one place" },
   { icon: "03", label: "Travel Confidently", sub: "Track your route and get support whenever needed" },
 ];
+
+const stepDuration = 1500;
 
 function TravelPlanVisual() {
   return (
@@ -51,15 +54,29 @@ function TravelPlanVisual() {
 }
 
 function TravelSteps() {
+  const [activeStage, setActiveStage] = useState(0);
+  const isFinished = activeStage === travelSteps.length;
+  const progress = Math.min(activeStage, travelSteps.length - 1) / (travelSteps.length - 1);
+
+  useEffect(() => {
+    if (activeStage === travelSteps.length) return undefined;
+
+    const timer = window.setTimeout(() => {
+      setActiveStage((current) => current + 1);
+    }, stepDuration);
+
+    return () => window.clearTimeout(timer);
+  }, [activeStage]);
+
   return (
     <div className="service-custom-visual bike-ride-animation">
       <div
         className="pj-shell"
         aria-label="Travel booking features"
         style={{
-          "--pj-progress": 1,
+          "--pj-progress": progress,
           "--pj-step-count": travelSteps.length,
-          "--pj-step-duration": "1500ms",
+          "--pj-step-duration": `${stepDuration}ms`,
         }}
       >
         <div className="pj-topic">
@@ -72,24 +89,30 @@ function TravelSteps() {
           <span className="pj-progress-fill" aria-hidden="true" />
 
           <div className="pj-track">
-            {travelSteps.map((stage, i) => (
-              <div
-                key={stage.label}
-                className="pj-stage is-complete"
-                style={{ "--pj-delay": `${i * 0.2}s` }}
-              >
-                <div className="pj-dot-row">
-                  <div className="pj-icon-wrap">
-                    <span className="pj-ring" />
-                    <span className="pj-icon">{stage.icon}</span>
+            {travelSteps.map((stage, i) => {
+              const isActive = i === activeStage && !isFinished;
+              const isComplete = i < activeStage;
+
+              return (
+                <div
+                  key={stage.label}
+                  className={`pj-stage ${isActive ? "is-active" : ""} ${isComplete ? "is-complete" : ""}`}
+                  style={{ "--pj-delay": `${i * 0.2}s` }}
+                  aria-current={isActive ? "step" : undefined}
+                >
+                  <div className="pj-dot-row">
+                    <div className="pj-icon-wrap">
+                      <span className="pj-ring" />
+                      <span className="pj-icon">{stage.icon}</span>
+                    </div>
+                  </div>
+                  <div className="pj-text">
+                    <strong className="pj-label">{stage.label}</strong>
+                    <span className="pj-sub">{stage.sub}</span>
                   </div>
                 </div>
-                <div className="pj-text">
-                  <strong className="pj-label">{stage.label}</strong>
-                  <span className="pj-sub">{stage.sub}</span>
-                </div>
-              </div>
-            ))}
+              );
+            })}
           </div>
         </div>
       </div>
