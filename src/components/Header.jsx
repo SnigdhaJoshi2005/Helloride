@@ -134,7 +134,7 @@ function Header() {
                     <span className="dropdown-card-icon">
                       <DropdownIcon type={item.icon} />
                     </span>
-                    <strong>{item.title}</strong>
+                    {item.title}<br />
                     <small>{item.desc}</small>
                   </Link>
                 ))}

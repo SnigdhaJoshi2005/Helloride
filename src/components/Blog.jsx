@@ -49,18 +49,12 @@ export const blogPosts = [
   
 ];
 
-const Blog = ({ preview = false, showBackButton = false }) => {
+const Blog = ({ preview = false }) => {
   const visiblePosts = preview ? blogPosts.slice(0, 2) : blogPosts;
 
   return (
     <section className={`blog-section ${preview ? 'blog-section-preview' : ''}`}>
       <div className="blog-container">
-        {showBackButton && (
-          <Link className="blog-back-button" to="/">
-            Back
-          </Link>
-        )}
-
         <div className="blog-header-row">
           <div className="blog-header">
             <h2>Latest Updates</h2>

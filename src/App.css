@@ -118,7 +118,7 @@
   top: calc(100% + 17px);
   left: 50%;
   z-index: 2000;
-  width: min(380px, calc(100vw - 36px));
+  width: min(460px, calc(100vw - 36px));
   padding: 12px;
   border: 1px solid #ffe100;
   border-radius: 0;
@@ -128,7 +128,7 @@
 }
 
 .services-dropdown-menu {
-  width: min(380px, calc(100vw - 36px));
+  width: min(500px, calc(100vw - 36px));
 }
 
 .earn-dropdown-menu {
@@ -158,11 +158,10 @@
 .dropdown-card {
   display: grid;
   grid-template-columns: 42px 1fr;
-  grid-template-rows: auto auto;
   gap: 2px 10px;
   align-items: center;
-  min-height: 48px;
-  padding: 7px 10px;
+  min-height: 54px;
+  padding: 8px 12px;
   border: 1px solid #ffe100;
   border-radius: 4px;
   background: #fff;
@@ -175,8 +174,8 @@
 }
 
 .dropdown-card-icon {
-  grid-row: span 2;
   display: grid;
+  grid-row: span 2;
   place-items: center;
   width: 38px;
   height: 38px;
@@ -197,7 +196,7 @@
   align-self: end;
   color: #050505;
   font-size: 15px;
-  font-weight: 800;
+  font-weight: 900;
   line-height: 1;
 }
 
@@ -334,7 +333,6 @@
 }
 
 /* for increasing the font-weight in the footer-top */
-.footer-links a,
 .footer-contact a,
 .footer-contact span,
 .footer-contactus-block a {
@@ -360,10 +358,11 @@
 
 
 .dropdown-card small {
-  align-self: start;
+  align-self: center;
+  grid-column: 2;
   color: #050505;
-  font-size: 9px;
-  line-height: 1.2;
+  font-size: 11px;
+  line-height: 1.25;
 }
 
 .earn-option-list {
@@ -1686,13 +1685,7 @@
   display: grid;
   place-items: center;
   width: 100%;
-  min-height: 360px;
-  border: 1px solid rgb(255 225 0 / 70%);
-  border-radius: 22px;
-  background:
-    radial-gradient(circle at 50% 18%, rgb(255 225 0 / 32%), transparent 34%),
-    linear-gradient(180deg, #fff 0%, #fffbe4 100%);
-  overflow: hidden;
+  min-height: 420px;
 }
 
 .hotel-stay-scene::before {
@@ -2089,6 +2082,7 @@
   align-items: center;
   min-height: 112px;
   padding: 22px;
+  /* width: auto; */
   border: 1px solid #ffe100;
   border-radius: 14px;
   background: rgb(255 255 255 / 82%);
@@ -4132,7 +4126,7 @@
 
 .partner-section {
   margin-top: clamp(56px, 8vw, 96px);
-  min-height: 100vh;
+  min-height: 70vh;
   padding: 50px 0 0 0;
   overflow: hidden;
   background: #fff;
@@ -4294,8 +4288,7 @@
 .site-footer {
   background: #fdfbdf;
   border-top: 1px solid #e8e8e8;
-  padding: 34px var(--main-side-padding) 24px;
-  padding-top: 20px;
+  padding: 10px var(--main-side-padding) 8px;
   font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
   opacity: 0;
   transform: translateY(30px);
@@ -4314,22 +4307,16 @@
 
 .footer-top {
   display: grid;
-  padding-top: 30px;
-  grid-template-columns: minmax(150px, 1fr) minmax(140px, 1fr) minmax(190px, 1fr);
+  padding-top: 18px;
+  grid-template-columns: minmax(150px, 1fr) minmax(190px, 1fr);
   gap: clamp(22px, 4vw, 54px);
   align-items: start;
-  margin-bottom: 100px;
+  margin-bottom: 28px;
 }
 
 .footer-brand-block {
   justify-self: start;
   text-align: left;
-}
-
-.footer-links {
-  justify-self: end;
-  text-align: left;
-  
 }
 
 .footer-contactus-block {
@@ -4598,40 +4585,31 @@
   background: #1a1a1a;
 }
 
-.footer-links,
 .footer-contact,
 .footer-download-block {
   display: grid;
   align-content: start;
-  gap: 10px;
+  gap: 6px;
 }
 
-.footer-links{
-  font-weight: 400;
-}
-
-.footer-links h2,
 .footer-contact h2,
 .footer-download-block h2 {
-  margin: 0 0 5px;
+  margin: 0 0 3px;
   color: #050505;
-  font-size: 16px;
+  font-size: 14px;
   font-weight: 900;
   line-height: 1;
 }
 
-.footer-links a,
 .footer-contact a,
 .footer-contact span {
   color: #555;
-  font-size: 14px;
+  font-size: 13px;
   line-height: 1.2;
-    font-weight: 300;
-
+  font-weight: 300;
   text-decoration: none;
 }
 
-.footer-links a:hover,
 .footer-contact a:hover {
   color: #151515;
 }
@@ -4643,11 +4621,11 @@
 .footer-bottom {
   display: flex;
   justify-content: center;
-  padding-top: 16px;
-  border-top: 2px solid #282828;
+  padding-top: 8px;
+  border-top: 1px solid #282828;
   color: #000000;
-  font-size: 12px;
-  padding-bottom: 20px;
+  font-size: 11px;
+  padding-bottom: 6px;
 }
 
 @keyframes efvBarGrow {
@@ -4759,8 +4737,9 @@
 
 @media (max-width: 980px) {
   .footer-top {
-    grid-template-columns: repeat(2, minmax(0, 1fr));
-    margin-bottom: 60px;
+    grid-template-columns: 1fr;
+    gap: 20px;
+    margin-bottom: 24px;
   }
 
   .footer-contactus-block {
@@ -4918,10 +4897,6 @@
     height: 28px;
   }
 
-  .dropdown-card strong {
-    font-size: 15px;
-  }
-
   .dropdown-card small {
     font-size: 11px;
   }
@@ -5053,12 +5028,11 @@
   .footer-top {
     grid-template-columns: 1fr;
     gap: 26px;
-    margin-bottom: 36px;
+    margin-bottom: 20px;
     padding-top: 18px;
   }
 
   .footer-brand-block,
-  .footer-links,
   .footer-contactus-block,
   .footer-contact,
   .footer-download-block {
@@ -5924,12 +5898,11 @@ canvas {
   .help-contact-grid,
   .footer-top {
     grid-template-columns: 1fr;
-    margin-bottom: 36px;
+    margin-bottom: 20px;
     padding-top: 18px;
   }
 
   .footer-brand-block,
-  .footer-links,
   .footer-contactus-block,
   .footer-contact,
   .footer-download-block {
@@ -6032,7 +6005,7 @@ canvas {
   }
 
   .hotel-stay-scene {
-    min-height: 330px;
+    min-height: 380px;
   }
 
   .deck {

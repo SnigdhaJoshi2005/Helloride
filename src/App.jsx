@@ -24,7 +24,6 @@ import Parcel from "./components/Parcel";
 import Food from "./components/Food";
 import Travel from "./components/Travel";
 import Hotel from "./components/Hotel";
-import OrbitingLogo from "./components/OrbitingLogo";
 import PackageJourney from "./components/PackageJourney";
 import Blog from "./components/Blog";
 import Header from "./components/Header";
@@ -157,13 +156,13 @@ function App() {
         <Route path="/food" element={<Food />} />
         <Route path="/travel" element={<Travel />} />
         <Route path="/hotel" element={<Hotel />} />
-        <Route path="/OrbitingLogo" element={<OrbitingLogo />} />
+
         <Route
           path="/Blog"
           element={
             <>
               <Header />
-              <Blog showBackButton />
+              <Blog />
               <Footer />
             </>
           }

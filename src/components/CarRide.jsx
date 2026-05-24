@@ -1,6 +1,6 @@
 import ServicePage from "./ServicePage";
 import CarRideAnimation from "./CarRideAnimation";
-import carServiceImage from "../assets/Car illustration.png";
+import carServiceImage from "../assets/Car illustration.jpg";
 
 const carStats = [
   { icon: "bolt", value: "7 min", label: "Avg wait time", delay: "0ms", x: "-30px", y: "-20px" },

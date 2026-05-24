@@ -1,22 +1,12 @@
 import { useEffect, useRef, useState } from "react";
 import { Link } from "react-router-dom";
 import logo from "../assets/logoo.png";
-import StoreIcon from "./StoreIcon";
 
-function FooterDownload({ type }) {
-  return (
-    <a className="footer-download" href={`#download-${type}`}>
-      <StoreIcon type={type} />
-      <span>DOWNLOAD</span>
-    </a>
-  );
-}
 
 function SocialLink({ href, label, children }) {
   return (
     <a className="social-icon-wrap" href={href} aria-label={label}>
       <span className="social-icon-circle">{children}</span>
-      <span className="social-label">{label}</span>
     </a>
   );
 }
@@ -98,14 +88,6 @@ function Footer() {
             </div>
           </div>
 
-          <nav className="footer-links" aria-label="Footer navigation">
-            <h2>Explore</h2>
-            <Link to="/services/bike">Bike Rides</Link>
-            <Link to="/services/car">Car Rides</Link>
-            <Link to="/services/parcel">Parcel Delivery</Link>
-            <Link to="/services/food">Food Delivery</Link>
-          </nav>
-
           <address className="footer-contactus-block footer-contact">
             
             <h2>Contact Us</h2>
@@ -114,11 +96,6 @@ function Footer() {
               hello.ride7876@gmail.com
             </a>
             <span>Kathmandu, Nepal</span>
-            <h2>Download</h2>
-            <div className="footer-downloads" aria-label="Download HelloRide">
-              <FooterDownload type="play" />
-              <FooterDownload type="apple" />
-            </div>
           </address>
         </div>
 
