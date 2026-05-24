@@ -88,7 +88,6 @@ function App() {
       <ScrollToHash />
       <BackToTopButton />
       <Routes>
-        {/* HOME PAGE */}
         <Route
           path="/"
           element={
@@ -106,7 +105,6 @@ function App() {
                   View All Posts <span>→</span>
                 </Link>
 
-                {/* Container for the one-row blog display */}
                 <div className="blog-grid">
                   {blogPosts.slice(0, 3).map((post) => (
                     <article key={post.id} className="blog-card">
@@ -119,9 +117,6 @@ function App() {
                         <span className="blog-date">{post.date}</span>
                         <h3>{post.title}</h3>
                         <p>{post.excerpt}</p>
-                       {/* <Link to={`/blog/${post.id}`} className="read-more-btn">
-  Read More
-</Link> */}
                       </div>
                     </article>
                   ))}
@@ -177,8 +172,6 @@ function App() {
             </>
           }
         />
-        {/* <Route path="*" element={<Navigate to="/" replace />} /> */}
-
       </Routes>
     </Router>
   );

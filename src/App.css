@@ -200,161 +200,7 @@
   line-height: 1;
 }
 
-/* for rotating effect in the form section for home */
-.orbiting-logo {
-  position: relative;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  width: 100%;
-  margin-left: 50px;
-  min-height: 420px;
-  background: #fff;
-  margin-bottom: 50px;
-  /* overflow: hidden; */
-}
 
-.orbiting-logo-center {
-  position: absolute;
-  z-index: 30;
-  /* margin-left: 20px; */
-  display: grid;
-  place-items: center;
-  width: 124px;
-  height: 124px;
-  /* padding: 4px; */
-  border-radius: 30%;
-  background: #fff;
-  box-shadow: 0 20px 45px rgb(0 0 0 / 14%);
-}
-
-.orbiting-logo-center img {
-  display: block;
-  width: 100%;
-  height: 100%;
-  object-fit: contain;
-}
-
-.orbit-ring {
-  position: absolute;
-  border: 3px solid #dfdf1b;
-  border-radius: 50%;
-}
-
-.orbit-ring-inner {
-  z-index: 20;
-    border: 3px solid #dfdf1b;
-
-  width: 456px;
-  height: 456px;
-}
-
-.orbit-ring-outer {
-  z-index: 10;
-  width: min(340px, 76vw);
-  height: min(340px, 76vw);
-    border: 3px dashed #d3d359af;
-
-
-}
-
-/* .earn-form-section .home-form-orbit{
-  background-color: blue;
-} */
-.orbit-item {
-  position: absolute;
-  display: grid;
-  place-items: center;
-  width: 82px;
-  height: 82px;
-}
-
-.orbit-item img {
-  display: block;
-  width: 78px;
-  height: 78px;
-  object-fit: contain;
- border-radius: 60%;
-
-   box-shadow: 0 20px 45px rgb(0 0 0 / 14%);
-}
-
-.orbit-item-top {
-  top: 0;
-  left: 50%;
-  transform: translate(-50%, -50%);
-}
-
-.orbit-item-bottom {
-  bottom: 0;
-  left: 50%;
-  transform: translate(-50%, 50%);
-}
-
-.orbit-item-left {
-  top: 50%;
-  left: 0;
-  transform: translate(-50%, -50%);
-}
-
-.orbit-item-right {
-  top: 50%;
-  right: 0;
-  transform: translate(50%, -50%);
-}
-
-
-.home-form-orbit .earn-form-split {
-  align-items: center;
-  width: min(1120px, 100%);
-}
-
-.home-form-orbit .earn-form-stack {
-  margin-bottom: 0;
-}
-
-/* Rotate the Orbit Ring */
-@keyframes orbit-rotation {
-  from {  transform: rotate(360deg);  }
-  to { transform: rotate(0deg); }
-}
-
-@keyframes orbit-rotation-reverse {
-  from { transform: rotate(0deg); }
-  to { transform: rotate(360deg); }
-}
-@keyframes bike-counter-rotation {
-  from { transform: rotate(0deg); }
-  to { transform: rotate(-360deg); }
-}
-
-.animate-spin-reverse {
-  animation: orbit-rotation-reverse 20s linear infinite;
-}
-
-/* for increasing the font-weight in the footer-top */
-.footer-contact a,
-.footer-contact span,
-.footer-contactus-block a {
-  font-weight: 700 !important;
-}
-
-
-/* Inner Ring Speed (12 seconds per orbit) */
-.animate-spin-slow {
-  animation: orbit-rotation 12s linear infinite;
-}
-.animate-unspin-slow {
-  animation: bike-counter-rotation 12s linear infinite;
-}
-
-/* Outer Ring Speed (20 seconds per orbit) */
-.animate-spin-very-slow {
-  animation: orbit-rotation 20s linear infinite;
-}
-.animate-unspin-very-slow {
-  animation: bike-counter-rotation 20s linear infinite;
-}
 
 
 .dropdown-card small {
@@ -1317,7 +1163,14 @@
 }
 
 .parcel-service-page .service-layout {
-  gap: clamp(56px, 8vw, 118px);
+  grid-template-columns: minmax(420px, 0.78fr) minmax(560px, 1.22fr);
+  gap: clamp(36px, 5vw, 82px);
+}
+
+.parcel-service-page .service-visual,
+.parcel-service-page .service-visual-inner {
+  width: 100%;
+  overflow: visible;
 }
 
 .service-copy {
@@ -1702,8 +1555,8 @@
 
 .deck {
   position: relative;
-  width: min(100%, 430px);
-  height: 292px;
+  width: min(100%, 520px);
+  height: 360px;
   perspective: 1000px;
   transform-style: preserve-3d;
 }
@@ -1740,9 +1593,7 @@
   position: absolute;
   inset: 0;
   border-radius: 16px;
-  background:
-    linear-gradient(135deg, rgb(255 255 255 / 72%), transparent 42%),
-    repeating-linear-gradient(90deg, rgb(5 5 5 / 7%) 0 1px, transparent 1px 20px);
+  background: linear-gradient(180deg, transparent 0%, rgb(255 255 255 / 75%) 100%);
   pointer-events: none;
 }
 
@@ -1758,7 +1609,6 @@
   --card-y: 26px;
   --card-rotate: -16deg;
   --card-scale: 0.82;
-  background: #fff;
 }
 
 .deck .card.c2 {
@@ -1767,7 +1617,6 @@
   --card-y: 8px;
   --card-rotate: -8deg;
   --card-scale: 0.9;
-  background: #fff8bf;
 }
 
 .deck .card.c3 {
@@ -1776,7 +1625,6 @@
   --card-y: -8px;
   --card-rotate: 0deg;
   --card-scale: 1;
-  background: #ffe100;
 }
 
 .deck .card.c4 {
@@ -1785,7 +1633,6 @@
   --card-y: 8px;
   --card-rotate: 8deg;
   --card-scale: 0.9;
-  background: #fff;
 }
 
 .deck .card.c5 {
@@ -1794,8 +1641,6 @@
   --card-y: 26px;
   --card-rotate: 16deg;
   --card-scale: 0.82;
-  background: #050505;
-  color: #fff;
 }
 
 .stay-card-icon {
@@ -1805,14 +1650,10 @@
   place-items: center;
   width: 54px;
   height: 54px;
-  border: 2px solid currentColor;
+  border: 2px solid #ffe100;
   border-radius: 16px;
-  background: rgb(255 255 255 / 72%);
-}
-
-.deck .card.c5 .stay-card-icon {
-  background: #ffe100;
-  color: #050505;
+  background: rgb(255 225 0 / 20%);
+  color: #ffe100;
 }
 
 .stay-card-icon .service-icon-svg {
@@ -1829,17 +1670,13 @@
 
 .deck .card small {
   width: fit-content;
-  padding: 7px 10px;
+  padding: 7px 12px;
   border-radius: 999px;
-  background: rgb(255 255 255 / 70%);
-  color: inherit;
-  font-size: 12px;
+  background: #ffe100;
+  color: #050505;
+  font-size: 13px;
   font-weight: 900;
   line-height: 1;
-}
-
-.deck .card.c5 small {
-  background: rgb(255 225 0 / 18%);
 }
 
 .deck .card strong {
@@ -2082,7 +1919,6 @@
   align-items: center;
   min-height: 112px;
   padding: 22px;
-  /* width: auto; */
   border: 1px solid #ffe100;
   border-radius: 14px;
   background: rgb(255 255 255 / 82%);
@@ -2287,7 +2123,7 @@
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  justify-self: end;
+  justify-self: center;
   gap: 28px;
   width: min(100%, 420px);
   animation: fadeUp 760ms ease-out 650ms both;
@@ -2344,25 +2180,6 @@
   transform: translateY(-3px);
 }
 
-.play-icon {
-  width: 0;
-  height: 0;
-  border-top: 13px solid transparent;
-  border-bottom: 13px solid transparent;
-  border-left: 25px solid #fff;
-}
-
-.apple-icon {
-  display: grid;
-  place-items: center;
-  width: 32px;
-  height: 32px;
-  border-radius: 50%;
-  color: #000;
-  background: #fff;
-  font-size: 24px;
-  font-weight: 900;
-}
 
 .store-brand-icon {
   display: block;
@@ -2924,16 +2741,6 @@
   color: #aaa;
 }
 
-.delivery-wrapper {
-  position: relative;
-  width: 260px;
-  height: 260px;
-  margin: auto;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-
 .pj-shell {
   position: relative;
   --pj-icon-size: 54px;
@@ -3263,95 +3070,6 @@
   line-height: 1.3;
 }
 
-.pj-status {
-  position: relative;
-  z-index: 3;
-  margin: 0;
-  padding-left: calc(var(--pj-icon-size) + 16px);
-  color: #6b6500;
-  font-size: clamp(12px, 1.35vw, 14px);
-  font-weight: 800;
-  line-height: 1.35;
-  animation: pjStageIn 620ms cubic-bezier(0.2, 1.1, 0.4, 1) 520ms both;
-}
-
-/* center parcel */
-.parcel {
-  position: absolute;
-  font-size: 50px;
-  z-index: 2;
-}
-
-/* orbit circle */
-.orbit {
-  position: absolute;
-  width: 200px;
-  height: 200px;
-  border: 2px solid #ddd;
-  border-radius: 50%;
-  animation: rotateOrbit 6s linear infinite;
-}
-
-/* vehicles */
-.vehicle {
-  position: absolute;
-  font-size: 24px;
-}
-
-.bike {
-  top: -12px;
-  left: 50%;
-  transform: translateX(-50%);
-}
-
-.car {
-  bottom: -12px;
-  left: 50%;
-  transform: translateX(-50%);
-}
-
-.stopwatch {
-  position: relative;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-
-.stopwatch-orbit {
-  position: absolute;
-  width: 100%;
-  height: 100%;
-  top: 0;
-  left: 0;
-  pointer-events: none;
-}
-
-/* Each item rotates around the center using its index to offset start angle */
-.stopwatch-orbit-item {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  width: 0;
-  height: 0;
-  animation: orbitSpin 4s linear infinite;
-  animation-delay: calc(var(--orbit-index) * -1.33s);
-}
-
-.stopwatch-orbit-img {
-  position: absolute;
-  width: 52px;
-  height: 52px;
-  object-fit: contain;
-  /* offset from center — adjust to match your orbit radius */
-  transform: translate(-50%, calc(-50% - 160px));
-  filter: drop-shadow(0 4px 8px rgba(0, 0, 0, 0.15));
-}
-
-@keyframes orbitSpin {
-  from { transform: rotate(0deg); }
-  to   { transform: rotate(360deg); }
-}
-
 @keyframes efvBarGrow {
   to { width: 72%; }
 }
@@ -3453,24 +3171,6 @@
   color: #5c5100;
   font-size: 12px;
   font-weight: 700;
-}
-
-@keyframes rotateOrbit {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
-}
-
-@keyframes rotateRing {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
 }
 
 @keyframes pulse {
@@ -3585,6 +3285,14 @@
 
 .service-left-content {
   width: min(100%, 560px);
+}
+
+.parcel-3d-scene {
+  width: min(100%, 820px);
+  min-width: min(100%, 360px);
+  height: 640px;
+  border-radius: 20px;
+  overflow: visible;
 }
 
 /* Fix fp-shell getting squashed inside service-visual-inner */
@@ -4308,7 +4016,7 @@
 .footer-top {
   display: grid;
   padding-top: 18px;
-  grid-template-columns: minmax(150px, 1fr) minmax(190px, 1fr);
+  grid-template-columns: minmax(150px, 1fr) minmax(80px, 120px) minmax(220px, 1fr);
   gap: clamp(22px, 4vw, 54px);
   align-items: start;
   margin-bottom: 28px;
@@ -4319,10 +4027,21 @@
   text-align: left;
 }
 
+.footer-image-block {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.footer-image-block img {
+  max-width: 700%;
+  object-fit: contain;
+  opacity: 0.8;
+}
+
 .footer-contactus-block {
   justify-self: end;
   text-align: left;
-  margin-right: 90px;
 }
 
 .footer-brand-logo {
@@ -4388,212 +4107,13 @@
   stroke: currentColor;
 }
 
-.social-label {
-  font-size: 13px;
-  color: #555;
-  font-weight: 500;
-}
-
-.float-label {
-  position: relative;
-  display: block;
-}
- 
-.float-label input,
-.float-label textarea {
-  width: 100%;
-  border: 2px solid #e0e0e0;
-  border-radius: 8px;
-  background: #fff;
-  color: #151515;
-  font: inherit;
-  font-size: 16px;
-  outline: none;
-  padding: 22px 14px 8px;
-  transition: border-color 200ms ease;
-  font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
-}
-
-.float-label input {
-  height: 56px;
-}
-
-.float-label textarea {
-  min-height: 110px;
-  padding-top: 26px;
-  resize: vertical;
-}
-
-.float-label span {
-  position: absolute;
-  left: 14px;
-  top: 50%;
-  transform: translateY(-50%);
-  color: #999;
-  font-size: 16px;
-  pointer-events: none;
-  transition: top 180ms ease, font-size 180ms ease, color 180ms ease;
-}
-
-.float-label--textarea {
-  grid-column: 1 / -1;
-}
-
-.float-label--textarea span {
-  top: 20px;
-  transform: none;
-}
-
-.float-label input {
-  height: 56px;
-}
-
-.float-label textarea {
-  min-height: 110px;
-  padding-top: 26px;
-  resize: vertical;
-}
-
-.float-label input,
-.float-label textarea {
-  width: 100%;
-  border: 2px solid #e0e0e0;
-  border-radius: 8px;
-  background: #fff;
-  color: #151515;
-  font: inherit;
-  font-size: 16px;
-  outline: none;
-  padding: 22px 14px 8px;
-  transition: border-color 200ms ease;
-}
-
-.float-label input:focus,
-.float-label textarea:focus {
-  border-color: #ffe100;
-}
-
-.float-label input:focus~span,
-.float-label input:not(:placeholder-shown)~span,
-.float-label textarea:focus~span,
-.float-label textarea:not(:placeholder-shown)~span {
-  top: 10px;
-  font-size: 11px;
-  color: #f4c400;
-  transform: none;
-}
-
-.float-label--textarea input:focus~span,
-.float-label--textarea textarea:focus~span,
-.float-label--textarea textarea:not(:placeholder-shown)~span {
-  top: 8px;
-}
-
-.join-network-section {
-  display: grid;
-  grid-template-columns: minmax(220px, 0.8fr) minmax(320px, 1.2fr);
-  gap: clamp(24px, 5vw, 60px);
-  align-items: center;
-  width: min(1060px, calc(100% - 36px));
-  margin: -20px auto 56px;
-  padding: clamp(24px, 4vw, 38px);
-  border: 1px solid #ffe100;
-  border-radius: 8px;
-  background: #fffdf0;
-}
-
-.join-network-copy h2 {
-  margin: 0 0 12px;
-  color: #050505;
-  font-size: clamp(26px, 3vw, 34px);
-  font-weight: 900;
-  line-height: 1;
-}
-
-.join-network-copy p {
-  max-width: 360px;
-  margin: 0;
-  color: #4f4f4f;
-  font-size: clamp(15px, 1.7vw, 18px);
-  line-height: 1.25;
-}
-
-.join-network-form {
-  display: grid;
-  grid-template-columns: repeat(2, minmax(0, 1fr));
-  gap: 14px;
-}
-
-.join-network-form .float-label--textarea,
-.join-network-form button {
-  grid-column: 1 / -1;
-}
-
-.join-network-form input,
-.join-network-form textarea {
-  border-color: #ffe100;
-  background: #fff;
-}
-
-.join-network-form button {
-  justify-self: start;
-  min-height: 48px;
-  min-width: 176px;
-  border: 0;
-  border-radius: 7px;
-  background: #ffe100;
-  color: #050505;
-  font-size: 16px;
-  font-weight: 800;
-  cursor: pointer;
-  transition: transform 200ms ease, box-shadow 200ms ease;
-}
-
-.join-network-form button:hover {
-  transform: translateY(-2px);
-  box-shadow: 0 6px 16px rgb(255 196 0 / 35%);
-}
-
-.footer-downloads {
-  display: flex;
-  flex-direction: column;
-  align-items: flex-end;
-  gap: 12px;
-}
-
-.footer-download {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  gap: 15px;
-  min-width: 180px;
-  min-height: 48px;
-  padding: 0 22px;
-  border-radius: 4px;
-  color: #fff;
-  background: #000;
-  font-size: 16px;
-  font-weight: 900;
-  line-height: 1;
-  text-decoration: none;
-  transition: transform 200ms ease, box-shadow 200ms ease, background 200ms ease;
-}
-
-.footer-download:hover {
-  transform: translateY(-3px);
-  box-shadow: 0 8px 20px rgb(0 0 0 / 20%);
-  background: #1a1a1a;
-}
-
-.footer-contact,
-.footer-download-block {
+.footer-contact {
   display: grid;
   align-content: start;
   gap: 6px;
 }
 
-.footer-contact h2,
-.footer-download-block h2 {
+.footer-contact h2 {
   margin: 0 0 3px;
   color: #050505;
   font-size: 14px;
@@ -4749,21 +4269,6 @@
     text-align: center;
   }
 
-  .footer-downloads {
-    align-items: center;
-  }
-
-  .join-network-section {
-    grid-template-columns: 1fr;
-  }
-
-  .community-form-layout {
-    grid-template-columns: 1fr;
-  }
-
-  .community-tracker .pj-shell {
-    min-height: 520px;
-  }
 }
 
 @media (max-width: 820px) {
@@ -5033,9 +4538,9 @@
   }
 
   .footer-brand-block,
+  .footer-image-block,
   .footer-contactus-block,
-  .footer-contact,
-  .footer-download-block {
+  .footer-contact {
     justify-self: center;
     justify-items: center;
     text-align: center;
@@ -5046,28 +4551,8 @@
     margin-right: 0;
   }
 
-  .footer-downloads {
-    justify-content: center;
-    align-items: center;
-  }
-
   .footer-socials {
     justify-content: center;
-  }
-
-  .join-network-section {
-    width: calc(100% - 36px);
-    margin: 0 auto 42px;
-    padding: 24px 18px;
-    text-align: center;
-  }
-
-  .join-network-copy p {
-    margin: 0 auto;
-  }
-
-  .join-network-form {
-    grid-template-columns: 1fr;
   }
 
   .join-network-form button {
@@ -5586,13 +5071,6 @@ canvas {
     width: min(100%, 500px);
   }
 
-  .home-form-orbit .earn-form-split {
-    width: 100%;
-  }
-
-  .orbiting-logo {
-    margin-left: 0;
-  }
 }
 
 @media (max-width: 980px) {
@@ -5628,8 +5106,7 @@ canvas {
   }
 
   .service-layout,
-  .earn-hero,
-  .join-network-section {
+  .earn-hero {
     grid-template-columns: 1fr;
   }
 
@@ -5664,14 +5141,6 @@ canvas {
   .earn-form-split {
     grid-template-columns: 1fr;
     align-items: stretch;
-  }
-
-  .home-form-orbit .orbiting-logo {
-    order: -1;
-  }
-
-  .orbiting-logo {
-    min-height: 380px;
   }
 
   .footer-top {
@@ -5766,7 +5235,11 @@ canvas {
   }
 
   .footer-top {
-    grid-template-columns: repeat(2, minmax(0, 1fr));
+    grid-template-columns: 1fr;
+  }
+
+  .footer-image-block {
+    order: -1;
   }
 }
 
@@ -5889,12 +5362,6 @@ canvas {
     height: min(268px, 78vw);
   }
 
-  .stopwatch-orbit-img {
-    width: 42px;
-    height: 42px;
-    transform: translate(-50%, calc(-50% - 130px));
-  }
-
   .help-contact-grid,
   .footer-top {
     grid-template-columns: 1fr;
@@ -5903,9 +5370,9 @@ canvas {
   }
 
   .footer-brand-block,
+  .footer-image-block,
   .footer-contactus-block,
-  .footer-contact,
-  .footer-download-block {
+  .footer-contact {
     justify-self: center;
     justify-items: center;
     text-align: center;
@@ -5916,7 +5383,10 @@ canvas {
     margin-right: 0;
   }
 
-  .footer-downloads,
+  .footer-image-block {
+    order: -1;
+  }
+
   .footer-socials {
     align-items: center;
     justify-content: center;
@@ -5978,30 +5448,6 @@ canvas {
 
   .efv-step-connector {
     display: none;
-  }
-
-  .orbiting-logo {
-    min-height: 330px;
-  }
-
-  .orbiting-logo-center {
-    width: 104px;
-    height: 104px;
-  }
-
-  .orbit-ring-outer {
-    width: min(280px, 72vw);
-    height: min(280px, 72vw);
-  }
-
-  .orbit-item {
-    width: 58px;
-    height: 58px;
-  }
-
-  .orbit-item img {
-    width: 50px;
-    height: 50px;
   }
 
   .hotel-stay-scene {
@@ -6122,13 +5568,5 @@ canvas {
     padding: 16px 14px;
   }
 
-  .orbit-ring-outer {
-    width: min(252px, 70vw);
-    height: min(252px, 70vw);
-  }
-
-  .orbit-item img {
-    width: 44px;
-    height: 44px;
-  }
 }
+

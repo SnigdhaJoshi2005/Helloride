@@ -1,6 +1,7 @@
 import Header from "./Header";
 import Form from "./Form";
 import ServiceIcon from "./ServiceIcon";
+import car2Image from "../assets/Car2.png";
 
 const benefits = [
   { icon: "money", title: "Earn NPR 1500-3000/day", desc: "Higher earnings with premium car rides" },
@@ -37,21 +38,7 @@ function EarnCar() {
             <p>Join HelloRide as a car driver and start earning on your own schedule.</p>
           </div>
 
-          <div className="earn-illustration earn-car-illustration" aria-hidden="true">
-            <div className="earn-cloud earn-cloud-one" />
-            <div className="earn-cloud earn-cloud-two" />
-            <div className="earn-mountain earn-mountain-one" />
-            <div className="earn-mountain earn-mountain-two" />
-            <div className="earn-tree-row">
-              <span /><span /><span /><span />
-            </div>
-            <div className="earn-road earn-road-top" />
-            <div className="earn-road earn-road-bottom" />
-            <div className="earn-car-shape">
-              <span className="car-wheel car-wheel-left" />
-              <span className="car-wheel car-wheel-right" />
-            </div>
-          </div>
+          <img className="earn-bike2-image" src={car2Image} alt="" />
         </div>
 
         <section className="earn-requirements">

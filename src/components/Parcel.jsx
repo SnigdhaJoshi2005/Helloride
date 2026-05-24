@@ -1,6 +1,6 @@
 import ServicePage from "./ServicePage";
 import ParcelAnimation from "./ParcelAnimation";
-import PackageJourney from "./PackageJourney";
+import Parcel3DScene from "./Parcel3DScene";
 
 function Parcel() {
   return (
@@ -10,10 +10,11 @@ function Parcel() {
       title="Parcel Delivery"
       intro=""
       icon="parcel"
-      image={<PackageJourney />}
+      image={<Parcel3DScene />}
       stats={[]}
       leftContent={<ParcelAnimation />}
       features={[]}
+      pageClassName="parcel-service-page"
     />
   );
 }

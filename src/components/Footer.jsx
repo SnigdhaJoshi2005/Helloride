@@ -1,6 +1,7 @@
 import { useEffect, useRef, useState } from "react";
 import { Link } from "react-router-dom";
 import logo from "../assets/logoo.png";
+import footerImg from "../assets/Footer.png";
 
 
 function SocialLink({ href, label, children }) {
@@ -88,8 +89,11 @@ function Footer() {
             </div>
           </div>
 
+          <div className="footer-image-block">
+            <img src={footerImg} alt="HelloRide footer" />
+          </div>
+
           <address className="footer-contactus-block footer-contact">
-            
             <h2>Contact Us</h2>
             <a href="tel:+9779812345678">+977-9812345678</a>
             <a href="https://mail.google.com/mail/u/4/#inbox">

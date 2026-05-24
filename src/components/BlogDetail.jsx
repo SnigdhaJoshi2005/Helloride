@@ -16,12 +16,12 @@ const BlogDetail = () => {
             <div>
                 <Link to = "/blog" className="back-link"> ← Back to Blogs </Link>
 
-                <header className="detail-heade">
+                <header className="detail-header">
                     <span className="detail-category">{post.category}</span>
                     <h1>{post.title}</h1>
                     <p className="detail-date">Publish on {post.date}</p>
                 </header>
-                <img src={post.image} alt={post.title} className="detail-her-image" />
+                <img src={post.image} alt={post.title} className="detail-hero-image" />
 
                 <div className="detail-content">
                     <p className="lead-text">{post.excerpt}</p>

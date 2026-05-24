@@ -1,6 +1,11 @@
 import { useEffect, useState } from "react";
 import ServicePage from "./ServicePage";
 import ServiceIcon from "./ServiceIcon";
+import hotel1 from "../assets/hotel1.png";
+import hotel2 from "../assets/hotel2.png";
+import hotel3 from "../assets/hotel3.png";
+import hotel4 from "../assets/hotel4.png";
+import hotel5 from "../assets/hotel5.png";
 
 const hotelStats = [
   { icon: "star", value: "4.7", label: "Stay rating", delay: "0ms", x: "-30px", y: "-20px" },
@@ -16,6 +21,8 @@ const hotelSteps = [
 ];
 
 const stepDuration = 1500;
+
+const hotelImages = [hotel1, hotel2, hotel3, hotel4, hotel5];
 
 const stayCards = [
   { icon: "gps", title: "Near your route", meta: "1.8 km", detail: "Hotels close to your pickup and drop-off path" },
@@ -59,7 +66,12 @@ function HotelStayScene() {
             <article
               className={`card c${slot}`}
               key={card.title}
-              style={{ zIndex }}
+              style={{
+                zIndex,
+                backgroundImage: `url(${hotelImages[index]})`,
+                backgroundSize: "cover",
+                backgroundPosition: "center",
+              }}
             >
               <span className="stay-card-icon">
                 <ServiceIcon name={card.icon} />

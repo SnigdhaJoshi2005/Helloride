@@ -1,7 +1,10 @@
 import React from 'react';
 import Header from "./Header";
 import { Link } from 'react-router-dom';
-import './Blog.css'; 
+import './Blog.css';
+import b1 from "../assets/b1.png";
+import b2 from "../assets/b2.png";
+import b3 from "../assets/b3.png";
 
 export const blogPosts = [
   {
@@ -9,7 +12,7 @@ export const blogPosts = [
     title: "How HelloRide is Changing Kathmandu's Commute",
     category: "News",
     date: "May 10, 2026",
-    image: "https://images.unsplash.com/photo-1558981403-c5f9899a28bc?w=500",
+    image: b1,
     excerpt: "Traffic in Kathmandu is getting worse, but HelloRide is finding new ways to get you there faster..."
   },
   {
@@ -17,7 +20,7 @@ export const blogPosts = [
     title: "Safety First: 5 Tips for Every Ride",
     category: "Safety",
     date: "May 08, 2026",
-    image: "https://images.unsplash.com/photo-1444491741275-3747c53c99b4?w=500",
+    image: b2,
     excerpt: "From helmet checks to app features, here is how we ensure every trip is a safe trip."
   },
   {
@@ -25,28 +28,9 @@ export const blogPosts = [
     title: "Why Our Partners Love Driving with Us",
     category: "Partners",
     date: "May 05, 2026",
-    image: "https://images.unsplash.com/photo-1444491741275-3747c53c99b4?w=500",
+    image: b3,
     excerpt: "Flexible hours and better earnings. Hear from the people behind the handlebars."
   },
-   {
-    id: 4,
-    title: "Why Our Partners Love Driving with Us",
-    category: "Partners",
-    date: "May 05, 2026",
-    image: "https://images.unsplash.com/photo-1444491741275-3747c53c99b4?w=500",
-    excerpt: "Flexible hours and better earnings. Hear from the people behind the handlebars."
-  },
-  
-   {
-    id: 4,
-    title: "Why Our Partners Love Driving with Us",
-    category: "Partners",
-    date: "May 05, 2026",
-    image: "https://images.unsplash.com/photo-1444491741275-3747c53c99b4?w=500",
-    excerpt: "Flexible hours and better earnings. Hear from the people behind the handlebars."
-  },
-  
-  
 ];
 
 const Blog = ({ preview = false }) => {
@@ -79,9 +63,6 @@ const Blog = ({ preview = false }) => {
                 <span className="blog-date">{post.date}</span>
                 <h3>{post.title}</h3>
                 <p>{post.excerpt}</p>
-              {/* <Link to={`/blog/${post.id}`} className="read-more-btn">
-  Read More
-</Link> */}
               </div>
             </article>
           ))}
