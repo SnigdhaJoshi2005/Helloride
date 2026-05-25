@@ -36,12 +36,12 @@
 }
 
 .main-nav {
-  /* display: flex;
+  display: flex;
   align-items: center;
-  justify-content: flex-start; */
-  /* gap: clamp(18px, 3vw, 34px);
+  justify-content: flex-end;
+  gap: clamp(18px, 3vw, 34px);
   flex: 1 1 420px;
-  flex-wrap: wrap; */
+  flex-wrap: wrap; 
 }
 
 .menu-toggle {
@@ -4700,6 +4700,15 @@
 }
 
 @media (max-width: 560px) {
+
+.main-nav {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  gap: clamp(18px, 3vw, 34px);
+  flex: 1 1 420px;
+  flex-wrap: wrap; 
+}
   .service-page {
     padding: 14px 18px 58px;
   }

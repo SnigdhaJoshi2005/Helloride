@@ -115,8 +115,8 @@ function Header() {
         <span aria-hidden="true" />
       </button>
 
-      <nav className="main-nav" id="primary-navigation" aria-label="Primary navigation">
-        <Link to="/" onClick={closeNavigation}  style = {{width:"100%"}}>Home</Link>
+      <nav className="main-nav" id="primary-navigation" aria-label="Primary navigation"  >
+        <Link to="/" onClick={closeNavigation} >Home</Link>
 
         <div className="nav-dropdown nav-services-dropdown">
           <button
