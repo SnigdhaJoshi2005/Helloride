@@ -21,6 +21,7 @@ function BikeRide() {
       stats={bikeStats}
       leftContent={<BikeRideAnimation />}
       features={[]}
+      pageClassName="ride-service-page"
     />
   );
 }

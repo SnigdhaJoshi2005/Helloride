@@ -21,6 +21,7 @@ function CarRide() {
       stats={carStats}
       leftContent={<CarRideAnimation />}
       features={[]}
+      pageClassName="ride-service-page"
     />
   );
 }

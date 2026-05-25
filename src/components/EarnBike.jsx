@@ -22,10 +22,26 @@ const benefits = [
 ];
 
 const requirements = [
-  "Valid driver's license",
-  "Your own bike (any model)",
-  "Smartphone with internet",
-  "Age 18 or above",
+  {
+    desktop: "Valid driver's license",
+    title: "Valid License",
+    desc: "Drive legally with a government approved driver's license.",
+  },
+  {
+    desktop: "Your own bike (any model)",
+    title: "Personal Bike",
+    desc: "Use your own bike with any models.",
+  },
+  {
+    desktop: "Smartphone with internet",
+    title: "Smartphone Access",
+    desc: "Must have a Smartphone with internet access to it.",
+  },
+  {
+    desktop: "Age 18 or above",
+    title: "Age Requirement",
+    desc: "You must be at least 18 years old to join.",
+  },
 ];
 
 const steps = [
@@ -70,8 +86,13 @@ function EarnBike() {
         <section className="earn-requirements earn-bike-requirements">
           <h2>Requirements</h2>
           <div className="earn-requirement-list earn-requirement-list-bike">
-            {requirements.map((requirement) => (
-              <p key={requirement}>{requirement}</p>
+            {requirements.map((requirement, index) => (
+              <p key={requirement.title}>
+                <span className="desktop-requirement-text">{requirement.desktop}</span>
+                <span className="mobile-requirement-number">{String(index + 1).padStart(2, "0")}.</span>
+                <strong className="mobile-requirement-title">{requirement.title}</strong>
+                <small className="mobile-requirement-desc">{requirement.desc}</small>
+              </p>
             ))}
           </div>
         </section>

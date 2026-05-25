@@ -96,6 +96,10 @@ function App() {
               <HowItWorks />
               <Benefit />
               <Partner />
+              <section className="home-community-section">
+                <h2>Join Our Community</h2>
+                <Form />
+              </section>
 
               <section className="blog-home-section">
                 <h2 className="blog-home-section-heading">

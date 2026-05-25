@@ -2,6 +2,7 @@ import { useEffect, useRef, useState } from "react";
 import { Link } from "react-router-dom";
 import logo from "../assets/logoo.png";
 import ServiceIcon from "./ServiceIcon";
+import { IoIosArrowDown } from "react-icons/io";
 
 const serviceItems = [
   {
@@ -94,6 +95,10 @@ function Header() {
         <img src={logo} alt="HelloRide" />
       </Link>
 
+      <Link className="mobile-download-button" to="/earn/bike">
+        Download App
+      </Link>
+
       <button
         className="menu-toggle"
         type="button"
@@ -111,7 +116,7 @@ function Header() {
       </button>
 
       <nav className="main-nav" id="primary-navigation" aria-label="Primary navigation">
-        <Link to="/" onClick={closeNavigation}>Home</Link>
+        <Link to="/" onClick={closeNavigation}  style = {{width:"100%"}}>Home</Link>
 
         <div className="nav-dropdown nav-services-dropdown">
           <button
@@ -122,7 +127,7 @@ function Header() {
             onClick={() => toggleMenu("services")}
           >
             Services
-            <span aria-hidden="true">v</span>
+            <span aria-hidden="true"><IoIosArrowDown size={22} /></span>
           </button>
 
           {openMenu === "services" && (
@@ -152,7 +157,7 @@ function Header() {
             onClick={() => toggleMenu("earn")}
           >
             Earn with us
-            <span aria-hidden="true">v</span>
+            <span aria-hidden="true"><IoIosArrowDown size={22} /></span>
           </button>
 
           {openMenu === "earn" && (

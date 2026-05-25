@@ -1,9 +1,10 @@
 import { useEffect, useState } from "react";
+import ServiceIcon from "./ServiceIcon";
 
 const stages = [
-    { icon: "01", label: "Fastest Route", sub: "Beat traffic and reach faster" },
-    { icon: "02", label: "Most Affordable", sub: "Starting from NPR 50" },
-    { icon: "03", label: "Verified Riders", sub: "All riders are background-checked" },
+    { icon: "bolt", number: "01", label: "Faster Travel", sub: "We fine the best routes to get you here quicker." },
+    { icon: "money", number: "02", label: "Affordable Rides", sub: "Enjoy budget-friendly rides starting from NRP 50." },
+    { icon: "shield", number: "03", label: "Safe & Verified", sub: "All riders are background checked for your safety." },
 ];
 
 const stepDuration = 1500;
@@ -58,7 +59,10 @@ function BikeRideAnimation() {
                                     <div className="pj-dot-row">
                                         <div className="pj-icon-wrap">
                                             <span className="pj-ring" />
-                                            <span className="pj-icon">{stage.icon}</span>
+                                            <span className="pj-icon">
+                                                <span className="pj-step-number">{stage.number}</span>
+                                                <ServiceIcon name={stage.icon} />
+                                            </span>
                                         </div>
                                     </div>
 
@@ -71,6 +75,19 @@ function BikeRideAnimation() {
                         })}
                     </div>
                 </div>
+
+                <div className="ride-mobile-summary" aria-hidden="true">
+                    <div className="ride-mobile-map">
+                        <span>You</span>
+                        <span>Destination</span>
+                    </div>
+                    <dl>
+                        <div><dt>ETA</dt><dd>6 min</dd></div>
+                        <div><dt>Est. Fare</dt><dd>Rs 80</dd></div>
+                        <div><dt>Rider Rating</dt><dd>4.8 *</dd></div>
+                    </dl>
+                </div>
+                <button className="ride-mobile-book" type="button">Book Your Ride</button>
             </div>
         </div>
     );

@@ -105,7 +105,7 @@ function HotelSteps() {
   return (
     <div className="service-custom-visual bike-ride-animation">
       <div
-        className="pj-shell"
+        className="pj-shell hotel-pj-shell"
         aria-label="Hotel booking features"
         style={{
           "--pj-progress": progress,
@@ -113,11 +113,13 @@ function HotelSteps() {
           "--pj-step-duration": `${stepDuration}ms`,
         }}
       >
-        <div className="pj-topic">
-          <strong style={{ fontSize: "40px" }}>Hotel</strong>
-          <p>Find comfortable hotels, compare rooms, and connect your stay with HelloRide travel.</p>
+        <div className="pj-topic hotel-topic">
+          <strong className="pj-heading" style={{ fontSize: "40px" }}>Hotel</strong>
+          <p className="pj-text-row">Find comfortable hotels, compare rooms, and connect your stay with HelloRide travel.</p>
         </div>
-
+        <div className="pj-scene-row">
+          <HotelStayScene />
+        </div>
         <div className="pj-track-area">
           <span className="pj-progress-rail" aria-hidden="true" />
           <span className="pj-progress-fill" aria-hidden="true" />

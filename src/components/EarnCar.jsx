@@ -5,16 +5,43 @@ import car2Image from "../assets/Car2.png";
 
 const benefits = [
   { icon: "money", title: "Earn NPR 1500-3000/day", desc: "Higher earnings with premium car rides" },
-  { icon: "calendar", title: "Peak Hour Bonuses", desc: "Earn extra during rush hours" },
-  { icon: "star", title: "Monthly Incentives", desc: "Complete targets and earn rewards" },
+  {
+    icon: "calendar",
+    title: "Peak Hour Bonuses",
+    desc: "Earn extra during rush hours",
+    mobileTitle: "Flexible Schedule",
+    mobileDesc: "Work whenever you want, wherever you want.",
+  },
+  {
+    icon: "star",
+    title: "Monthly Incentives",
+    desc: "Complete targets and earn rewards",
+    mobileTitle: "Weekly Bonus",
+    mobileDesc: "Complete rides and earn extra amount and bonus.",
+  },
 ];
 
 const requirements = [
-  "Valid driver's license (4+ wheeler)",
-  "Registered car in good condition",
-  "Smartphone with internet",
-  "Age 21 or above",
-  "Clean driving record",
+  {
+    desktop: "Valid driver's license (4+ wheeler)",
+    title: "Valid License",
+    desc: "Driver must have a valid driver's license (4 wheeler)",
+  },
+  {
+    desktop: "Registered car in good condition",
+    title: "Personal Car",
+    desc: "You must have registered car in a good condition.",
+  },
+  {
+    desktop: "Smartphone with internet",
+    title: "Smartphone Access",
+    desc: "Must have a Smartphone with internet access to it.",
+  },
+  {
+    desktop: "Age 21 or above",
+    title: "Age Requirement",
+    desc: "You must be at least 21 years old or above to join.",
+  },
 ];
 
 const steps = [
@@ -44,7 +71,14 @@ function EarnCar() {
         <section className="earn-requirements">
           <h2>Requirements</h2>
           <div className="earn-requirement-list earn-requirement-list-car">
-            {requirements.map((req) => <p key={req}>{req}</p>)}
+            {requirements.map((req, index) => (
+              <p key={req.title}>
+                <span className="desktop-requirement-text">{req.desktop}</span>
+                <span className="mobile-requirement-number">{String(index + 1).padStart(2, "0")}.</span>
+                <strong className="mobile-requirement-title">{req.title}</strong>
+                <small className="mobile-requirement-desc">{req.desc}</small>
+              </p>
+            ))}
           </div>
         </section>
 
@@ -54,8 +88,14 @@ function EarnCar() {
               <span aria-hidden="true">
                 <ServiceIcon name={benefit.icon} />
               </span>
-              <h3>{benefit.title}</h3>
-              <p>{benefit.desc}</p>
+              <h3>
+                <span className="desktop-benefit-text">{benefit.title}</span>
+                <span className="mobile-benefit-text">{benefit.mobileTitle || benefit.title}</span>
+              </h3>
+              <p>
+                <span className="desktop-benefit-text">{benefit.desc}</span>
+                <span className="mobile-benefit-text">{benefit.mobileDesc || benefit.desc}</span>
+              </p>
             </article>
           ))}
         </section>

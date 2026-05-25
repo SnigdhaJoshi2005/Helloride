@@ -1,10 +1,29 @@
 import { useState } from "react";
 import Header from "./Header";
+import helpHero from "../assets/ats.png";
 
 const contactCards = [
-  { title: "Live chat", desc: "Chat with our support team", icon: "CHAT" },
-  { title: "Call us", desc: "+977-9812345678", icon: "CALL" },
-  { title: "Email", desc: "support@helloride.com", icon: "MAIL" },
+  {
+    title: "Live chat",
+    desc: "Chat with our support team",
+    mobileTitle: "Live Chat",
+    mobileDesc: "Chat with our support team in real time.",
+    icon: "CHAT",
+  },
+  {
+    title: "Call us",
+    desc: "+977-9812345678",
+    mobileTitle: "Call Us",
+    mobileDesc: "Talk to our support team anytime.",
+    icon: "CALL",
+  },
+  {
+    title: "Email",
+    desc: "support@helloride.com",
+    mobileTitle: "Email",
+    mobileDesc: "Send us an email and we'll get back to you.",
+    icon: "MAIL",
+  },
 ];
 
 const faqs = [
@@ -46,15 +65,30 @@ function Help() {
       <Header />
 
       <section className="help-content">
-        <h1>Help Center</h1>
+        <div className="help-mobile-hero">
+          <div>
+            <h1>Help Center</h1>
+            <p>We're here to help you whenever you need us.</p>
+            <span>24/7 Support</span>
+          </div>
+          <img src={helpHero} alt="" />
+        </div>
+
+        <h1 className="help-desktop-title">Help Center</h1>
 
         <div className="help-contact-grid">
           {contactCards.map((card) => (
             <article className="help-contact-card" key={card.title}>
               <span aria-hidden="true">{card.icon}</span>
               <div>
-                <h2>{card.title}</h2>
-                <p>{card.desc}</p>
+                <h2>
+                  <span className="desktop-help-text">{card.title}</span>
+                  <span className="mobile-help-text">{card.mobileTitle}</span>
+                </h2>
+                <p>
+                  <span className="desktop-help-text">{card.desc}</span>
+                  <span className="mobile-help-text">{card.mobileDesc}</span>
+                </p>
               </div>
             </article>
           ))}
