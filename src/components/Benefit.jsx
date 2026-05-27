@@ -1,4 +1,5 @@
-import { useEffect, useRef, useState } from 'react'
+import { useRef } from 'react'
+import { motion, useInView } from 'framer-motion'
 
 const benefits = [
   {
@@ -35,45 +36,48 @@ const benefits = [
 
 const benefitPath =
   'M82 66 C82 180 478 190 478 280 C478 370 82 460 82 540 C82 640 478 650 478 740 C478 820 82 900 82 990 C82 1060 478 1100 478 1180'
+
+const cardVariants = {
+  hidden: { opacity: 0, y: 60 },
+  visible: (i) => ({
+    opacity: 1,
+    y: 0,
+    transition: {
+      delay: i * 0.15,
+      duration: 0.6,
+      ease: [0.22, 1, 0.36, 1],
+    },
+  }),
+}
+
 function BenefitCard({ benefit, index }) {
   return (
-    <article className={`benefit-card benefit-card-${index + 1}`}>
+    <motion.article
+      className={`benefit-card benefit-card-${index + 1}`}
+      custom={index}
+      initial="hidden"
+      whileInView="visible"
+      viewport={{ once: true, amount: 0.2 }}
+      variants={cardVariants}
+    >
       <span>{benefit.number}</span>
       <div>
         <h3>{benefit.title}</h3>
         <p>{benefit.text}</p>
       </div>
-    </article>
+    </motion.article>
   )
 }
 
 function Benefit() {
   const sectionRef = useRef(null)
-  const [isVisible, setIsVisible] = useState(false)
-
-  useEffect(() => {
-    const observer = new IntersectionObserver(
-      ([entry]) => {
-        if (entry.isIntersecting) {
-          setIsVisible(true)
-          observer.disconnect()
-        }
-      },
-      { threshold: 0.18 },
-    )
-
-    if (sectionRef.current) {
-      observer.observe(sectionRef.current)
-    }
-
-    return () => observer.disconnect()
-  }, [])
+  const isInView = useInView(sectionRef, { once: true, amount: 0.18 })
 
   return (
     <section
       id="benefits"
       ref={sectionRef}
-      className={`benefit-section ${isVisible ? 'is-visible' : ''}`}
+      className={`benefit-section ${isInView ? 'is-visible' : ''}`}
     >
       <h2>
         HELLO<span>RIDE</span> BENEFITS
