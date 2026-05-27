@@ -1,10 +1,32 @@
 import { useEffect, useState } from "react";
+import RideMobileSummary from "./RideMobileSummary";
 import ServiceIcon from "./ServiceIcon";
 
 const stages = [
-    { icon: "bolt", number: "01", label: "Faster Travel", sub: "We fine the best routes to get you here quicker." },
-    { icon: "money", number: "02", label: "Affordable Rides", sub: "Enjoy budget-friendly rides starting from NRP 50." },
-    { icon: "shield", number: "03", label: "Safe & Verified", sub: "All riders are background checked for your safety." },
+    {
+        icon: "bolt",
+        number: "01",
+        label: "Faster Travel",
+        sub: "We fine the best routes to get you here quicker.",
+        mobileLabel: "Faster Travel",
+        mobileSub: "We fine the best routes to get you here quicker.",
+    },
+    {
+        icon: "money",
+        number: "02",
+        label: "Affordable Rides",
+        sub: "Enjoy budget-friendly rides starting from NRP 50.",
+        mobileLabel: "Affordable Rides",
+        mobileSub: "Enjoy budget-friendly rides starting from NRP 50.",
+    },
+    {
+        icon: "shield",
+        number: "03",
+        label: "Safe & Verified",
+        sub: "All riders are background checked for your safety.",
+        mobileLabel: "Safe & Verified",
+        mobileSub: "All riders are background checked for your safety.",
+    },
 ];
 
 const stepDuration = 1500;
@@ -36,7 +58,7 @@ function BikeRideAnimation() {
                 }}
             >
                 <div className="pj-topic">
-                    <strong style={{ fontSize: "40px" }}>Bike ride</strong>
+                    <p style={{ fontSize: "40px", fontWeight: "30px" }}>Bike Ride</p>
                     <p>Quick, affordable, and eco-friendly bike rides for navigating through traffic with ease.</p>
                 </div>
 
@@ -67,8 +89,14 @@ function BikeRideAnimation() {
                                     </div>
 
                                     <div className="pj-text">
-                                        <strong className="pj-label">{stage.label}</strong>
-                                        <span className="pj-sub">{stage.sub}</span>
+                                        <strong className="pj-label">
+                                            <span className="desktop-ride-text">{stage.label}</span>
+                                            <span className="mobile-ride-text">{stage.mobileLabel || stage.label}</span>
+                                        </strong>
+                                        <span className="pj-sub">
+                                            <span className="desktop-ride-text">{stage.sub}</span>
+                                            <span className="mobile-ride-text">{stage.mobileSub || stage.sub}</span>
+                                        </span>
                                     </div>
                                 </div>
                             );
@@ -76,17 +104,7 @@ function BikeRideAnimation() {
                     </div>
                 </div>
 
-                <div className="ride-mobile-summary" aria-hidden="true">
-                    <div className="ride-mobile-map">
-                        <span>You</span>
-                        <span>Destination</span>
-                    </div>
-                    <dl>
-                        <div><dt>ETA</dt><dd>6 min</dd></div>
-                        <div><dt>Est. Fare</dt><dd>Rs 80</dd></div>
-                        <div><dt>Rider Rating</dt><dd>4.8 *</dd></div>
-                    </dl>
-                </div>
+                <RideMobileSummary />
                 <button className="ride-mobile-book" type="button">Book Your Ride</button>
             </div>
         </div>

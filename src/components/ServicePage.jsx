@@ -17,8 +17,14 @@ function StatCard({ stat }) {
         <ServiceIcon name={stat.icon} />
       </span>
       <div>
-        <strong>{stat.value}</strong>
-        <p>{stat.label}</p>
+        <strong>
+          <span className="desktop-stat-text">{stat.value}</span>
+          <span className="mobile-stat-text">{stat.mobileValue || stat.value}</span>
+        </strong>
+        <p>
+          <span className="desktop-stat-text">{stat.label}</span>
+          <span className="mobile-stat-text">{stat.mobileLabel || stat.label}</span>
+        </p>
       </div>
     </div>
   )
@@ -65,6 +71,17 @@ function ServicePage({ accent, background, title, intro, icon, features, image, 
           <div className="service-copy">
             {leftContent ? (
               <div className="service-left-content">
+                <div className="ride-mobile-heading">
+                  <div className="service-title-row">
+                    <span className="service-title-icon" aria-hidden="true">
+                      <ServiceIcon name={icon} />
+                    </span>
+                    <h1>{title}</h1>
+                  </div>
+
+                  {intro && <p className="service-intro">{intro}</p>}
+                </div>
+
                 {leftContent}
               </div>
             ) : (
