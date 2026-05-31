@@ -1,3 +1,4 @@
+import { useEffect, useRef, useState } from "react"
 import atsLogo from "../assets/ats.png"
 import attLogo from "../assets/att.jpeg"
 import bthLogo from "../assets/bth.jpg"
@@ -25,8 +26,26 @@ function PartnerRow({ direction }) {
 }
 
 function Partner() {
+  const sectionRef = useRef(null)
+  const [isVisible, setIsVisible] = useState(false)
+
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting) {
+          setIsVisible(true)
+          observer.disconnect()
+        }
+      },
+      { threshold: 0.2 },
+    )
+
+    if (sectionRef.current) observer.observe(sectionRef.current)
+    return () => observer.disconnect()
+  }, [])
+
   return (
-    <section className="partner-section" id="partners">
+    <section ref={sectionRef} className={`partner-section ${isVisible ? 'is-visible' : ''}`} id="partners">
       <div className="partner-intro">
         <h2>Our Partners</h2>
         <p>Driving growth through trusted ride partnerships</p>

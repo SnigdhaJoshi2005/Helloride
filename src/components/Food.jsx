@@ -13,6 +13,7 @@ function Food() {
       image={<Stopwatch />}
       stats={[]}
       leftContent={<FoodAnimation />}
+      pageClassName="ride-service-page food-service-page"
       features={[]}
     />
   );
