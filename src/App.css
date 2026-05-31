@@ -3402,13 +3402,22 @@
   width: min(100%, 560px);
 }
 
-.parcel-3d-scene {
-  width: min(100%, 820px);
-  min-width: min(100%, 360px);
-  height: 640px;
-  border-radius: 20px;
-  overflow: visible;
-}
+  .parcel-3d-scene {
+    width: min(100%, 820px);
+    min-width: min(100%, 360px);
+    height: 640px;
+    border-radius: 20px;
+    overflow: visible;
+  }
+
+  @media (max-width: 560px) {
+    .parcel-3d-scene {
+      height: 280px;
+      width: 100%;
+      min-width: 0;
+      border-radius: 12px;
+    }
+  }
 
 /* Fix fp-shell getting squashed inside service-visual-inner */
 .service-visual-inner .fp-shell {
@@ -5519,7 +5528,7 @@ canvas {
   }
 
   .brand-logo {
-    width: 112px;
+    width: 72px;
   }
 
   .mobile-download-button {
@@ -5528,14 +5537,13 @@ canvas {
     justify-content: center;
     min-height: 28px;
     padding: 0 14px;
-    border-radius: 999px;
+    border-radius: 6px;
     background: #ffe100;
     color: #050505;
     font-size: 14px;
-    font-weight: 800;
     line-height: 1;
     text-decoration: none;
-    box-shadow: 0 4px 12px rgb(0 0 0 / 22%);
+    box-shadow: 0 2px 6px rgb(0 0 0 / 14%);
     white-space: nowrap;
   }
 
@@ -5621,6 +5629,7 @@ canvas {
     margin: 6px auto 0;
     background: url("./assets/phone-home.png") center bottom / contain no-repeat;
     opacity: 0.95;
+    animation: fadeInRight 600ms ease-out both;
   }
 
   .how-section {
@@ -5744,10 +5753,7 @@ canvas {
     line-height: 1.1;
   }
 
-  .is-visible .step-card {
-    animation: none !important;
-    opacity: 1;
-  }
+
 
   .step-card-1,
   .step-card-2,
@@ -6512,8 +6518,93 @@ canvas {
 }
 
 @media (max-width: 560px) {
+  .parcel-service-page .service-page {
+    padding: 28px 22px 48px;
+  }
+
+  .parcel-service-page .service-layout {
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+  }
+
+  .parcel-service-page .service-copy {
+    order: 2;
+  }
+
+  .parcel-service-page .service-visual {
+    order: 1;
+  }
+
+  .parcel-service-page .service-left-content {
+    display: grid;
+    gap: 0;
+  }
+
+  .parcel-service-page .ride-mobile-heading {
+    margin-bottom: 0;
+  }
+
+  .parcel-service-page .pj-shell {
+    padding: 0;
+    border: 0;
+    background: transparent;
+    box-shadow: none;
+    min-height: 0;
+  }
+
+  .parcel-service-page .pj-topic {
+    padding: 0;
+  }
+
+  .parcel-service-page .pj-topic p {
+    display: block;
+    font-size: 15px;
+    line-height: 1.4;
+  }
+
+  .parcel-service-page .pj-track-area {
+    min-height: 0;
+  }
+
+  .parcel-service-page .pj-stage {
+    min-height: 56px;
+    padding: 10px 10px 10px 0;
+  }
+
+  .parcel-service-page .pj-progress-rail,
+  .parcel-service-page .pj-progress-fill,
+  .parcel-service-page .pj-track-area::before {
+    display: none;
+  }
+
   .ride-service-page .service-page {
     padding: 28px 22px 48px;
+  }
+
+  .ride-service-page .service-layout {
+    display: block;
+  }
+
+  .ride-service-page .service-visual,
+  .ride-service-page .service-visual-inner,
+  .ride-service-page .service-visual-inner img,
+  .ride-service-page .stat-card {
+    display: none;
+  }
+
+  .ride-service-page .pj-shell {
+    display: grid;
+    width: 100%;
+    gap: 28px;
+  }
+
+  .ride-service-page .pj-topic {
+    margin: 0;
+  }
+
+  .ride-service-page .pj-topic p {
+    display: none;
   }
 
   .ride-service-page .service-layout {
@@ -7054,10 +7145,32 @@ canvas {
     border-radius: 5px;
     background: #fff;
     text-align: left;
-    box-shadow: none;
-    opacity: 1;
-    transform: none;
-    animation: none;
+    box-shadow: 0 6px 16px rgb(35 31 0 / 6%);
+    opacity: 0;
+    transform: translateY(16px);
+    animation: helpFadeUp 500ms ease-out forwards;
+    transition:
+      transform 200ms ease,
+      box-shadow 200ms ease,
+      border-color 200ms ease;
+  }
+
+  .help-contact-card:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 12px 28px rgb(35 31 0 / 10%);
+    border-color: #ffb800;
+  }
+
+  .help-contact-card:nth-child(1) {
+    animation-delay: 80ms;
+  }
+
+  .help-contact-card:nth-child(2) {
+    animation-delay: 160ms;
+  }
+
+  .help-contact-card:nth-child(3) {
+    animation-delay: 240ms;
   }
 
 .help-contact-card > span {
@@ -7071,6 +7184,15 @@ canvas {
   font-size: 26px;
   box-shadow: 0 10px 20px rgb(255 184 0 / 22%);
   animation: helpIconPulse 3.8s ease-in-out infinite;
+}
+
+@media (max-width: 560px) {
+  .help-contact-card > span {
+    width: 38px;
+    height: 38px;
+    font-size: 18px;
+    box-shadow: 0 4px 10px rgb(255 184 0 / 20%);
+  }
 }
 
   .help-contact-card > span svg {
@@ -7466,6 +7588,24 @@ canvas {
     color: #050505;
     font-size: 11px;
     font-weight: 900;
+  }
+
+  .food-service-page .pj-track-area::before {
+    display: none;
+  }
+
+  .food-service-page .pj-stage::after {
+    display: none;
+  }
+
+  .food-service-page .pj-dot-row,
+  .food-service-page .pj-icon-wrap,
+  .food-service-page .pj-icon {
+    display: none;
+  }
+
+  .food-service-page .pj-stage {
+    grid-template-columns: 1fr;
   }
 
   .ride-service-page .pj-track {
@@ -8385,6 +8525,250 @@ canvas {
     color: #050505;
     font-size: 10px;
     font-weight: 900;
+  }
+}
+
+@keyframes fadeInRight {
+  from {
+    opacity: 0;
+    transform: translateX(40px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes mobileFadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@media (max-width: 560px) {
+  .hero-section,
+  .benefit-section,
+  .service-page,
+  .help-content,
+  .help-faq-heading,
+  .help-faq-item,
+  .blog-section {
+    opacity: 0;
+    animation: mobileFadeIn 500ms ease-out forwards;
+  }
+
+  .service-feature-card {
+    opacity: 0;
+    animation: mobileFadeIn 400ms ease-out forwards;
+  }
+
+  .benefit-card {
+    opacity: 0;
+    animation: mobileFadeIn 400ms ease-out forwards;
+  }
+
+  .how-section.is-visible {
+    opacity: 0;
+    animation: mobileFadeIn 500ms ease-out forwards;
+  }
+
+  .how-section.is-visible .step-content {
+    opacity: 0;
+    animation: mobileFadeIn 400ms ease-out forwards;
+  }
+
+  .partner-section.is-visible .partner-intro {
+    opacity: 0;
+    animation: mobileFadeIn 500ms ease-out forwards;
+  }
+
+  .partner-section.is-visible .partner-marquees {
+    opacity: 0;
+    animation: mobileFadeIn 600ms ease-out forwards;
+  }
+
+  .home-community-section.is-visible {
+    opacity: 0;
+    animation: mobileFadeIn 500ms ease-out forwards;
+  }
+
+  /* Remove the animation-none override to allow step-card animations on mobile */
+  .is-visible .step-card {
+    opacity: 1;
+  }
+
+  .service-feature-card:nth-child(1),
+  .benefit-card:nth-child(1) { animation-delay: 80ms; }
+  .service-feature-card:nth-child(2),
+  .benefit-card:nth-child(2) { animation-delay: 160ms; }
+  .service-feature-card:nth-child(3),
+  .benefit-card:nth-child(3) { animation-delay: 240ms; }
+  .benefit-card:nth-child(4) { animation-delay: 320ms; }
+}
+
+@media (max-width: 560px) {
+  .bike-service-page .service-page,
+  .car-service-page .service-page,
+  .food-service-page .service-page {
+    width: 100vw;
+    max-width: 100vw;
+    min-height: auto;
+    padding: 16px 10px 46px;
+    overflow: hidden;
+  }
+
+  .bike-service-page .service-layout,
+  .car-service-page .service-layout,
+  .food-service-page .service-layout,
+  .bike-service-page .service-custom-visual,
+  .car-service-page .service-custom-visual,
+  .food-service-page .service-custom-visual,
+  .bike-service-page .bike-ride-animation,
+  .car-service-page .bike-ride-animation,
+  .food-service-page .bike-ride-animation,
+  .bike-service-page .pj-shell,
+  .car-service-page .pj-shell,
+  .food-service-page .pj-shell,
+  .bike-service-page .pj-track-area,
+  .car-service-page .pj-track-area,
+  .food-service-page .pj-track-area,
+  .bike-service-page .pj-track,
+  .car-service-page .pj-track,
+  .food-service-page .pj-track {
+    width: 100%;
+    max-width: 100%;
+    min-width: 0;
+  }
+
+  .bike-service-page .service-page,
+  .car-service-page .service-page,
+  .food-service-page .service-page {
+    opacity: 1;
+    transform: none;
+    animation: none;
+  }
+
+  .food-service-page .service-visual,
+  .food-service-page .service-visual-inner {
+    display: contents;
+  }
+
+  .food-service-page .sw-shell {
+    order: 1;
+    width: 300px;
+    max-width: 100%;
+    margin: 0 auto -86px;
+    transform: scale(0.68);
+    transform-origin: top center;
+  }
+
+  .food-service-page .ride-mobile-heading {
+    order: 2;
+  }
+
+  .food-service-page .service-custom-visual,
+  .food-service-page .bike-ride-animation,
+  .food-service-page .pj-shell {
+    order: 3;
+  }
+
+  .bike-service-page .ride-mobile-heading,
+  .car-service-page .ride-mobile-heading,
+  .food-service-page .ride-mobile-heading {
+    margin-bottom: 18px;
+  }
+
+  .bike-service-page .ride-mobile-heading .service-title-icon,
+  .car-service-page .ride-mobile-heading .service-title-icon,
+  .food-service-page .ride-mobile-heading .service-title-icon,
+  .bike-service-page .pj-track-area::before,
+  .car-service-page .pj-track-area::before,
+  .food-service-page .pj-track-area::before {
+    display: none;
+    content: none;
+  }
+
+  .bike-service-page .service-visual-inner img,
+  .car-service-page .service-visual-inner img {
+    width: min(100%, 270px);
+    max-height: 150px;
+    margin: 0 auto 24px;
+  }
+
+  .bike-service-page .stat-card,
+  .bike-service-page .stat-card:nth-child(2),
+  .bike-service-page .stat-card:nth-child(3),
+  .bike-service-page .stat-card:nth-child(4),
+  .bike-service-page .stat-card:nth-child(5),
+  .car-service-page .stat-card,
+  .car-service-page .stat-card:nth-child(2),
+  .car-service-page .stat-card:nth-child(3),
+  .car-service-page .stat-card:nth-child(4),
+  .car-service-page .stat-card:nth-child(5) {
+    width: 100%;
+    max-width: 100%;
+  }
+
+  .bike-service-page .pj-track,
+  .car-service-page .pj-track,
+  .food-service-page .pj-track {
+    margin: 0;
+    gap: 14px;
+  }
+
+  .bike-service-page .pj-stage,
+  .bike-service-page .pj-stage.is-active,
+  .bike-service-page .pj-stage.is-complete,
+  .car-service-page .pj-stage,
+  .car-service-page .pj-stage.is-active,
+  .car-service-page .pj-stage.is-complete,
+  .food-service-page .pj-stage,
+  .food-service-page .pj-stage.is-active,
+  .food-service-page .pj-stage.is-complete {
+    width: 100%;
+    max-width: 100%;
+    min-height: 68px;
+    padding: 14px 12px;
+  }
+
+  .bike-service-page .pj-label,
+  .car-service-page .pj-label,
+  .food-service-page .pj-label {
+    margin-bottom: 4px;
+    font-size: 13px;
+    line-height: 1.08;
+  }
+
+  .food-service-page .pj-label {
+    white-space: nowrap;
+  }
+
+  .bike-service-page .pj-sub,
+  .car-service-page .pj-sub,
+  .food-service-page .pj-sub {
+    font-size: 10px;
+    line-height: 1.25;
+    overflow: visible;
+    text-overflow: clip;
+    white-space: normal;
+  }
+
+  .food-service-page .pj-sub {
+    white-space: nowrap;
+  }
+
+  .food-service-page .pj-topic,
+  .food-service-page .pj-topic strong,
+  .food-service-page .pj-topic strong::before,
+  .food-service-page .pj-track-area::before {
+    display: none !important;
+    content: none !important;
+    border: 0 !important;
   }
 }
 
