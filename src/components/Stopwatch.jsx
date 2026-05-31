@@ -2,14 +2,17 @@ import { useEffect, useState } from "react";
 
 function Stopwatch() {
   const [time, setTime] = useState(0);
+  const isMobile = window.innerWidth <= 560;
 
   useEffect(() => {
+    if (isMobile) return;
+
     const interval = setInterval(() => {
       setTime((prev) => prev + 10);
     }, 10);
 
     return () => clearInterval(interval);
-  }, []);
+  }, [isMobile]);
 
   const m = String(Math.floor(time / 60000)).padStart(2, "0");
   const s = String(Math.floor((time % 60000) / 1000)).padStart(2, "0");

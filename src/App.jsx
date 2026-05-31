@@ -1,5 +1,5 @@
 import "./App.css";
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { blogPosts } from "./components/Blog";
 import { Link } from "react-router-dom";
 import {
@@ -83,6 +83,24 @@ function BackToTopButton() {
 }
 
 function App() {
+  const formRef = useRef(null)
+  const [formVisible, setFormVisible] = useState(false)
+
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting) {
+          setFormVisible(true)
+          observer.disconnect()
+        }
+      },
+      { threshold: 0.2 },
+    )
+
+    if (formRef.current) observer.observe(formRef.current)
+    return () => observer.disconnect()
+  }, [])
+
   return (
     <Router>
       <ScrollToHash />
@@ -96,7 +114,7 @@ function App() {
               <HowItWorks />
               <Benefit />
               <Partner />
-              <section className="home-community-section">
+              <section ref={formRef} className={`home-community-section ${formVisible ? 'is-visible' : ''}`}>
                 <h2>Join Our Community</h2>
                 <Form />
               </section>

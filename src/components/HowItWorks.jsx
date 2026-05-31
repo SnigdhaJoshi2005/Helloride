@@ -25,7 +25,7 @@ function StepItem({ step, index }) {
   return (
     <li className={`work-step step-card step-card-${index + 1}`}>
       <span className="step-number">{index + 1}</span>
-      <div>
+      <div className="step-content">
         <h3>{step.title}</h3>
         <p>{step.text}</p>
       </div>

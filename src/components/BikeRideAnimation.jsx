@@ -37,6 +37,7 @@ function BikeRideAnimation() {
     const progress = Math.min(activeStage, stages.length - 1) / (stages.length - 1);
 
     useEffect(() => {
+        if (window.matchMedia("(max-width: 560px)").matches) return undefined;
         if (activeStage === stages.length) return undefined;
 
         const timer = window.setTimeout(() => {
