@@ -32,20 +32,20 @@ const stages = [
 const stepDuration = 1500;
 
 function CarRideAnimation() {
-    const [activeStage, setActiveStage] = useState(0);
+    const [isMobile] = useState(() => typeof window !== 'undefined' && window.innerWidth < 700);
+    const [activeStage, setActiveStage] = useState(() => isMobile ? stages.length : 0);
     const isFinished = activeStage === stages.length;
     const progress = Math.min(activeStage, stages.length - 1) / (stages.length - 1);
 
     useEffect(() => {
-        if (window.matchMedia("(max-width: 560px)").matches) return undefined;
-        if (activeStage === stages.length) return undefined;
+        if (isMobile || activeStage === stages.length) return undefined;
 
         const timer = window.setTimeout(() => {
             setActiveStage((current) => current + 1);
         }, stepDuration);
 
         return () => window.clearTimeout(timer);
-    }, [activeStage]);
+    }, [activeStage, isMobile]);
 
     return (
         <div className="service-custom-visual bike-ride-animation">
