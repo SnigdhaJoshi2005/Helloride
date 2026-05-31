@@ -539,7 +539,7 @@
 }
 
 .earn-mode-icon,
-.earn-benefit-card span {
+.earn-benefit-card > span {
   display: inline-grid;
   place-items: center;
   width: 54px;
@@ -857,6 +857,102 @@
 .earn-bike-requirements {
   margin-top: 0;
   margin-bottom: clamp(72px, 9vw, 104px);
+}
+
+.desktop-benefit-badge {
+  display: none;
+}
+
+@media (min-width: 901px) {
+  .earn-car-page .earn-requirements {
+    margin: 0 0 116px;
+    padding-left: 0;
+    padding-right: 0;
+  }
+
+  .earn-car-page .earn-requirements h2 {
+    margin: 0 0 38px 42px;
+    border-bottom-width: 5px;
+    font-size: 40px;
+    line-height: 0.98;
+  }
+
+  .earn-car-page .earn-requirement-list-car {
+    grid-template-columns: repeat(5, minmax(0, 1fr));
+    min-height: 221px;
+    border-width: 2px;
+    border-radius: 21px;
+  }
+
+  .earn-car-page .earn-requirement-list p {
+    position: relative;
+    min-height: 120px;
+    padding: 0 32px;
+    border-left: 0;
+    font-size: 19px;
+    line-height: 1.1;
+  }
+
+  .earn-car-page .earn-requirement-list p + p {
+    border-left: 0;
+  }
+
+  .earn-car-page .earn-requirement-list p + p::before {
+    content: "";
+    position: absolute;
+    left: 0;
+    top: 50%;
+    width: 2px;
+    height: 120px;
+    background: #ffe100;
+    transform: translateY(-50%);
+  }
+
+  .earn-car-page .earn-benefits-car {
+    gap: 60px;
+    margin: 0 0 126px;
+  }
+
+  .earn-car-page .earn-benefit-card {
+    min-height: 231px;
+    padding: 44px 24px 28px;
+    border-radius: 10px;
+    background: #fffddd;
+  }
+
+  .earn-car-page .earn-benefit-card:hover {
+    transform: none;
+    box-shadow: none;
+  }
+
+  .earn-car-page .earn-benefit-card > span {
+    width: 67px;
+    height: 67px;
+    background: #ffd900;
+  }
+
+  .earn-car-page .earn-benefit-card .service-icon-svg {
+    display: none;
+  }
+
+  .earn-car-page .desktop-benefit-badge {
+    display: block;
+    color: #000;
+    font-size: 14px;
+    font-weight: 900;
+    line-height: 1;
+  }
+
+  .earn-car-page .earn-benefit-card h3 {
+    margin: 36px 0 5px;
+    font-size: 23px;
+    line-height: 1.05;
+  }
+
+  .earn-car-page .earn-benefit-card p {
+    font-size: 19px;
+    line-height: 1.2;
+  }
 }
 
 .earn-form-section {
@@ -1968,6 +2064,20 @@
   font-weight: 900;
   box-shadow: 0 10px 20px rgb(255 184 0 / 22%);
   animation: helpIconPulse 3.8s ease-in-out infinite;
+}
+
+.help-contact-card-icon,
+.help-faq-icon {
+  display: block;
+}
+
+.help-contact-card-text,
+.help-faq-text {
+  display: none;
+}
+
+.help-contact-card>span svg {
+  display: block;
 }
 
 .help-contact-card h2 {
@@ -4568,7 +4678,7 @@
   }
 
   .earn-mode-icon,
-  .earn-benefit-card span {
+  .earn-benefit-card > span {
     width: 48px;
     height: 48px;
   }
@@ -4614,6 +4724,10 @@
   .earn-requirement-list-car p:nth-child(n + 4),
   .earn-requirement-list-bike p:nth-child(n + 3) {
     border-top: 2px solid #ffe100;
+  }
+
+  .earn-car-page .desktop-only-requirement {
+    display: none;
   }
 
   .earn-benefits-car,
@@ -6647,17 +6761,6 @@ canvas {
     margin-bottom: 10px;
   }
 
-  .earn-title-row::before {
-    content: "";
-    display: grid;
-    place-items: center;
-    width: 28px;
-    height: 28px;
-    flex: 0 0 auto;
-    border-radius: 50%;
-    background: #ffe100;
-  }
-
   .earn-title-row h1 {
     font-size: 21px;
     line-height: 1;
@@ -6669,6 +6772,10 @@ canvas {
     text-align: left;
     font-size: 15px;
     line-height: 1.35;
+  }
+
+  .earn-bike-page .earn-copy {
+    text-align: center;
   }
 
   .earn-bike2-image {
@@ -6713,9 +6820,9 @@ canvas {
     display: grid;
     grid-template-columns: 42px 1fr;
     column-gap: 12px;
-    row-gap: 4px;
+    row-gap: 8px;
     align-items: start;
-    min-height: 60px;
+    height: 80px;
     padding: 14px 16px;
     border: 0;
     border-radius: 0;
@@ -6728,7 +6835,7 @@ canvas {
     border-top: 1.5px solid #ffe100;
   }
 
-  .earn-benefit-card span {
+  .earn-benefit-card > span {
     grid-row: span 2;
     width: 34px;
     height: 34px;
@@ -6743,14 +6850,17 @@ canvas {
 
   .earn-benefit-card h3 {
     margin: 0;
-    font-size: 14px;
+    font-size: 16px;
+    font-weight: 700;
     line-height: 1.1;
+    text-align: center;
   }
 
   .earn-benefit-card p {
     margin: 0;
-    font-size: 10px;
-    line-height: 1.2;
+    font-size: 14px;
+    font-weight: 400;
+    line-height: 1.3;
   }
 
   .earn-benefit-card .desktop-benefit-text {
@@ -6834,6 +6944,10 @@ canvas {
     line-height: 1.35;
   }
 
+  .earn-form-visual {
+    display: none;
+  }
+
   .earn-form-section {
     padding: 0;
     background: transparent;
@@ -6853,13 +6967,23 @@ canvas {
     font-size: 21px;
   }
 
+  .help-page {
+    background: #fff;
+    animation: none;
+  }
+
+  .help-page::before,
+  .help-page::after {
+    display: none;
+  }
+
   .help-page .site-header {
     padding: 12px 6px 0;
     background: #fff;
   }
 
   .help-content {
-    padding: 18px 6px 0;
+    padding: 18px 20px 0;
   }
 
   .help-desktop-title {
@@ -6867,27 +6991,35 @@ canvas {
   }
 
   .help-mobile-hero {
-    display: grid;
-    grid-template-columns: minmax(0, 1fr) minmax(130px, 47%);
+    display: flex;
     align-items: center;
     min-height: 128px;
     margin: 10px 0 38px;
-    background: linear-gradient(90deg, #fff 0 40%, #fff1dc 100%);
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    border-radius: 12px;
     overflow: hidden;
+  }
+
+  .help-mobile-hero > div {
+    width: 50%;
+    padding: 24px 16px;
   }
 
   .help-mobile-hero h1 {
     margin: 0 0 6px;
     color: #050505;
     font-size: 18px;
-    font-weight: 900;
+    font-weight: 700;
   }
 
   .help-mobile-hero p {
     margin: 0 0 12px;
     color: #050505;
-    font-size: 12px;
-    line-height: 1.15;
+    font-size: 15px;
+    font-weight: 500;
+    line-height: 1.35;
   }
 
   .help-mobile-hero span {
@@ -6898,13 +7030,6 @@ canvas {
     color: #050505;
     font-size: 8px;
     font-weight: 800;
-  }
-
-  .help-mobile-hero img {
-    width: 100%;
-    height: 128px;
-    object-fit: cover;
-    object-position: center;
   }
 
   .help-contact-grid {
@@ -6929,44 +7054,32 @@ canvas {
     animation: none;
   }
 
-  .help-contact-card:nth-child(2) {
-    outline: 2px solid #1b9df0;
-    outline-offset: 2px;
-  }
+.help-contact-card > span {
+  display: inline-grid;
+  place-items: center;
+  width: 54px;
+  height: 54px;
+  border-radius: 50%;
+  background: #ffe100;
+  color: #050505;
+  font-size: 26px;
+  box-shadow: 0 10px 20px rgb(255 184 0 / 22%);
+  animation: helpIconPulse 3.8s ease-in-out infinite;
+}
 
-  .help-contact-card > span {
-    width: 38px;
-    height: 38px;
-    font-size: 0;
-    box-shadow: 0 6px 12px rgb(0 0 0 / 18%);
-    animation: none;
-  }
-
-  .help-contact-card > span::before {
-    color: #050505;
-    font-size: 19px;
-    line-height: 1;
-  }
-
-  .help-contact-card:nth-child(1) > span::before {
-    content: "o";
-  }
-
-  .help-contact-card:nth-child(2) > span::before {
-    content: "c";
-  }
-
-  .help-contact-card:nth-child(3) > span::before {
-    content: "m";
+  .help-contact-card > span svg {
+    display: block;
   }
 
   .help-contact-card h2 {
     margin-bottom: 3px;
-    font-size: 17px;
+    font-size: 18px;
+    font-weight: 700;
   }
 
   .help-contact-card p {
-    font-size: 10px;
+    font-size: 15px;
+    font-weight: 500;
   }
 
   .help-contact-card .desktop-help-text {
@@ -7034,57 +7147,6 @@ canvas {
     line-height: 1.35;
   }
 
-  .help-page + .site-footer {
-    padding: 10px 18px 18px;
-    background: #fffbd2;
-    opacity: 1;
-    transform: none;
-  }
-
-  .help-page + .site-footer .footer-top {
-    grid-template-columns: 86px 1fr;
-    gap: 8px;
-    margin: 0;
-    padding: 0;
-  }
-
-  .help-page + .site-footer .footer-brand-block {
-    justify-self: start;
-  }
-
-  .help-page + .site-footer .footer-brand-logo {
-    width: 62px;
-    margin: 0;
-  }
-
-  .help-page + .site-footer .footer-socials {
-    grid-column: 2;
-    grid-row: 1;
-    justify-content: end;
-    gap: 12px;
-  }
-
-  .help-page + .site-footer .footer-contactus-block {
-    grid-column: 2;
-    justify-self: end;
-    text-align: right;
-  }
-
-  .help-page + .site-footer .footer-contact h2 {
-    font-size: 12px;
-  }
-
-  .help-page + .site-footer .footer-contact a,
-  .help-page + .site-footer .footer-contact span {
-    color: #050505;
-    font-size: 12px;
-    line-height: 1.35;
-  }
-
-  .help-page + .site-footer .footer-bottom,
-  .help-page + .site-footer .footer-image-block {
-    display: none;
-  }
 }
 
 @media (max-width: 560px) {

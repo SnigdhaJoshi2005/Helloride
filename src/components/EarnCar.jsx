@@ -4,9 +4,10 @@ import ServiceIcon from "./ServiceIcon";
 import car2Image from "../assets/Car2.png";
 
 const benefits = [
-  { icon: "money", title: "Earn NPR 1500-3000/day", desc: "Higher earnings with premium car rides" },
+  { icon: "money", badge: "NPR", title: "Earn NPR 1500-3000/day", desc: "Higher earnings with premium car rides" },
   {
     icon: "calendar",
+    badge: "CAL",
     title: "Peak Hour Bonuses",
     desc: "Earn extra during rush hours",
     mobileTitle: "Flexible Schedule",
@@ -14,6 +15,7 @@ const benefits = [
   },
   {
     icon: "star",
+    badge: "BON",
     title: "Monthly Incentives",
     desc: "Complete targets and earn rewards",
     mobileTitle: "Weekly Bonus",
@@ -41,6 +43,12 @@ const requirements = [
     desktop: "Age 21 or above",
     title: "Age Requirement",
     desc: "You must be at least 21 years old or above to join.",
+  },
+  {
+    desktop: "Clean driving record",
+    title: "Clean Record",
+    desc: "Maintain a clean and safe driving record.",
+    desktopOnly: true,
   },
 ];
 
@@ -72,7 +80,7 @@ function EarnCar() {
           <h2>Requirements</h2>
           <div className="earn-requirement-list earn-requirement-list-car">
             {requirements.map((req, index) => (
-              <p key={req.title}>
+              <p key={req.title} className={req.desktopOnly ? "desktop-only-requirement" : undefined}>
                 <span className="desktop-requirement-text">{req.desktop}</span>
                 <span className="mobile-requirement-number">{String(index + 1).padStart(2, "0")}.</span>
                 <strong className="mobile-requirement-title">{req.title}</strong>
@@ -86,6 +94,7 @@ function EarnCar() {
           {benefits.map((benefit) => (
             <article className="earn-benefit-card" key={benefit.title}>
               <span aria-hidden="true">
+                <b className="desktop-benefit-badge">{benefit.badge}</b>
                 <ServiceIcon name={benefit.icon} />
               </span>
               <h3>

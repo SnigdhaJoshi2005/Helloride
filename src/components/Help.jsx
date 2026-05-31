@@ -1,6 +1,14 @@
 import { useState } from "react";
 import Header from "./Header";
-import helpHero from "../assets/ats.png";
+import helpHero from "../assets/helpcenter.jpeg";
+import { IoChatboxEllipses, IoCall, IoMail } from "react-icons/io5";
+import { IoAdd, IoRemove } from "react-icons/io5";
+
+const contactIcons = {
+  CHAT: <IoChatboxEllipses />,
+  CALL: <IoCall />,
+  MAIL: <IoMail />,
+};
 
 const contactCards = [
   {
@@ -52,7 +60,10 @@ function FAQItem({ q, a }) {
     >
       <span className="help-faq-question">
         {q}
-        <strong>{open ? "-" : "+"}</strong>
+        <strong>
+          <span className="help-faq-icon">{open ? <IoRemove /> : <IoAdd />}</span>
+          <span className="help-faq-text">{open ? "-" : "+"}</span>
+        </strong>
       </span>
       <span className="help-faq-answer">{a}</span>
     </button>
@@ -65,13 +76,12 @@ function Help() {
       <Header />
 
       <section className="help-content">
-        <div className="help-mobile-hero">
+        <div className="help-mobile-hero" style={{ backgroundImage: `url(${helpHero})` }}>
           <div>
             <h1>Help Center</h1>
             <p>We're here to help you whenever you need us.</p>
             <span>24/7 Support</span>
           </div>
-          <img src={helpHero} alt="" />
         </div>
 
         <h1 className="help-desktop-title">Help Center</h1>
@@ -79,7 +89,10 @@ function Help() {
         <div className="help-contact-grid">
           {contactCards.map((card) => (
             <article className="help-contact-card" key={card.title}>
-              <span aria-hidden="true">{card.icon}</span>
+              <span aria-hidden="true">
+                <span className="help-contact-card-icon">{contactIcons[card.icon]}</span>
+                <span className="help-contact-card-text">{card.icon}</span>
+              </span>
               <div>
                 <h2>
                   <span className="desktop-help-text">{card.title}</span>
