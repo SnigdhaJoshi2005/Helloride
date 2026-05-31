@@ -8753,9 +8753,17 @@ canvas {
     white-space: nowrap;
   }
 
+  .bike-service-page .pj-topic,
+  .car-service-page .pj-topic,
   .food-service-page .pj-topic,
+  .bike-service-page .pj-topic strong,
+  .car-service-page .pj-topic strong,
   .food-service-page .pj-topic strong,
+  .bike-service-page .pj-topic strong::before,
+  .car-service-page .pj-topic strong::before,
   .food-service-page .pj-topic strong::before,
+  .bike-service-page .pj-track-area::before,
+  .car-service-page .pj-track-area::before,
   .food-service-page .pj-track-area::before {
     display: none !important;
     content: none !important;
