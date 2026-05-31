@@ -6119,6 +6119,9 @@ canvas {
     border: 1px solid #ffe100;
     border-radius: 7px;
     background: #fff;
+    opacity: 1;
+    transform: none;
+    animation: none;
   }
 
   .ride-service-page .bike-ride-animation .pj-icon-wrap,
@@ -6580,6 +6583,9 @@ canvas {
     border-radius: 10px;
     background: #fff;
     box-shadow: none;
+    opacity: 1;
+    transform: none;
+    animation: none;
   }
 
   .ride-service-page .pj-stage::after {
@@ -7482,6 +7488,9 @@ canvas {
     border-radius: 7px;
     background: #fff;
     box-shadow: none;
+    opacity: 1;
+    transform: none;
+    animation: none;
   }
 
   .ride-service-page .pj-stage::after {
