@@ -6348,6 +6348,9 @@ canvas {
     border: 1px solid #ffe100;
     border-radius: 7px;
     background: #fff;
+    opacity: 1;
+    transform: none;
+    animation: none;
   }
 
   .ride-service-page .bike-ride-animation .pj-icon-wrap,
@@ -6768,6 +6771,7 @@ canvas {
   }
 
   .parcel-service-page .ride-mobile-heading {
+    display: none !important;
     margin-bottom: 0;
   }
 
@@ -6780,11 +6784,25 @@ canvas {
   }
 
   .parcel-service-page .pj-topic {
+    display: block;
     padding: 0;
+    margin: 0 0 28px;
+    text-align: left;
+  }
+
+  .parcel-service-page .pj-topic strong {
+    display: block;
+    color: #050505;
+    font-size: 40px !important;
+    font-weight: 900;
+    line-height: 1.12;
   }
 
   .parcel-service-page .pj-topic p {
     display: block;
+    max-width: 100%;
+    margin: 22px 0 0;
+    color: #333;
     font-size: 15px;
     line-height: 1.4;
   }
@@ -6793,15 +6811,60 @@ canvas {
     min-height: 0;
   }
 
-  .parcel-service-page .pj-stage {
-    min-height: 56px;
-    padding: 10px 10px 10px 0;
+  .parcel-service-page .pj-track {
+    display: grid;
+    gap: 14px;
+    width: 100%;
+    height: auto;
+    margin: 0;
   }
 
+  .parcel-service-page .pj-stage {
+    grid-template-columns: minmax(0, 1fr);
+    min-height: 56px;
+    padding: 14px 12px;
+    border: 1.5px solid #ffe100;
+    border-radius: 8px;
+    background: #fff;
+    opacity: 1;
+    transform: none;
+    animation: none;
+  }
+
+  .parcel-service-page .pj-dot-row,
+  .parcel-service-page .pj-icon-wrap,
+  .parcel-service-page .pj-icon,
+  .parcel-service-page .pj-ring,
   .parcel-service-page .pj-progress-rail,
   .parcel-service-page .pj-progress-fill,
   .parcel-service-page .pj-track-area::before {
     display: none;
+    content: none;
+  }
+
+  .parcel-service-page .pj-text {
+    display: block;
+    min-width: 0;
+  }
+
+  .parcel-service-page .pj-label {
+    display: block;
+    margin-bottom: 4px;
+    color: #050505;
+    font-size: 13px;
+    font-weight: 900;
+    line-height: 1.08;
+  }
+
+  .parcel-service-page .pj-sub {
+    display: block;
+    max-width: none;
+    color: #050505;
+    font-size: 10px;
+    line-height: 1.25;
+    overflow: visible;
+    text-overflow: clip;
+    white-space: normal;
   }
 
   .ride-service-page .service-page {
@@ -6900,6 +6963,9 @@ canvas {
     border-radius: 10px;
     background: #fff;
     box-shadow: none;
+    opacity: 1;
+    transform: none;
+    animation: none;
   }
 
   .ride-service-page .pj-stage::after {
@@ -8033,6 +8099,9 @@ canvas {
     border-radius: 7px;
     background: #fff;
     box-shadow: none;
+    opacity: 1;
+    transform: none;
+    animation: none;
   }
 
   .ride-service-page .pj-stage::after {
@@ -9164,9 +9233,17 @@ canvas {
     white-space: nowrap;
   }
 
+  .bike-service-page .pj-topic,
+  .car-service-page .pj-topic,
   .food-service-page .pj-topic,
+  .bike-service-page .pj-topic strong,
+  .car-service-page .pj-topic strong,
   .food-service-page .pj-topic strong,
+  .bike-service-page .pj-topic strong::before,
+  .car-service-page .pj-topic strong::before,
   .food-service-page .pj-topic strong::before,
+  .bike-service-page .pj-track-area::before,
+  .car-service-page .pj-track-area::before,
   .food-service-page .pj-track-area::before {
     display: none !important;
     content: none !important;
