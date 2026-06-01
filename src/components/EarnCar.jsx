@@ -1,3 +1,5 @@
+import { useRef } from 'react'
+import { motion, useInView } from 'framer-motion'
 import Header from "./Header";
 import Form from "./Form";
 import ServiceIcon from "./ServiceIcon";
@@ -25,30 +27,29 @@ const benefits = [
 
 const requirements = [
   {
-    desktop: "Valid driver's license (4+ wheeler)",
-    title: "Valid License",
-    desc: "Driver must have a valid driver's license (4 wheeler)",
+    number: '01.',
+    title: 'Valid License',
+    text: "Driver must have a valid driver's license (4 wheeler)",
   },
   {
-    desktop: "Registered car in good condition",
-    title: "Personal Car",
-    desc: "You must have registered car in a good condition.",
+    number: '02.',
+    title: 'Personal Car',
+    text: 'You must have registered car in a good condition.',
   },
   {
-    desktop: "Smartphone with internet",
-    title: "Smartphone Access",
-    desc: "Must have a Smartphone with internet access to it.",
+    number: '03.',
+    title: 'Smartphone Access',
+    text: 'Must have a Smartphone with internet access to it.',
   },
   {
-    desktop: "Age 21 or above",
-    title: "Age Requirement",
-    desc: "You must be at least 21 years old or above to join.",
+    number: '04.',
+    title: 'Age Requirement',
+    text: 'You must be at least 21 years old or above to join.',
   },
   {
-    desktop: "Clean driving record",
-    title: "Clean Record",
-    desc: "Maintain a clean and safe driving record.",
-    desktopOnly: true,
+    number: '05.',
+    title: 'Clean Record',
+    text: 'Maintain a clean and safe driving record.',
   },
 ];
 
@@ -59,7 +60,45 @@ const steps = [
   { icon: "4", label: "Start earning" },
 ];
 
+const carRequirementPath =
+  'M82 66 C82 155 478 165 478 225 C478 300 82 310 82 375 C82 450 478 460 478 525 C478 600 82 610 82 680 C82 755 478 765 478 835'
+
+const carRequirementCardVariants = {
+  hidden: { opacity: 0, y: 60 },
+  visible: (i) => ({
+    opacity: 1,
+    y: 0,
+    transition: {
+      delay: i * 0.15,
+      duration: 0.6,
+      ease: [0.22, 1, 0.36, 1],
+    },
+  }),
+}
+
+function CarRequirementCard({ requirement, index }) {
+  return (
+    <motion.article
+      className={`car-requirement-card car-requirement-card-${index + 1}`}
+      custom={index}
+      initial="hidden"
+      whileInView="visible"
+      viewport={{ once: true, amount: 0.2 }}
+      variants={carRequirementCardVariants}
+    >
+      <span>{requirement.number}</span>
+      <div>
+        <h3>{requirement.title}</h3>
+        <p>{requirement.text}</p>
+      </div>
+    </motion.article>
+  )
+}
+
 function EarnCar() {
+  const sectionRef = useRef(null)
+  const isInView = useInView(sectionRef, { once: true, amount: 0.18 })
+
   return (
     <main>
       <Header />
@@ -76,16 +115,14 @@ function EarnCar() {
           <img className="earn-bike2-image" src={car2Image} alt="" />
         </div>
 
-        <section className="earn-requirements">
-          <h2>Requirements</h2>
-          <div className="earn-requirement-list earn-requirement-list-car">
-            {requirements.map((req, index) => (
-              <p key={req.title} className={req.desktopOnly ? "desktop-only-requirement" : undefined}>
-                <span className="desktop-requirement-text">{req.desktop}</span>
-                <span className="mobile-requirement-number">{String(index + 1).padStart(2, "0")}.</span>
-                <strong className="mobile-requirement-title">{req.title}</strong>
-                <small className="mobile-requirement-desc">{req.desc}</small>
-              </p>
+        <section className={`car-requirements-section ${isInView ? 'is-visible' : ''}`} ref={sectionRef}>
+          <h2>REQUIRE<span>MENTS</span></h2>
+          <div className="car-requirement-roadmap">
+            <svg className="car-requirement-path" viewBox="0 0 560 1050" aria-hidden="true" preserveAspectRatio="none">
+              <path d={carRequirementPath} pathLength="1000" />
+            </svg>
+            {requirements.map((requirement, index) => (
+              <CarRequirementCard key={requirement.number} requirement={requirement} index={index} />
             ))}
           </div>
         </section>
