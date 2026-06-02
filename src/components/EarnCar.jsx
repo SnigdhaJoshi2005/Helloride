@@ -115,18 +115,6 @@ function EarnCar() {
           <img className="earn-bike2-image" src={car2Image} alt="" />
         </div>
 
-        <section className={`car-requirements-section ${isInView ? 'is-visible' : ''}`} ref={sectionRef}>
-          <h2>REQUIRE<span>MENTS</span></h2>
-          <div className="car-requirement-roadmap">
-            <svg className="car-requirement-path" viewBox="0 0 560 1050" aria-hidden="true" preserveAspectRatio="none">
-              <path d={carRequirementPath} pathLength="1000" />
-            </svg>
-            {requirements.map((requirement, index) => (
-              <CarRequirementCard key={requirement.number} requirement={requirement} index={index} />
-            ))}
-          </div>
-        </section>
-
         <section className="earn-benefits earn-benefits-car" aria-label="Car earning benefits">
           {benefits.map((benefit) => (
             <article className="earn-benefit-card" key={benefit.title}>
@@ -144,6 +132,18 @@ function EarnCar() {
               </p>
             </article>
           ))}
+        </section>
+
+        <section className={`car-requirements-section ${isInView ? 'is-visible' : ''}`} ref={sectionRef}>
+          <h2>REQUIRE<span>MENTS</span></h2>
+          <div className="car-requirement-roadmap">
+            <svg className="car-requirement-path" viewBox="0 0 560 1050" aria-hidden="true" preserveAspectRatio="none">
+              <path d={carRequirementPath} pathLength="1000" />
+            </svg>
+            {requirements.map((requirement, index) => (
+              <CarRequirementCard key={requirement.number} requirement={requirement} index={index} />
+            ))}
+          </div>
         </section>
 
         <section className="earn-form-section">

@@ -442,13 +442,13 @@
   animation-delay: 260ms;
 }
 
-.earn-page .earn-requirements,
-.earn-page .bike-requirements-section,
-.earn-page .car-requirements-section {
+.earn-page .earn-benefits {
   animation-delay: 420ms;
 }
 
-.earn-page .earn-benefits {
+.earn-page .earn-requirements,
+.earn-page .bike-requirements-section,
+.earn-page .car-requirements-section {
   animation-delay: 560ms;
 }
 
@@ -936,6 +936,10 @@
   display: none;
 }
 
+.earn-benefit-card .mobile-benefit-text {
+  display: none;
+}
+
 @media (min-width: 901px) {
   .earn-car-page .earn-requirements {
     margin: 0 0 116px;
@@ -981,51 +985,6 @@
     transform: translateY(-50%);
   }
 
-  .earn-car-page .earn-benefits-car {
-    gap: 60px;
-    margin: 0 0 126px;
-  }
-
-  .earn-car-page .earn-benefit-card {
-    min-height: 231px;
-    padding: 44px 24px 28px;
-    border-radius: 10px;
-    background: #fffddd;
-  }
-
-  .earn-car-page .earn-benefit-card:hover {
-    transform: none;
-    box-shadow: none;
-  }
-
-  .earn-car-page .earn-benefit-card > span {
-    width: 67px;
-    height: 67px;
-    background: #ffd900;
-  }
-
-  .earn-car-page .earn-benefit-card .service-icon-svg {
-    display: none;
-  }
-
-  .earn-car-page .desktop-benefit-badge {
-    display: block;
-    color: #000;
-    font-size: 14px;
-    font-weight: 900;
-    line-height: 1;
-  }
-
-  .earn-car-page .earn-benefit-card h3 {
-    margin: 36px 0 5px;
-    font-size: 23px;
-    line-height: 1.05;
-  }
-
-  .earn-car-page .earn-benefit-card p {
-    font-size: 19px;
-    line-height: 1.2;
-  }
 }
 
 .earn-form-section {
@@ -4172,6 +4131,106 @@
   --card-rotate: -12deg;
 }
 
+@media (min-width: 901px) {
+  .bike-requirements-section {
+    min-height: 0;
+    width: min(90vw, 1660px);
+    margin: 0 auto clamp(72px, 9vw, 104px);
+    padding: 12px 0 0;
+  }
+
+  .bike-requirements-section h2 {
+    width: 100%;
+    margin: 0 0 28px 32px;
+    font-size: 30px;
+    line-height: 1.08;
+    text-align: left;
+  }
+
+  .bike-requirements-section h2 {
+    color: transparent;
+  }
+
+  .bike-requirements-section h2::before {
+    content: "Requirements";
+    display: inline-block;
+    padding-bottom: 3px;
+    border-bottom: 4px solid #ffe100;
+    color: #050505;
+  }
+
+  .bike-requirements-section h2 span {
+    color: transparent;
+  }
+
+  .bike-requirement-roadmap {
+    display: grid;
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    align-items: stretch;
+    width: 100%;
+    min-height: 166px;
+    margin: 0;
+    border: 1px solid #ffc400;
+    border-radius: 14px;
+    overflow: hidden;
+  }
+
+  .bike-requirement-path {
+    display: none;
+  }
+
+  .bike-requirement-card,
+  .bike-requirement-card-1,
+  .bike-requirement-card-2,
+  .bike-requirement-card-3,
+  .bike-requirement-card-4 {
+    position: static;
+    display: grid;
+    width: auto;
+    min-height: 128px;
+    padding: 0 24px;
+    border: 0;
+    border-radius: 0;
+    background: #fff;
+    box-shadow: none;
+    rotate: 0deg;
+  }
+
+  .bike-requirement-card:not(:last-child) {
+    border-right: 1px solid #ffc400;
+  }
+
+  .bike-requirement-card span,
+  .bike-requirement-card div {
+    display: none;
+  }
+
+  .bike-requirement-card::before {
+    align-self: center;
+    color: #202020;
+    font-size: 15px;
+    font-weight: 400;
+    line-height: 1.3;
+    text-align: center;
+  }
+
+  .bike-requirement-card-1::before {
+    content: "Valid driver's license";
+  }
+
+  .bike-requirement-card-2::before {
+    content: "Your own bike (any model)";
+  }
+
+  .bike-requirement-card-3::before {
+    content: "Smartphone with internet";
+  }
+
+  .bike-requirement-card-4::before {
+    content: "Age 18 or above";
+  }
+}
+
 @keyframes drawBikeRequirementPath {
   0% {
     opacity: 1;
@@ -4304,6 +4363,108 @@
   bottom: 0;
   right: var(--car-card-offset);
   --card-rotate: -14deg;
+}
+
+@media (min-width: 901px) {
+  .car-requirements-section {
+    min-height: 0;
+    width: min(86.5vw, 1660px);
+    margin: 0 auto clamp(72px, 9vw, 104px);
+    padding: 12px 0 0;
+  }
+
+  .car-requirements-section h2 {
+    width: 100%;
+    margin: 0 0 28px 31px;
+    color: transparent;
+    font-size: 30px;
+    line-height: 1.08;
+    text-align: left;
+  }
+
+  .car-requirements-section h2::before {
+    content: "Requirements";
+    display: inline-block;
+    padding-bottom: 3px;
+    border-bottom: 4px solid #ffe100;
+    color: #050505;
+  }
+
+  .car-requirements-section h2 span {
+    color: transparent;
+  }
+
+  .car-requirement-roadmap {
+    display: grid;
+    grid-template-columns: repeat(5, minmax(0, 1fr));
+    align-items: stretch;
+    width: 100%;
+    min-height: 166px;
+    margin: 0;
+    border: 1px solid #ffc400;
+    border-radius: 14px;
+    overflow: hidden;
+  }
+
+  .car-requirement-path {
+    display: none;
+  }
+
+  .car-requirement-card,
+  .car-requirement-card-1,
+  .car-requirement-card-2,
+  .car-requirement-card-3,
+  .car-requirement-card-4,
+  .car-requirement-card-5 {
+    position: static;
+    display: grid;
+    width: auto;
+    min-height: 128px;
+    padding: 0 24px;
+    border: 0;
+    border-radius: 0;
+    background: #fff;
+    box-shadow: none;
+    rotate: 0deg;
+  }
+
+  .car-requirement-card:not(:last-child) {
+    border-right: 1px solid #ffc400;
+  }
+
+  .car-requirement-card span,
+  .car-requirement-card div {
+    display: none;
+  }
+
+  .car-requirement-card::before {
+    align-self: center;
+    color: #202020;
+    font-size: 15px;
+    font-weight: 400;
+    line-height: 1.3;
+    text-align: center;
+  }
+
+  .car-requirement-card-1::before {
+    content: "Valid driver's license (4+ wheeler)";
+  }
+
+  .car-requirement-card-2::before {
+    content: "Registered car in good condition";
+  }
+
+  .car-requirement-card-3::before {
+    content: "Smartphone with internet";
+  }
+
+  .car-requirement-card-4::before {
+    content: "Age 21 or above";
+  }
+
+  .car-requirement-card-5::before {
+    content: "Clean driving record";
+  }
 }
 
 @keyframes drawCarRequirementPath {
@@ -5293,6 +5454,19 @@
     margin: 0 0 56px;
   }
 
+  .earn-benefit-card {
+    justify-items: start;
+    text-align: left;
+  }
+
+  .earn-benefit-card h3 {
+    text-align: left;
+  }
+
+  .earn-benefit-card p {
+    text-align: left;
+  }
+
   .earn-requirements {
     margin-bottom: 58px;
   }
@@ -5373,9 +5547,120 @@
   color: #999;
 }
 
+.mobile-service-select {
+  display: none;
+}
+
 @media (max-width: 760px) {
   .earn-form select {
     height: 54px;
+  }
+}
+
+@media (max-width: 560px) {
+  .earn-bike-page .earn-form,
+  .earn-car-page .earn-form {
+    overflow: visible;
+  }
+
+  .earn-bike-page .desktop-service-select,
+  .earn-car-page .desktop-service-select {
+    display: none;
+  }
+
+  .earn-bike-page .mobile-service-select,
+  .earn-car-page .mobile-service-select {
+    position: relative;
+    display: block;
+    width: 100%;
+  }
+
+  .earn-bike-page .earn-form label.service-label,
+  .earn-car-page .earn-form label.service-label {
+    z-index: 5;
+  }
+
+  .earn-form .mobile-service-trigger {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+    min-height: 54px;
+    margin: 0;
+    padding: 0 42px 0 16px;
+    border: 1px solid rgb(255 225 0 / 86%);
+    border-radius: 12px;
+    background:
+      url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' viewBox='0 0 24 24' fill='none' stroke='%23050505' stroke-width='2.5' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpolyline points='6 9 12 15 18 9'%3E%3C/polyline%3E%3C/svg%3E") right 16px center / 16px 16px no-repeat,
+      rgb(255 255 255 / 95%);
+    color: #050505;
+    font: inherit;
+    font-size: 13px;
+    font-weight: 400;
+    line-height: 1;
+    text-align: left;
+    box-shadow: 0 8px 18px rgb(255 196 0 / 8%);
+    cursor: pointer;
+    transform: none;
+  }
+
+  .earn-form .mobile-service-trigger[aria-expanded="true"] {
+    border-color: #050505;
+    border-bottom-right-radius: 8px;
+    border-bottom-left-radius: 8px;
+    background-color: #fff;
+    box-shadow:
+      0 0 0 4px rgb(255 225 0 / 18%),
+      0 12px 24px rgb(35 31 0 / 12%);
+  }
+
+  .mobile-service-menu {
+    display: none;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    width: 100%;
+    margin-top: 6px;
+    padding: 6px;
+    border: 1px solid #d9bd00;
+    border-radius: 12px;
+    background: #fff;
+    box-shadow: 0 16px 34px rgb(35 31 0 / 18%);
+    list-style: none;
+  }
+
+  .mobile-service-menu.is-open {
+    display: block;
+  }
+
+  .mobile-service-menu li {
+    margin: 0;
+  }
+
+  .earn-form .mobile-service-menu button {
+    display: block;
+    width: 100%;
+    min-height: 36px;
+    margin: 0;
+    padding: 0 10px;
+    border: 0;
+    border-radius: 8px;
+    background: transparent;
+    color: #050505;
+    font: inherit;
+    font-size: 14px;
+    font-weight: 500;
+    line-height: 1;
+    text-align: left;
+    box-shadow: none;
+    cursor: pointer;
+    transform: none;
+  }
+
+  .earn-form .mobile-service-menu button:focus,
+  .earn-form .mobile-service-menu button:hover {
+    background: #fff5a8;
+    outline: none;
   }
 }
 
@@ -6315,8 +6600,8 @@ canvas {
 
   .earn-copy p {
     max-width: 330px;
-    margin: 0;
-    text-align: left;
+    margin: 0 auto;
+    text-align: center;
     font-size: 15px;
     line-height: 1.35;
   }
@@ -6342,7 +6627,7 @@ canvas {
     order: 2;
   }
 
-  .earn-car-page .earn-requirements {
+  .earn-car-page .car-requirements-section {
     order: 3;
   }
 
@@ -6367,7 +6652,7 @@ canvas {
     display: grid;
     grid-template-columns: 42px 1fr;
     column-gap: 12px;
-    row-gap: 8px;
+    row-gap: 2px;
     align-items: start;
     height: 80px;
     padding: 14px 16px;
@@ -6400,7 +6685,7 @@ canvas {
     font-size: 16px;
     font-weight: 700;
     line-height: 1.1;
-    text-align: center;
+    text-align: left;
   }
 
   .earn-benefit-card p {
@@ -6408,6 +6693,7 @@ canvas {
     font-size: 14px;
     font-weight: 400;
     line-height: 1.3;
+    text-align: left;
   }
 
   .earn-benefit-card .desktop-benefit-text {
@@ -6416,6 +6702,14 @@ canvas {
 
   .earn-benefit-card .mobile-benefit-text {
     display: inline;
+  }
+
+  .bike-requirement-card div {
+    background: transparent;
+  }
+
+  .car-requirement-card div {
+    background: transparent;
   }
 
   .earn-requirements {
@@ -9882,11 +10176,10 @@ canvas {
     /* width: 100%; */
     font-size: 16px;
   }
-
   /* .site-footer .footer-contact a,
   .site-footer .footer-contact span {
     color: #050505;
-    font-size: 24px;
+    font-size: 24px;m
     font-weight: 400;
     line-height: 1.18;
     text-decoration: none;
