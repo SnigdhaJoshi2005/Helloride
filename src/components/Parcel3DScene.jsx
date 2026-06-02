@@ -7,7 +7,7 @@ export default function Parcel3DScene() {
   return (
     <div className="parcel-3d-scene" aria-hidden="true">
       <Canvas
-        camera={{ position: [0, 0, 7], fov: 42 }}
+        camera={{ position: [0, 3, 7], fov: 42 }}
         gl={{ antialias: true }}
         style={{ width: "100%", height: "100%" }}
       >

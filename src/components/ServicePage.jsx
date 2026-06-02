@@ -61,12 +61,12 @@ function ServicePage({ accent, background, title, intro, icon, features, image, 
 
   return (
     <main
-      className={`service-shell ${pageClassName}`}
+      className={`service-shell ${pageClassName} bor`}
       style={{ '--service-accent': accent, '--service-bg': background }}
     >
       <Header />
 
-      <section className="service-page">
+      <section className="service-page bor">
         <div className="service-layout">
           <div className="service-copy">
             {leftContent ? (

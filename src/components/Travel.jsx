@@ -1,25 +1,69 @@
 import { useEffect, useState } from "react";
 import ServicePage from "./ServicePage";
 import ServiceIcon from "./ServiceIcon";
+import SeviceLeftV1 from "./SeviceLeftV1";
 
 const travelStats = [
-  { icon: "route", value: "24/7", label: "Trip support", delay: "0ms", x: "-30px", y: "-20px" },
-  { icon: "star", value: "4.8", label: "Guest rating", delay: "200ms", x: "20px", y: "60px" },
-  { icon: "check", value: "Easy", label: "Booking flow", delay: "400ms", x: "-40px", y: "50px" },
-  { icon: "fare", value: "Best", label: "Fare options", delay: "600ms", x: "10px", y: "-30px" },
+  {
+    icon: "route",
+    value: "24/7",
+    label: "Trip support",
+    delay: "0ms",
+    x: "-30px",
+    y: "-20px",
+  },
+  {
+    icon: "star",
+    value: "4.8",
+    label: "Guest rating",
+    delay: "200ms",
+    x: "20px",
+    y: "60px",
+  },
+  {
+    icon: "check",
+    value: "Easy",
+    label: "Booking flow",
+    delay: "400ms",
+    x: "-40px",
+    y: "50px",
+  },
+  {
+    icon: "fare",
+    value: "Best",
+    label: "Fare options",
+    delay: "600ms",
+    x: "10px",
+    y: "-30px",
+  },
 ];
 
 const travelSteps = [
-  { icon: "01", label: "Choose Destination", sub: "Find routes for city rides, tours, and airport trips" },
-  { icon: "02", label: "Pick Your Ride", sub: "Bike, car, or group travel options in one place" },
-  { icon: "03", label: "Travel Confidently", sub: "Track your route and get support whenever needed" },
+  {
+    icon: "01",
+    label: "Choose Destination",
+    sub: "Find routes for city rides, tours, and airport trips",
+  },
+  {
+    icon: "02",
+    label: "Pick Your Ride",
+    sub: "Bike, car, or group travel options in one place",
+  },
+  {
+    icon: "03",
+    label: "Travel Confidently",
+    sub: "Track your route and get support whenever needed",
+  },
 ];
 
 const stepDuration = 1500;
 
 function TravelPlanVisual() {
   return (
-    <div className="service-booking-visual travel-booking-visual" aria-hidden="true">
+    <div
+      className="service-booking-visual travel-booking-visual"
+      aria-hidden="true"
+    >
       <div className="booking-card booking-card-main">
         <span className="booking-kicker">Trip plan</span>
         <strong>Kathmandu to Pokhara</strong>
@@ -56,7 +100,8 @@ function TravelPlanVisual() {
 function TravelSteps() {
   const [activeStage, setActiveStage] = useState(0);
   const isFinished = activeStage === travelSteps.length;
-  const progress = Math.min(activeStage, travelSteps.length - 1) / (travelSteps.length - 1);
+  const progress =
+    Math.min(activeStage, travelSteps.length - 1) / (travelSteps.length - 1);
 
   useEffect(() => {
     if (window.matchMedia("(max-width: 560px)").matches) return undefined;
@@ -82,7 +127,10 @@ function TravelSteps() {
       >
         <div className="pj-topic">
           <strong style={{ fontSize: "40px" }}>Travel</strong>
-          <p>Plan rides, tours, and transfers with simple booking and reliable local support.</p>
+          <p>
+            Plan rides, tours, and transfers with simple booking and reliable
+            local support.
+          </p>
         </div>
 
         <div className="pj-track-area">
@@ -127,11 +175,12 @@ function Travel() {
       accent="#ffe100"
       background="#fff"
       title="Travel"
-      intro=""
+      intro="Plan rides, tours, and transfers with simple booking and reliable local support."
       icon="travel"
       image={<TravelPlanVisual />}
       stats={travelStats}
-      leftContent={<TravelSteps />}
+      // leftContent={<TravelSteps />}
+      leftContent={<SeviceLeftV1 type="travel" />}
       features={[]}
       pageClassName="travel-service-page"
     />

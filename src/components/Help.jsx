@@ -72,11 +72,11 @@ function FAQItem({ q, a }) {
 
 function Help() {
   return (
-    <main className="help-page">
+    <main className="help-page " >
       <Header />
 
       <section className="help-content">
-        <div className="help-mobile-hero" style={{ backgroundImage: `url(${helpHero})` }}>
+        <div className="help-mobile-hero" style={{ backgroundImage: `url(${helpHero})`}}>
           <div>
             <h1>Help Center</h1>
             <p>We're here to help you whenever you need us.</p>
@@ -84,7 +84,7 @@ function Help() {
           </div>
         </div>
 
-        <h1 className="help-desktop-title">Help Center</h1>
+        <h1 className="help-desktop-title ">Help Center</h1>
 
         <div className="help-contact-grid">
           {contactCards.map((card) => (

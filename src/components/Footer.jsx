@@ -3,7 +3,6 @@ import { Link } from "react-router-dom";
 import logo from "../assets/logoo.png";
 import footerImg from "../assets/Footer.png";
 
-
 function SocialLink({ href, label, children }) {
   return (
     <a className="social-icon-wrap" href={href} aria-label={label}>
@@ -35,12 +34,12 @@ function Footer() {
   return (
     <footer
       ref={footerRef}
-      className={`site-footer ${isVisible ? "is-visible" : ""}`}
+      className={`site-footer ${isVisible ? "is-visible" : ""} bor`}
       id="help-center"
     >
-      <div className="footer-wrapper">
-        <div className="footer-top">
-          <div className="footer-brand-block">
+      <div className="footer-wrapper bor">
+        <div className="footer-top bor">
+          <div className="footer-brand-block bor">
             <Link
               className="footer-brand-logo"
               to="/"
@@ -89,11 +88,11 @@ function Footer() {
             </div>
           </div>
 
-          <div className="footer-image-block">
+          <div className="footer-image-block borb">
             <img src={footerImg} alt="HelloRide footer" />
           </div>
 
-          <address className="footer-contactus-block footer-contact">
+          <address className="footer-contactus-block footer-contact bor">
             <h2>Contact Us</h2>
             <a href="tel:+9779812345678">+977-9812345678</a>
             <a href="https://mail.google.com/mail/u/4/#inbox">

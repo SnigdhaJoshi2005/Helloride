@@ -6,18 +6,59 @@ import hotel2 from "../assets/hotel2.png";
 import hotel3 from "../assets/hotel3.png";
 import hotel4 from "../assets/hotel4.png";
 import hotel5 from "../assets/hotel5.png";
+import SeviceLeftV1 from "./SeviceLeftV1";
 
 const hotelStats = [
-  { icon: "star", value: "4.7", label: "Stay rating", delay: "0ms", x: "-30px", y: "-20px" },
-  { icon: "lock", value: "Secure", label: "Reservations", delay: "200ms", x: "20px", y: "60px" },
-  { icon: "check", value: "Verified", label: "Hotels", delay: "400ms", x: "-40px", y: "50px" },
-  { icon: "fare", value: "Best", label: "Room rates", delay: "600ms", x: "10px", y: "-30px" },
+  {
+    icon: "star",
+    value: "4.7",
+    label: "Stay rating",
+    delay: "0ms",
+    x: "-30px",
+    y: "-20px",
+  },
+  {
+    icon: "lock",
+    value: "Secure",
+    label: "Reservations",
+    delay: "200ms",
+    x: "20px",
+    y: "60px",
+  },
+  {
+    icon: "check",
+    value: "Verified",
+    label: "Hotels",
+    delay: "400ms",
+    x: "-40px",
+    y: "50px",
+  },
+  {
+    icon: "fare",
+    value: "Best",
+    label: "Room rates",
+    delay: "600ms",
+    x: "10px",
+    y: "-30px",
+  },
 ];
 
 const hotelSteps = [
-  { icon: "01", label: "Search Stays", sub: "Browse trusted rooms near your destination" },
-  { icon: "02", label: "Compare Comfort", sub: "Check price, location, and room facilities quickly" },
-  { icon: "03", label: "Book and Arrive", sub: "Reserve your stay and ride straight to the hotel" },
+  {
+    icon: "01",
+    label: "Search Stays",
+    sub: "Browse trusted rooms near your destination",
+  },
+  {
+    icon: "02",
+    label: "Compare Comfort",
+    sub: "Check price, location, and room facilities quickly",
+  },
+  {
+    icon: "03",
+    label: "Book and Arrive",
+    sub: "Reserve your stay and ride straight to the hotel",
+  },
 ];
 
 const stepDuration = 1500;
@@ -25,11 +66,36 @@ const stepDuration = 1500;
 const hotelImages = [hotel1, hotel2, hotel3, hotel4, hotel5];
 
 const stayCards = [
-  { icon: "gps", title: "Near your route", meta: "1.8 km", detail: "Hotels close to your pickup and drop-off path" },
-  { icon: "star", title: "Top rated", meta: "4.8", detail: "Comfortable stays reviewed by real guests" },
-  { icon: "hotel", title: "City View Suite", meta: "Rs 3,200", detail: "King bed, breakfast, and smooth check-in" },
-  { icon: "shield", title: "Verified stay", meta: "Secure", detail: "Trusted rooms with confirmed reservations" },
-  { icon: "car", title: "Ride included", meta: "Ready", detail: "Book a HelloRide straight to the lobby" },
+  {
+    icon: "gps",
+    title: "Near your route",
+    meta: "1.8 km",
+    detail: "Hotels close to your pickup and drop-off path",
+  },
+  {
+    icon: "star",
+    title: "Top rated",
+    meta: "4.8",
+    detail: "Comfortable stays reviewed by real guests",
+  },
+  {
+    icon: "hotel",
+    title: "City View Suite",
+    meta: "Rs 3,200",
+    detail: "King bed, breakfast, and smooth check-in",
+  },
+  {
+    icon: "shield",
+    title: "Verified stay",
+    meta: "Secure",
+    detail: "Trusted rooms with confirmed reservations",
+  },
+  {
+    icon: "car",
+    title: "Ride included",
+    meta: "Ready",
+    detail: "Book a HelloRide straight to the lobby",
+  },
 ];
 
 function HotelStayScene() {
@@ -59,7 +125,9 @@ function HotelStayScene() {
         onBlur={() => setIsPaused(false)}
       >
         {stayCards.map((card, index) => {
-          const slot = ((index - activeCard + 2 + stayCards.length) % stayCards.length) + 1;
+          const slot =
+            ((index - activeCard + 2 + stayCards.length) % stayCards.length) +
+            1;
           const zIndex = slot === 3 ? 3 : slot === 2 || slot === 4 ? 2 : 1;
 
           return (
@@ -90,7 +158,8 @@ function HotelStayScene() {
 function HotelSteps() {
   const [activeStage, setActiveStage] = useState(0);
   const isFinished = activeStage === hotelSteps.length;
-  const progress = Math.min(activeStage, hotelSteps.length - 1) / (hotelSteps.length - 1);
+  const progress =
+    Math.min(activeStage, hotelSteps.length - 1) / (hotelSteps.length - 1);
 
   useEffect(() => {
     if (activeStage === hotelSteps.length) return undefined;
@@ -114,8 +183,13 @@ function HotelSteps() {
         }}
       >
         <div className="pj-topic hotel-topic">
-          <strong className="pj-heading" style={{ fontSize: "40px" }}>Hotel</strong>
-          <p className="pj-text-row">Find comfortable hotels, compare rooms, and connect your stay with HelloRide travel.</p>
+          <strong className="pj-heading" style={{ fontSize: "40px" }}>
+            Hotel
+          </strong>
+          <p className="pj-text-row">
+            Find comfortable hotels, compare rooms, and connect your stay with
+            HelloRide travel.
+          </p>
         </div>
         <div className="pj-scene-row">
           <HotelStayScene />
@@ -163,11 +237,12 @@ function Hotel() {
       accent="#ffe100"
       background="#fff"
       title="Hotel"
-      intro=""
+      intro="Find comfortable hotels, compare rooms, and connect your stay with HelloRide travel."
       icon="hotel"
       image={<HotelStayScene />}
       stats={hotelStats}
-      leftContent={<HotelSteps />}
+      // leftContent={<HotelSteps />}
+      leftContent={<SeviceLeftV1 type="hotel" />}
       features={[]}
       pageClassName="hotel-service-page"
     />

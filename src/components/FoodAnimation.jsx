@@ -25,7 +25,7 @@ function FoodAnimation() {
     }, [activeStage]);
 
     return (
-        <div className="service-custom-visual bike-ride-animation">
+        <div className="service-custom-visual bike-ride-animation borx">
             <div
                 className="pj-shell"
                 aria-label="Bike ride features"
