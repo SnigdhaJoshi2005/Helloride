@@ -1,3 +1,5 @@
+import { useRef } from 'react'
+import { motion, useInView } from 'framer-motion'
 import Header from "./Header";
 import Form from "./Form";
 import ServiceIcon from "./ServiceIcon";
@@ -23,24 +25,24 @@ const benefits = [
 
 const requirements = [
   {
-    desktop: "Valid driver's license",
-    title: "Valid License",
-    desc: "Drive legally with a government approved driver's license.",
+    number: '01.',
+    title: 'Valid License',
+    text: "Drive legally with a government approved driver's license.",
   },
   {
-    desktop: "Your own bike (any model)",
-    title: "Personal Bike",
-    desc: "Use your own bike with any models.",
+    number: '02.',
+    title: 'Personal Bike',
+    text: 'Use your own bike with any models.',
   },
   {
-    desktop: "Smartphone with internet",
-    title: "Smartphone Access",
-    desc: "Must have a Smartphone with internet access to it.",
+    number: '03.',
+    title: 'Smartphone Access',
+    text: 'Must have a Smartphone with internet access to it.',
   },
   {
-    desktop: "Age 18 or above",
-    title: "Age Requirement",
-    desc: "You must be at least 18 years old to join.",
+    number: '04.',
+    title: 'Age Requirement',
+    text: 'You must be at least 18 years old to join.',
   },
 ];
 
@@ -51,7 +53,45 @@ const steps = [
   { icon: "4", label: "Start earning" },
 ];
 
+const requirementPath =
+  'M82 66 C82 170 478 180 478 260 C478 350 82 360 82 440 C82 530 478 540 478 620 C478 700 82 710 82 780'
+
+const requirementCardVariants = {
+  hidden: { opacity: 0, y: 60 },
+  visible: (i) => ({
+    opacity: 1,
+    y: 0,
+    transition: {
+      delay: i * 0.15,
+      duration: 0.6,
+      ease: [0.22, 1, 0.36, 1],
+    },
+  }),
+}
+
+function RequirementCard({ requirement, index }) {
+  return (
+    <motion.article
+      className={`bike-requirement-card bike-requirement-card-${index + 1}`}
+      custom={index}
+      initial="hidden"
+      whileInView="visible"
+      viewport={{ once: true, amount: 0.2 }}
+      variants={requirementCardVariants}
+    >
+      <span>{requirement.number}</span>
+      <div>
+        <h3>{requirement.title}</h3>
+        <p>{requirement.text}</p>
+      </div>
+    </motion.article>
+  )
+}
+
 function EarnBike() {
+  const sectionRef = useRef(null)
+  const isInView = useInView(sectionRef, { once: true, amount: 0.18 })
+
   return (
     <main>
       <Header />
@@ -83,16 +123,14 @@ function EarnBike() {
           ))}
         </section>
 
-        <section className="earn-requirements earn-bike-requirements">
-          <h2>Requirements</h2>
-          <div className="earn-requirement-list earn-requirement-list-bike">
+        <section className={`bike-requirements-section ${isInView ? 'is-visible' : ''}`} ref={sectionRef}>
+          <h2>REQUIRE<span>MENTS</span></h2>
+          <div className="bike-requirement-roadmap">
+            <svg className="bike-requirement-path" viewBox="0 0 560 860" aria-hidden="true" preserveAspectRatio="none">
+              <path d={requirementPath} pathLength="1000" />
+            </svg>
             {requirements.map((requirement, index) => (
-              <p key={requirement.title}>
-                <span className="desktop-requirement-text">{requirement.desktop}</span>
-                <span className="mobile-requirement-number">{String(index + 1).padStart(2, "0")}.</span>
-                <strong className="mobile-requirement-title">{requirement.title}</strong>
-                <small className="mobile-requirement-desc">{requirement.desc}</small>
-              </p>
+              <RequirementCard key={requirement.number} requirement={requirement} index={index} />
             ))}
           </div>
         </section>
