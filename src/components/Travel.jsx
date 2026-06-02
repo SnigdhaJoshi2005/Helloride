@@ -31,7 +31,7 @@ function TravelPlanVisual() {
         <div className="booking-meta-grid">
           <p>
             <span>Pickup</span>
-            08:30 AM
+            KTM
           </p>
           <p>
             <span>Vehicle</span>
@@ -59,6 +59,7 @@ function TravelSteps() {
   const progress = Math.min(activeStage, travelSteps.length - 1) / (travelSteps.length - 1);
 
   useEffect(() => {
+    if (window.matchMedia("(max-width: 560px)").matches) return undefined;
     if (activeStage === travelSteps.length) return undefined;
 
     const timer = window.setTimeout(() => {
@@ -132,6 +133,7 @@ function Travel() {
       stats={travelStats}
       leftContent={<TravelSteps />}
       features={[]}
+      pageClassName="travel-service-page"
     />
   );
 }
