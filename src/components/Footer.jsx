@@ -88,7 +88,7 @@ function Footer() {
             </div>
           </div>
 
-          <div className="footer-image-block borb">
+          <div className="footer-image-block">
             <img src={footerImg} alt="HelloRide footer" />
           </div>
 

@@ -1268,6 +1268,8 @@
 }
 
 .service-shell {
+  display: flex;
+  flex-direction: column;
   min-height: 100vh;
   background: var(--service-bg);
 }
@@ -7561,10 +7563,31 @@ canvas {
     border-radius: 7px;
     background: #fff;
     box-shadow: none;
-    opacity: 1;
-    transform: none;
-    animation: none;
   }
+
+  .ride-service-page .pj-stage,
+  .travel-service-page .pj-stage,
+  .hotel-service-page .pj-stage,
+  .parcel-service-page .pj-stage {
+    opacity: 0;
+    transform: translateY(12px);
+    animation: mobileFadeIn 450ms ease-out forwards;
+  }
+
+  .ride-service-page .pj-stage:nth-child(1),
+  .travel-service-page .pj-stage:nth-child(1),
+  .hotel-service-page .pj-stage:nth-child(1),
+  .parcel-service-page .pj-stage:nth-child(1) { animation-delay: 0s; }
+
+  .ride-service-page .pj-stage:nth-child(2),
+  .travel-service-page .pj-stage:nth-child(2),
+  .hotel-service-page .pj-stage:nth-child(2),
+  .parcel-service-page .pj-stage:nth-child(2) { animation-delay: 0.15s; }
+
+  .ride-service-page .pj-stage:nth-child(3),
+  .travel-service-page .pj-stage:nth-child(3),
+  .hotel-service-page .pj-stage:nth-child(3),
+  .parcel-service-page .pj-stage:nth-child(3) { animation-delay: 0.3s; }
 
   .ride-service-page .pj-stage::after {
     content: "";
@@ -7766,9 +7789,6 @@ canvas {
     border-radius: 8px;
     background: #fff;
     box-shadow: none;
-    opacity: 1;
-    transform: none;
-    animation: none;
   }
 
   .ride-service-page .pj-icon-wrap,
@@ -8141,9 +8161,6 @@ canvas {
     border-radius: 8px;
     background: #fff;
     box-shadow: none;
-    opacity: 1;
-    transform: none;
-    animation: none;
   }
 
   .ride-service-page .pj-stage::after,
@@ -8399,9 +8416,6 @@ canvas {
     border-radius: 7px;
     background: #fff;
     box-shadow: none;
-    opacity: 1;
-    transform: none;
-    animation: none;
   }
 
   .ride-service-page .pj-stage::after,
@@ -9079,9 +9093,6 @@ canvas {
     border-radius: 7px;
     background: #fff;
     box-shadow: none;
-    opacity: 1;
-    transform: none;
-    animation: none;
   }
 
   .travel-service-page .pj-label {
@@ -9516,9 +9527,6 @@ canvas {
     border: 1.5px solid #ffe100;
     border-radius: 8px;
     background: #fff;
-    opacity: 1;
-    transform: none;
-    animation: none;
   }
 
   .parcel-service-page .pj-text {
@@ -9554,6 +9562,7 @@ canvas {
   .parcel-service-page .service-page,
   .travel-service-page .service-page,
   .hotel-service-page .service-page {
+    flex: 1 0 auto;
     width: 100vw;
     max-width: 100vw;
     min-height: auto;
@@ -9708,6 +9717,80 @@ canvas {
     width: min(100%, 360px);
     min-height: 280px;
     margin: 0 auto;
+  }
+
+  .hotel-service-page .deck {
+    width: min(100%, 360px);
+    height: 220px;
+  }
+
+  .hotel-service-page .deck .card {
+    inset: 6px 16px;
+    padding: 12px 14px;
+    border-radius: 12px;
+    gap: 5px;
+    box-shadow: 0 10px 24px rgb(35 31 0 / 12%);
+  }
+
+  .hotel-service-page .deck .card.c1 {
+    --card-x: -64px;
+    --card-y: 16px;
+    --card-rotate: -16deg;
+    --card-scale: 0.82;
+  }
+
+  .hotel-service-page .deck .card.c2 {
+    --card-x: -34px;
+    --card-y: 5px;
+    --card-rotate: -8deg;
+    --card-scale: 0.9;
+  }
+
+  .hotel-service-page .deck .card.c3 {
+    --card-x: 0px;
+    --card-y: -5px;
+    --card-rotate: 0deg;
+    --card-scale: 1;
+  }
+
+  .hotel-service-page .deck .card.c4 {
+    --card-x: 34px;
+    --card-y: 5px;
+    --card-rotate: 8deg;
+    --card-scale: 0.9;
+  }
+
+  .hotel-service-page .deck .card.c5 {
+    --card-x: 64px;
+    --card-y: 16px;
+    --card-rotate: 16deg;
+    --card-scale: 0.82;
+  }
+
+  .hotel-service-page .stay-card-icon {
+    width: 32px;
+    height: 32px;
+    border-radius: 10px;
+    border-width: 1.5px;
+  }
+
+  .hotel-service-page .stay-card-icon svg {
+    width: 16px;
+    height: 16px;
+  }
+
+  .hotel-service-page .deck .card small {
+    font-size: 10px;
+    padding: 2px 8px;
+  }
+
+  .hotel-service-page .deck .card strong {
+    font-size: 14px;
+  }
+
+  .hotel-service-page .deck .card p {
+    font-size: 11px;
+    max-width: 140px;
   }
 
   .bike-service-page .stat-card,
@@ -9867,8 +9950,8 @@ canvas {
   .travel-service-page .pj-stage.is-active,
   .travel-service-page .pj-stage.is-complete,
   .hotel-service-page .pj-stage,
-  .hotel-service-page .pj-stage.is-active,
-  .hotel-service-page .pj-stage.is-complete {
+   .hotel-service-page .pj-stage.is-active,
+   .hotel-service-page .pj-stage.is-complete {
     position: relative;
     display: grid;
     grid-template-columns: minmax(0, 1fr);
@@ -9881,9 +9964,6 @@ canvas {
     border: 1.5px solid #ffe100;
     border-radius: 8px;
     background: #fff;
-    opacity: 1;
-    transform: none;
-    animation: none;
     box-sizing: border-box;
   }
 
@@ -10079,27 +10159,26 @@ canvas {
   }
 
   .site-footer .footer-brand-block {
-    /* grid-area: brand; */
-    justify-self: center;
-    justify-items: center;
-    /* text-align: left; */
-    width: 100%;
-    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    width: auto;
+    flex: 0 0 auto;
   }
 
   .site-footer .footer-brand-logo {
-    width: 80px;
+    width: 48px;
     margin: 4px 0 0;
   }
 
   .site-footer .footer-socials {
-    grid-area: socials;
     display: flex;
-    flex-direction: row-reverse;
-    justify-content: center;
-    gap: 22px;
-    width: 100%;
-    margin: 0;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    justify-content: start;
+    gap: 10px;
+    width: auto;
+    margin: 6px 0 0;
   }
 
   .site-footer .social-icon-wrap {
@@ -10108,17 +10187,17 @@ canvas {
   }
 
   .site-footer .social-icon-circle {
-    width: 52px;
-    height: 52px;
+    width: 32px;
+    height: 32px;
     border: 0;
     background: #fff;
     color: #050505;
-    box-shadow: 0 8px 18px rgb(0 0 0 / 18%);
+    box-shadow: 0 4px 10px rgb(0 0 0 / 18%);
   }
 
   .site-footer .social-icon-circle svg {
-    width: 24px;
-    height: 24px;
+    width: 16px;
+    height: 16px;
     stroke-width: 1.8;
   }
 
