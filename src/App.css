@@ -6370,9 +6370,10 @@ canvas {
   .work-steps {
     position: relative;
     display: grid;
-    grid-template-columns: 1fr 23px 1fr;
-    gap: 28px 14px;
-    width: min(100%, 330px);
+    grid-template-columns: minmax(0, 1fr) 34px minmax(0, 1fr);
+    column-gap: 6px;
+    row-gap: 24px;
+    width: min(100%, 280px);
     margin: 0 auto;
     order: 1;
   }
@@ -6380,10 +6381,12 @@ canvas {
   .work-steps::before {
     content: "";
     position: absolute;
-    top: 6px;
-    bottom: 6px;
+    top: 17px;
+    bottom: 17px;
     left: 50%;
-    border-left: 1px dashed #b9b9b9;
+    z-index: 0;
+    border-left: 2px dashed #a8a8a8;
+    transform: translateX(-50%);
   }
 
   .work-step,
@@ -6395,6 +6398,80 @@ canvas {
     opacity: 1;
     transform: none;
     animation: none;
+  }
+
+  .step-card-1 .step-number,
+  .step-card-2 .step-number,
+  .step-card-3 .step-number,
+  .step-card-4 .step-number {
+    position: relative;
+    z-index: 1;
+    grid-column: 2;
+    width: 34px;
+    height: 34px;
+    margin: 0;
+    border: 0;
+    border-radius: 50%;
+    background: #ffdd00;
+    color: #fff;
+    font-size: 18px;
+    font-weight: 900;
+  }
+
+  .step-number::before,
+  .step-number::after {
+    display: none;
+  }
+
+  .step-card-1 .step-number,
+  .step-card-1 .step-content {
+    grid-row: 1;
+  }
+
+  .step-card-2 .step-number,
+  .step-card-2 .step-content {
+    grid-row: 2;
+  }
+
+  .step-card-3 .step-number,
+  .step-card-3 .step-content {
+    grid-row: 3;
+  }
+
+  .step-card-4 .step-number,
+  .step-card-4 .step-content {
+    grid-row: 4;
+  }
+
+  .step-card-1 .step-content,
+  .step-card-3 .step-content {
+    grid-column: 3;
+    align-self: start;
+    justify-self: start;
+    padding-top: 2px;
+    text-align: left;
+  }
+
+  .step-card-2 .step-content,
+  .step-card-4 .step-content {
+    grid-column: 1;
+    align-self: start;
+    justify-self: end;
+    padding-top: 2px;
+    text-align: right;
+  }
+
+  .work-step h3 {
+    margin: 0 0 4px;
+    font-size: clamp(13px, 4vw, 15px);
+    line-height: 1.1;
+  }
+
+  .work-step p {
+    max-width: 108px;
+    color: #050505;
+    font-size: clamp(11px, 3.5vw, 13px);
+    line-height: 1.18;
   }
 
   .ride-service-page.food-service-page .pj-stage {
