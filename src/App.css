@@ -984,7 +984,6 @@
     background: #ffe100;
     transform: translateY(-50%);
   }
-
 }
 
 .earn-form-section {
@@ -5593,7 +5592,8 @@
     border: 1px solid rgb(255 225 0 / 86%);
     border-radius: 12px;
     background:
-      url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' viewBox='0 0 24 24' fill='none' stroke='%23050505' stroke-width='2.5' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpolyline points='6 9 12 15 18 9'%3E%3C/polyline%3E%3C/svg%3E") right 16px center / 16px 16px no-repeat,
+      url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' viewBox='0 0 24 24' fill='none' stroke='%23050505' stroke-width='2.5' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpolyline points='6 9 12 15 18 9'%3E%3C/polyline%3E%3C/svg%3E")
+        right 16px center / 16px 16px no-repeat,
       rgb(255 255 255 / 95%);
     color: #050505;
     font: inherit;
@@ -7577,17 +7577,23 @@ canvas {
   .ride-service-page .pj-stage:nth-child(1),
   .travel-service-page .pj-stage:nth-child(1),
   .hotel-service-page .pj-stage:nth-child(1),
-  .parcel-service-page .pj-stage:nth-child(1) { animation-delay: 0s; }
+  .parcel-service-page .pj-stage:nth-child(1) {
+    animation-delay: 0s;
+  }
 
   .ride-service-page .pj-stage:nth-child(2),
   .travel-service-page .pj-stage:nth-child(2),
   .hotel-service-page .pj-stage:nth-child(2),
-  .parcel-service-page .pj-stage:nth-child(2) { animation-delay: 0.15s; }
+  .parcel-service-page .pj-stage:nth-child(2) {
+    animation-delay: 0.15s;
+  }
 
   .ride-service-page .pj-stage:nth-child(3),
   .travel-service-page .pj-stage:nth-child(3),
   .hotel-service-page .pj-stage:nth-child(3),
-  .parcel-service-page .pj-stage:nth-child(3) { animation-delay: 0.3s; }
+  .parcel-service-page .pj-stage:nth-child(3) {
+    animation-delay: 0.3s;
+  }
 
   .ride-service-page .pj-stage::after {
     content: "";
@@ -9714,9 +9720,10 @@ canvas {
 
   .travel-service-page .travel-booking-visual,
   .hotel-service-page .hotel-stay-scene {
-    width: min(100%, 360px);
-    min-height: 280px;
+    width: min(100%, 280px);
+    min-height: 220px;
     margin: 0 auto;
+    padding-bottom: 20px;
   }
 
   .hotel-service-page .deck {
@@ -9950,8 +9957,8 @@ canvas {
   .travel-service-page .pj-stage.is-active,
   .travel-service-page .pj-stage.is-complete,
   .hotel-service-page .pj-stage,
-   .hotel-service-page .pj-stage.is-active,
-   .hotel-service-page .pj-stage.is-complete {
+  .hotel-service-page .pj-stage.is-active,
+  .hotel-service-page .pj-stage.is-complete {
     position: relative;
     display: grid;
     grid-template-columns: minmax(0, 1fr);
