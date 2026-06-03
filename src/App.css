@@ -6474,6 +6474,44 @@ canvas {
     line-height: 1.18;
   }
 
+  .step-card-1 .step-content,
+  .step-card-3 .step-content {
+    opacity: 0;
+    transform: translateX(40px);
+  }
+
+  .step-card-2 .step-content,
+  .step-card-4 .step-content {
+    opacity: 0;
+    transform: translateX(-40px);
+  }
+
+  .is-visible .step-card-1 .step-content,
+  .is-visible .step-card-3 .step-content {
+    animation: fadeInRight 500ms ease forwards;
+  }
+
+  .is-visible .step-card-1 .step-content {
+    animation-delay: 200ms;
+  }
+
+  .is-visible .step-card-3 .step-content {
+    animation-delay: 700ms;
+  }
+
+  .is-visible .step-card-2 .step-content,
+  .is-visible .step-card-4 .step-content {
+    animation: fadeInLeft 500ms ease forwards;
+  }
+
+  .is-visible .step-card-2 .step-content {
+    animation-delay: 450ms;
+  }
+
+  .is-visible .step-card-4 .step-content {
+    animation-delay: 950ms;
+  }
+
   .ride-service-page.food-service-page .pj-stage {
     grid-template-columns: 1fr;
   }
@@ -8673,11 +8711,6 @@ canvas {
   .how-section.is-visible {
     opacity: 0;
     animation: mobileFadeIn 500ms ease-out forwards;
-  }
-
-  .how-section.is-visible .step-content {
-    opacity: 0;
-    animation: mobileFadeIn 400ms ease-out forwards;
   }
 
   .partner-section.is-visible .partner-intro {

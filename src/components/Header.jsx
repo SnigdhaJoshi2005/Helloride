@@ -188,9 +188,9 @@ function Header() {
         <Link className="brand-logo" to="/">
           <img src={logo} alt="HelloRide" />
         </Link>
-        <Link className="mobile-download-button" to="/earn/bike">
+        <a className="mobile-download-button" href="https://play.google.com/store/apps" target="_blank" rel="noopener noreferrer">
           Download App
-        </Link>
+        </a>
         <button
           className="menu-toggle"
           type="button"

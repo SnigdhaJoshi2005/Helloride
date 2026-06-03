@@ -1,7 +1,7 @@
 import Header from "./Header";
 import phoneMap from '../assets/phone-map.png';
 import StoreIcon from './StoreIcon';
-import { Link } from "react-router-dom";
+
 
 function PhonePreview() {
   return (
@@ -32,9 +32,9 @@ function Home() {
             From quick rides to long journeys, we make getting around simple,
             flexible, and reliable.
           </p>
-          <Link className="earn-for-drivers" to="/earn/bike">
+          <a className="earn-for-drivers" href="https://play.google.com/store/apps" target="_blank" rel="noopener noreferrer">
             Download for drivers
-          </Link>
+          </a>
         </div>
 
         <div className="hero-download-showcase">
