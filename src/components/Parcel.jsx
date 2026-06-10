@@ -1,9 +1,24 @@
+import { useState, useEffect } from "react";
 import ServicePage from "./ServicePage";
 import ParcelAnimation from "./ParcelAnimation";
 import Parcel3DScene from "./Parcel3DScene";
 import SeviceLeftV1 from "./SeviceLeftV1";
+import ParcelMobile from "./ParcelMobile";
 
 function Parcel() {
+  const [isMobile, setIsMobile] = useState(false);
+
+  useEffect(() => {
+    const check = () => setIsMobile(window.innerWidth < 560);
+    check();
+    window.addEventListener("resize", check);
+    return () => window.removeEventListener("resize", check);
+  }, []);
+
+  if (isMobile) {
+    return <ParcelMobile />;
+  }
+
   return (
     <ServicePage
       accent="#ffe100"
